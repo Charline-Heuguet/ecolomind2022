@@ -1,0 +1,3 @@
+<?php
+
+// 'Moderator' role file
