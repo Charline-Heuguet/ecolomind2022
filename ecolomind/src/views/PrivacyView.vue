@@ -1,0 +1,1 @@
+<!-- page de politique de confidentialité -->
