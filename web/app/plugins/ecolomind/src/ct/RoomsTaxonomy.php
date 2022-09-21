@@ -1,6 +1,6 @@
 <?php
 
-// 'rooms" taxonomy table file
+// "rooms" taxonomy table file
 
 namespace Ecolomind\ct;
 

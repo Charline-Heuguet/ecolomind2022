@@ -5,6 +5,8 @@ namespace Ecolomind;
 use Ecolomind\ct\DifficultyTaxonomy;
 use Ecolomind\ct\IngredientsTaxonomy;
 use Ecolomind\ct\RoomsTaxonomy;
+use Ecolomind\ct\TargetTaxonomy;
+use Ecolomind\ct\ToolsTaxonomy;
 
 class Plugin
 {
@@ -27,6 +29,8 @@ class Plugin
         DifficultyTaxonomy::register();
         IngredientsTaxonomy::register();
         RoomsTaxonomy::register();
+        TargetTaxonomy::register();
+        ToolsTaxonomy::register();
 
     }
 
@@ -41,6 +45,8 @@ class Plugin
         DifficultyTaxonomy::register();
         IngredientsTaxonomy::register();
         RoomsTaxonomy::register();
+        TargetTaxonomy::register();
+        ToolsTaxonomy::register();
         
     }
 }
