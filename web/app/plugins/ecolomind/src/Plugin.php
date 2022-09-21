@@ -2,12 +2,20 @@
 
 namespace Ecolomind;
 
+use Ecolomind\ct\DifficultyTaxonomy;
+use Ecolomind\ct\IngredientsTaxonomy;
+use Ecolomind\ct\RoomsTaxonomy;
+use Ecolomind\ct\TargetTaxonomy;
+use Ecolomind\ct\ToolsTaxonomy;
+use Ecolomind\role\ModeratorRole;
+use Ecolomind\role\UserRole;
+
 class Plugin
 {
 
     public function run()
     {
- //Dans une class, la fonction add_action à besoin de connaitre, en plus du nom de la fonction à exécuté, le contexte d'execution
+ //Dans une classe, la fonction add_action à besoin de connaitre, en plus du nom de la fonction à exécuté, le contexte d'execution
  add_action('init', [$this, 'onInit']);
         
  //Lorsque l'on active le plugin on effectue l'action 
@@ -20,13 +28,32 @@ class Plugin
     
     public function onPluginActivation(){
 
+        // Taxonomies
+        DifficultyTaxonomy::register();
+        IngredientsTaxonomy::register();
+        RoomsTaxonomy::register();
+        TargetTaxonomy::register();
+        ToolsTaxonomy::register();
+
+        //Roles    
+        ModeratorRole::register();
+        UserRole::register();
+
     }
 
     public function onPluginDeactivation(){
 
+
+
     }
 
     public function onInit(){
+
+        DifficultyTaxonomy::register();
+        IngredientsTaxonomy::register();
+        RoomsTaxonomy::register();
+        TargetTaxonomy::register();
+        ToolsTaxonomy::register();
         
     }
 }
