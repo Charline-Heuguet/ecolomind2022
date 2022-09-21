@@ -7,8 +7,8 @@
  * Plugin URI : http://localhost:8000
 */
 
-// Désactivation de la sécurité du plugin qui fait bugger ce dernier a voir avec les backs. a réactiver une fois le fichier sécurité fonctionnel
-/*include plugin_dir_path(__FILE__) . 'security/init.php'; */
+// Inclusion of a security file. We had the path wrong the first time
+include plugin_dir_path(__FILE__) . 'src/security/init.php';
 
 
 require __DIR__ . "/vendor/autoload.php";
