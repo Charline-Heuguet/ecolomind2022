@@ -7,6 +7,8 @@ use Ecolomind\ct\IngredientsTaxonomy;
 use Ecolomind\ct\RoomsTaxonomy;
 use Ecolomind\ct\TargetTaxonomy;
 use Ecolomind\ct\ToolsTaxonomy;
+use Ecolomind\role\ModeratorRole;
+use Ecolomind\role\UserRole;
 
 class Plugin
 {
@@ -26,11 +28,16 @@ class Plugin
     
     public function onPluginActivation(){
 
+        // Taxonomies
         DifficultyTaxonomy::register();
         IngredientsTaxonomy::register();
         RoomsTaxonomy::register();
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
+
+        //Roles    
+        ModeratorRole::register();
+        UserRole::register();
 
     }
 
