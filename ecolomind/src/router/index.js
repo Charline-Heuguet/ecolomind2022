@@ -7,15 +7,106 @@ const routes = [
     name: 'home',
     component: HomeView
   },
+
+
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-  //Our Road
+    path: '/ajout-article',
+    name: 'ajout-article',
+    component: () => import('../views/AddArticleView.vue')
+  }, 
+
+  {
+    path: '/salle-de-bain',
+    name: 'salle-de-bain',
+    component: () => import('../views/BathroomView.vue')
+  }, 
+
+  {
+    path: '/chambre',
+    name: 'chambre',
+    component: () => import('../views/BedroomView.vue')
+  }, 
+
+  {
+    path: '/connexion',
+    name: 'connexion',
+    component: () => import('../views/ConnexionView.vue')
+  }, 
+
+
+
+  {
+    path: '/jardin',
+    name: 'jardin',
+    component: () => import('../views/GardenView.vue')
+  },
+
+  {
+    path: '/inscription',
+    name: 'inscription',
+    component: () => import('../views/InscriptionView.vue')
+  },
+
+
+  {
+    path: '/cuisine',
+    name: 'cuisine',
+    component: () => import('../views/KitchenView.vue')
+  },
+
+
+
+  {
+    path: '/salon',
+    name: 'salon',
+    component: () => import('../views/LivingroomView.vue')
+  },
+
+
+
+  {
+    path: '/profil',
+    name: 'profil',
+    component: () => import('../views/ProfilView.vue')
+  },
+
+
+  {
+    path: '/article/:id',
+    name: 'article-piece',
+    component: () => import('../views/SingleArticleView.vue')
+  },
+  
+
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import('../views/ContactView.vue')
+  },
+
+
+  {
+    path: '/qui-sommes-nous',
+    name: 'qui-sommes-nous',
+    component: () => import('../views/AboutView.vue')
+  },
+
+
+
+  {
+    path: '/politique-de-confidentialite',
+    name: 'politique-de-confidentialite',
+    component: () => import('../views/PrivacyView.vue')
+  },
+
+
+  {
+    path: '/mentions-legales',
+    name: 'mentions',
+    component: () => import('../views/LegalView.vue')
+  },
+
+  
 ]
 
 const router = createRouter({
