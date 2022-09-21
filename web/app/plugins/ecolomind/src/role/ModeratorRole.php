@@ -6,7 +6,8 @@ namespace Ecolomind\role;
 
 class ModeratorRole
 
-{ const ROLE_SLUG = "moderator";
+{ 
+  const ROLE_SLUG = "moderator";
 
   public static function register(){
     $capabilities = [
@@ -26,6 +27,11 @@ class ModeratorRole
 
     add_role(self::ROLE_SLUG, "Modérateur", $capabilities);
 
-  }  
+  }
+
+  public static function unregister()
+  {
+      remove_role(self::ROLE_SLUG);
+  }
 
 }

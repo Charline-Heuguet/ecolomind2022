@@ -18,4 +18,9 @@ class UserRole
 
         add_role(self::ROLE_SLUG, "Utilisateurs", $capabilities);
     }
+
+    public static function unregister()
+    {
+        remove_role(self::ROLE_SLUG);
+    }
 }
