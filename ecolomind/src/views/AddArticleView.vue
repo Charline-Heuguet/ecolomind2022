@@ -18,9 +18,19 @@
             </select>
 
             <div>
+                <select name="difficulty" id="difficulty-select">
+                    <option value="" style="display: none">Quel est le niveau de difficulté? </option>
+                    <option value="">Facile</option>
+                    <option value="">Moyen</option>
+                    <option value="">Difficile</option>
+                </select>                
+            </div>
+
+            <div>
                 <label for="title"></label>
                 <input type="text" id="title" name="title" placeholder="Titre de votre astuce">
             </div>
+
 
             <div>
                 <label for="ingredients"></label>
@@ -36,6 +46,7 @@
                 <label for="photo">Postez la photo de votre produit</label>
                 <input type="file" id="photo" name="photo" accept="image/png, image/jpeg">
             </div>
+
 
             <button type="submit">Envoyez votre tips</button>
 
