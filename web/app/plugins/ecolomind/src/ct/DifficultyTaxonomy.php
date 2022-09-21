@@ -4,7 +4,6 @@
 
 namespace Ecolomind\ct;
 
-use WP_Post;
 
 class DifficultyTaxonomy 
 {
