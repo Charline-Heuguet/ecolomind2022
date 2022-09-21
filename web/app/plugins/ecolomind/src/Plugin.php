@@ -2,12 +2,14 @@
 
 namespace Ecolomind;
 
+use Ecolomind\ct\DifficultyTaxonomy;
+
 class Plugin
 {
 
     public function run()
     {
- //Dans une class, la fonction add_action à besoin de connaitre, en plus du nom de la fonction à exécuté, le contexte d'execution
+ //Dans une classe, la fonction add_action à besoin de connaitre, en plus du nom de la fonction à exécuté, le contexte d'execution
  add_action('init', [$this, 'onInit']);
         
  //Lorsque l'on active le plugin on effectue l'action 
@@ -20,13 +22,19 @@ class Plugin
     
     public function onPluginActivation(){
 
+        DifficultyTaxonomy::register();
+
     }
 
     public function onPluginDeactivation(){
 
+
+
     }
 
     public function onInit(){
+
+        DifficultyTaxonomy::register();
         
     }
 }
