@@ -1,5 +1,6 @@
 <template>
   <NavComponent />
+  <router-view />
   <FooterComponent />
 </template>
 
