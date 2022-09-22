@@ -1,5 +1,6 @@
 <!-- Page de profil -->
 
+
 <template>
 
     <form>
@@ -29,3 +30,10 @@
         <button>Enregistrer les modifications</button>
     </form>
 </template>
+
+
+<script>
+export default {
+    name: 'ProfilView',
+}
+</script>
