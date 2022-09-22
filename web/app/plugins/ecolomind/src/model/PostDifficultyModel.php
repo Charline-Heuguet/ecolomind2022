@@ -33,16 +33,16 @@ class PostDifficultyModel
         $this->wpdbDanslemodel->query($sql);
   }
 
-/*     public function insert_data_into_table(){
+     /*  public function insert_data_into_table(){
         $data=[
-                "id"=>1,
+                "id" => 1,
                 "post_id " => 2,
-                "difficulty_id" => 1, 
+                "difficulty_id" => 1,
         ];
 
         $this->wpdbDanslemodel->insert(self::TABLE_NAME, $data);
 
-    } */
+    }  */
 
 
 }
