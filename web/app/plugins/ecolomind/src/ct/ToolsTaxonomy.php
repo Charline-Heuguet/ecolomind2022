@@ -3,6 +3,7 @@
 // 'tools" taxonomy table file
 
 namespace Ecolomind\ct;
+use Ecolomind\cpt\TipsPostType;
 
 
 class ToolsTaxonomy 
@@ -13,7 +14,7 @@ class ToolsTaxonomy
     {
         register_taxonomy(
             self::CT_SLUG,
-            ['post'],
+            ['tips'],
             [
                 'labels' => [
                     'name' => 'Ustensiles',

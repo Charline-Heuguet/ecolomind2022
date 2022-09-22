@@ -11,7 +11,7 @@ use Ecolomind\ct\TargetTaxonomy;
 use Ecolomind\ct\ToolsTaxonomy;
 use Ecolomind\role\ModeratorRole;
 use Ecolomind\role\UserRole;
-
+use Ecolomind\cpt\TipsPostType;
 
 class Plugin
 {
@@ -19,8 +19,7 @@ class Plugin
     public function run()
     {
 
-        add_action('init', [$this, 'onInit']); 
-        register_activation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginActivation"]);
+      
         
         // add_action adds a callback function to an action hook
         add_action('init', [$this, 'onInit']);
@@ -67,6 +66,8 @@ class Plugin
         RoomsTaxonomy::register();
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
+        TipsPostType::register();
+
         
 
     }

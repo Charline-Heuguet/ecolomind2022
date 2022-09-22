@@ -13,7 +13,7 @@ class RoomsTaxonomy
     {
         register_taxonomy(
             self::CT_SLUG,
-            ['post'],
+            ['tips'],
             [
                 'labels' => [
                     'name' => 'Pièces',
