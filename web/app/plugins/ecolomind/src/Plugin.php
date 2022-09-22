@@ -17,8 +17,8 @@ class Plugin
     public function onPluginActivation(){
         $activateCustomTable = new PostDifficultyModel;
         $activateCustomTable->create();
-        $insert_data_into_table= new PostDifficultyModel;
-        $insert_data_into_table->insert_data_into_table();
+     /*    $insert_data_into_table= new PostDifficultyModel;
+        $insert_data_into_table->insert_data_into_table();  */
     }
     public function onPluginDeactivation(){
         $activateCustomTable = new PostDifficultyModel;
