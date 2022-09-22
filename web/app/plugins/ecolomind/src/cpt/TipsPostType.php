@@ -33,7 +33,7 @@ class TipsPostType {
                 'excerpt',
                 'comments' // Nos astuces pourront être commentées par les utilisateurs
             ],
-            'capability_type' => 'tips',// Va générer les capabiliy edit, read, delete pour le post type à partir de la chaine de caractère CPT_SLUG (read_recipes, edit_recipes, delete_recipes) et sous categories de caps comme edit_private_recipes
+            // 'capability_type' => 'tips',// Va générer les capabiliy edit, read, delete pour le post type à partir de la chaine de caractère CPT_SLUG (read_recipes, edit_recipes, delete_recipes) et sous categories de caps comme edit_private_recipes
             "map_meta_cap" => true,
             'menu_position' => 1, // position dans le BO de WP
             'menu_icon' => 'dashicons-book-alt' 
