@@ -58,13 +58,7 @@ class Plugin
         $activateCustomTable = new PostDifficultyModel;
         $activateCustomTable->drop();
     }
-    public function onInit(){  
-
-
-        ModeratorRole::unregister();
-        UserRole::unregister();
-
-    }
+  
 
     public function onInit(){
 
