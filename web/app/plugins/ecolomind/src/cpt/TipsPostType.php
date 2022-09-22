@@ -23,12 +23,12 @@ class TipsPostType {
         
         register_post_type(self::CPT_SLUG, [
             'labels' => [ 
-              'name' => 'AstuceSSSSSS',
-              'all_items' => 'Toutes les astuces_X',
-              'singular_name' => 'Astuce_singular',
-              'add_new_item' => 'Créer une astuce !!',
-              'edit_name' => 'Modifier une astuce ?',
-              'menu_name' => 'Astuces banana' //Affichage dans le menu du BO
+              'name' => 'Astuces',
+              'all_items' => 'Toutes les astuces',
+              'singular_name' => 'Astuce',
+              'add_new_item' => 'Créer une astuce',
+              'edit_name' => 'Modifier une astuce',
+              'menu_name' => 'Astuces' //Affichage dans le menu du BO
             ],
             'public' => true,
             'show_in_rest' => true,

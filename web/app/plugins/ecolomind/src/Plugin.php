@@ -39,6 +39,7 @@ class Plugin
      /*    $insert_data_into_table= new PostDifficultyModel;
         $insert_data_into_table->insert_data_into_table();  */
 
+        
 
         // Taxonomies
         DifficultyTaxonomy::register();
@@ -59,7 +60,7 @@ class Plugin
 
         $activateCustomTable = new PostDifficultyModel;
         $activateCustomTable->drop();
-        TipsPostType::removeCapsToAdmin();
+        UserRole::unregister();
     }
   
 
@@ -70,9 +71,7 @@ class Plugin
         RoomsTaxonomy::register();
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
-        TipsPostType::register();
-
-        
+        TipsPostType::register();        
 
     }
 }
