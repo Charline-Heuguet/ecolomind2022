@@ -9,11 +9,13 @@ class UserRole
     const ROLE_SLUG = "users";
     
     public static function register()
-    {
-
-        // Attention le contributor aura le droit d'écrire et de proposer des recette mais pas de les rendre lisibles/ les publier
+    {        
         $capabilities = [
-            "read" => false
+            'delete_tip'=> true,
+            'edit_tips' => true,
+            'edit_tip' => true,
+            'read_tip' => true,
+            'read' => true
         ];
 
         add_role(self::ROLE_SLUG, "Utilisateurs", $capabilities);

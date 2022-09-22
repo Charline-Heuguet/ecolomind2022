@@ -51,11 +51,15 @@ class Plugin
         ModeratorRole::register();
         UserRole::register();
 
+        //CPT
+        TipsPostType::addCapsToAdmin();
+
     }
     public function onPluginDeactivation(){
 
         $activateCustomTable = new PostDifficultyModel;
         $activateCustomTable->drop();
+        TipsPostType::removeCapsToAdmin();
     }
   
 
