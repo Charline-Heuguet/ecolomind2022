@@ -13,7 +13,7 @@ class IngredientsTaxonomy
     {
         register_taxonomy(
             self::CT_SLUG,
-            ['post'],
+            ['tips', 'posts'],
             [
                 'labels' => [
                     'name' => 'Ingrédients',
