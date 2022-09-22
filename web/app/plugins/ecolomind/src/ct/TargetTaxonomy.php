@@ -13,7 +13,7 @@ class TargetTaxonomy
     {
         register_taxonomy(
             self::CT_SLUG,
-            ['post'],
+            ['tips'],
             [
                 'labels' => [
                     'name' => 'Cible',

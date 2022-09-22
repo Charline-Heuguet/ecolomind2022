@@ -8,6 +8,7 @@ web/app/upgrade
 !web/app/uploads/.gitkeep
 web/app/cache/*
 web/app/plugins/wp-api-swaggerui
+web/app/plugins/fakerpress
 
 # WordPress
 web/wp
