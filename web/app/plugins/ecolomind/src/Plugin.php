@@ -11,7 +11,7 @@ use Ecolomind\ct\TargetTaxonomy;
 use Ecolomind\ct\ToolsTaxonomy;
 use Ecolomind\role\ModeratorRole;
 use Ecolomind\role\UserRole;
-
+use Ecolomind\security\AccessBO;
 
 class Plugin
 {
@@ -68,7 +68,7 @@ class Plugin
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
         
-
+        AccessBO::checkAccess();
     }
 }
 
