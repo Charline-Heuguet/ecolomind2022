@@ -12,6 +12,8 @@ use Ecolomind\ct\ToolsTaxonomy;
 use Ecolomind\role\ModeratorRole;
 use Ecolomind\role\UserRole;
 use Ecolomind\security\AccessBO;
+use Ecolomind\cpt\TipsPostType;
+
 
 class Plugin
 {
@@ -19,8 +21,7 @@ class Plugin
     public function run()
     {
 
-        add_action('init', [$this, 'onInit']); 
-        register_activation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginActivation"]);
+      
         
         // add_action adds a callback function to an action hook
         add_action('init', [$this, 'onInit']);
@@ -40,6 +41,7 @@ class Plugin
      /*    $insert_data_into_table= new PostDifficultyModel;
         $insert_data_into_table->insert_data_into_table();  */
 
+        
 
         // Taxonomies
         DifficultyTaxonomy::register();
@@ -52,11 +54,15 @@ class Plugin
         ModeratorRole::register();
         UserRole::register();
 
+        //CPT
+        TipsPostType::addCapsToAdmin();
+
     }
     public function onPluginDeactivation(){
 
         $activateCustomTable = new PostDifficultyModel;
         $activateCustomTable->drop();
+        UserRole::unregister();
     }
   
 
@@ -67,8 +73,10 @@ class Plugin
         RoomsTaxonomy::register();
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
-        
         AccessBO::checkAccess();
+        TipsPostType::register();        
+
+
     }
 }
 
