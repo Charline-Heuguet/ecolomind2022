@@ -57,7 +57,6 @@ const TipsServices =
 
 
 
-
     //Récupération de toutes les pièces
 
     async getAllRooms()
@@ -104,6 +103,14 @@ const TipsServices =
         return response.data
     },
 
+    // Récupération des ingrédients en fonction des tips_id
+
+    async getIngredientByTipsId(id)
+    {
+        const response = await axios.get(this.base_url + "/wp/v2/ingredients" + id);
+        return response.data
+    },
+
     // NDLR : La récupération de tous les ustensiles et de tous les ingrédients: On n'a pas besoin qu'ils s'affichent sur le site (affiché comme liste des ingrédients sur le site)
 
     //**IMPORTANT**
@@ -116,18 +123,18 @@ const TipsServices =
 
     },
 
-       // On utilise le token stocké dans storage
-       async addComment(comment, tips_id){
-        const response = await axios.post(this.base_url + "/wp/v2/comments", {
-            content: comment,
-            post: tips_id
-        }, {
-            headers: {
-                Authorization: "Bearer " + storage.get("userData").token
-            }
-        });
-        return response.data
-    }
+    // On utilise le token stocké dans storage
+    async addComment(comment, tips_id){
+    const response = await axios.post(this.base_url + "/wp/v2/comments", {
+        content: comment,
+        post: tips_id
+    }, {
+        headers: {
+            Authorization: "Bearer " + storage.get("userData").token
+        }
+    });
+    return response.data
+}
 
 
 
