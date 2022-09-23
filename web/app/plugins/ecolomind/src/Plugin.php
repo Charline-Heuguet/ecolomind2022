@@ -11,7 +11,9 @@ use Ecolomind\ct\TargetTaxonomy;
 use Ecolomind\ct\ToolsTaxonomy;
 use Ecolomind\role\ModeratorRole;
 use Ecolomind\role\UserRole;
+use Ecolomind\security\AccessBO;
 use Ecolomind\cpt\TipsPostType;
+
 
 class Plugin
 {
@@ -71,7 +73,9 @@ class Plugin
         RoomsTaxonomy::register();
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
+        AccessBO::checkAccess();
         TipsPostType::register();        
+
 
     }
 }
