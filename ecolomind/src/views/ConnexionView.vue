@@ -5,12 +5,12 @@
             <div>
                 <label for="email">Email :</label>
                 <input v-model="this.loginInForm" placeholder="gerceval@gmail.com" type="text" id="email" />
-                <div v-if="this.errors.loginMissing" >Email non valide</div>
+                <div v-if="this.errors.loginMissing" >Pseudo non valide</div>
             </div>
             <div>
                 <label for="password">Mot de passe :</label>
                 <input v-model="this.passwordInForm" type="password" id="password" />
-                <div v-if="this.errors.passwordMissing" ></div>
+                <div v-if="this.errors.passwordMissing" >Mot de passe non valide</div>
             </div>
             <button v-on:click.prevent="Connexion()" >Se connecter</button>
         </form>
