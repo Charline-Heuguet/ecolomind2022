@@ -1,6 +1,5 @@
 <!-- Header et navbar -->
 <template>
-    <header>
         <nav>
             <router-link to="/">Accueil</router-link>
             <router-link to="/cuisine">Cuisine</router-link>
@@ -14,7 +13,6 @@
             <router-link to="/connexion">Connexion</router-link>
             <router-link to="/inscription">Inscription</router-link>
         </nav>
-    </header>
 </template>
 
 
