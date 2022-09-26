@@ -24,13 +24,13 @@ const UserServices = {
 
         const userData = storage.get("userData");
 
-        if( userData!= null){
+        if( userData != null){
             if(userData.token){
                 await axios.post(
                     this.base_url + "/jwt-auth/v1/token/validate",
                     null,
                     {
-                        header : {
+                        headers : {
                             Authorization : "Bearer " + userData.token
                         }
                     }
