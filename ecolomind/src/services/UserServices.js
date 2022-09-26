@@ -31,7 +31,7 @@ const UserServices = {
                     null,
                     {
                         header : {
-                            Authorization : "Bearer" + userData.token
+                            Authorization : "Bearer " + userData.token
                         }
                     }
                 ).catch(function(){
