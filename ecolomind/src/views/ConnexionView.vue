@@ -1,4 +1,4 @@
-<!-- Page de connexion -->
+<!-- Page de connexion !-->
 <template>
     <div>
         <form>
