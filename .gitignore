@@ -13,6 +13,7 @@ web/app/plugins/view-admin-as
 
 # WordPress
 web/wp
+web/wp-config.php
 #web/.htaccess
 
 # Logs
