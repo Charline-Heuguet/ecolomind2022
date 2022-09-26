@@ -10,6 +10,7 @@
 import NavComponent from '@/components/NavComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
+import UserServices from '@/services/UserServices';
 export default {
   name: 'App',
   components: {
@@ -17,6 +18,10 @@ export default {
     FooterComponent,
     HeaderComponent,
   },
+  async created(){
+    const stateInLoad = await UserServices.isConnected();
+    this.$store.commit('setConnectionState', stateInLoad);
+  }
 }
 </script>
 
