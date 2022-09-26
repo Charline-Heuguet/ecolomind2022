@@ -15,6 +15,9 @@ class AccessBO
         $noAccessRoles = 
         [
             UserRole::ROLE_SLUG,
+            'subscriber',
+            'author',
+            'contributor',
         ];
 
         // wp_get_current_user() defines the current user (logged-in user). If there is no logged-in user, the current user will be set to 0 (so no permissions)
