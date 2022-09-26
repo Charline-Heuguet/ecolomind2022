@@ -134,10 +134,7 @@ const TipsServices =
         }
     });
     return response.data
-}
-
-
-
+    }
 
 }
 
