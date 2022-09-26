@@ -20,7 +20,8 @@ class RoomsTaxonomy
                     'new_item_name' => 'Ajouter une nouvelle pièce'
                 ],
                 'public' => true,
-                'show_in_rest' => true
+                'show_in_rest' => true,
+                'hierarchical' => true
             ]
         );
     }
