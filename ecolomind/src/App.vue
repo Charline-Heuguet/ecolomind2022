@@ -18,11 +18,15 @@ export default {
     FooterComponent,
     HeaderComponent,
   },
+
+
   async created(){
     const stateInLoad = await UserServices.isConnected();
     this.$store.commit('setConnectionState', stateInLoad);
   }
 }
+
+
 </script>
 
 
