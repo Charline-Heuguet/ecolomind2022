@@ -27,7 +27,7 @@ export default {
         },
         RemoveToken(){
             storage.unset('userData').token;
-        }
+        },
     }
 }
 </script>
