@@ -1,1 +1,0 @@
-<!-- Tous les articles du jardin -->

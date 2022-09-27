@@ -21,11 +21,6 @@ const routes = [
     component: () => import('../views/BathroomView.vue')
   }, 
 
-  {
-    path: '/chambre',
-    name: 'chambre',
-    component: () => import('../views/BedroomView.vue')
-  }, 
 
   {
     path: '/connexion',
@@ -33,13 +28,6 @@ const routes = [
     component: () => import('../views/ConnexionView.vue')
   }, 
 
-
-
-  {
-    path: '/jardin',
-    name: 'jardin',
-    component: () => import('../views/GardenView.vue')
-  },
 
   {
     path: '/inscription',
