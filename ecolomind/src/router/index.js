@@ -63,12 +63,19 @@ const routes = [
   },
 
 
+
   {
-    path: '/article/:id',
-    name: 'article-piece',
-    component: () => import('../views/SingleArticleView.vue')
+    path: '/connexion',
+    name: 'connexion',
+    component: () => import('../views/ConnexionView.vue')
+  }, 
+
+
+  {
+    path: '/inscription',
+    name: 'inscription',
+    component: () => import('../views/InscriptionView.vue')
   },
-  
 
   {
     path: '/contact',

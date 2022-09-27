@@ -17,6 +17,7 @@
             <form>
                 <label for="comment"> Ajoutez votre commentaire</label>
                 <input type="text" name="comment" id="comment">
+
                 <button type="submit" @click.prevent="submitComment">Envoyez</button>
             </form>
 
@@ -26,32 +27,5 @@
 </template>
 
 
-// <script>
-
-// On importe le fichier TipsServices dans lequel se trouve les appels à API dont on aura besoin ici.
-// import TipsServices from '@/services/TipsServices.js';
 
 
-// export default {
-//     name:"SingleTipsView",
-
-//     data(){
-//         return{
-//             content: "blablabla_try comments",
-//         }
-//     },
-
-//     props: {
-//         roomId: Number
-//     },
-
-
-//     methods : {
-//         async submitComment(){
-//             // console.log(this.content);
-//             await TipsServices.addComment(this.content, this.roomId);
-//             this.$emit('commentAdded');
-//         }
-//     }
-// }
-// </script>
