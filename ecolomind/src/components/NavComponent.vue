@@ -7,7 +7,7 @@
             <router-link to="/salon">Salon</router-link>
             <router-link to="/ajout-article">Proposer une astuce</router-link>
             <router-link to="/profil">Profil</router-link>
-            <router-link to="/">Déconnexion</router-link>
+            <a href="#" @click="this.$store.dispatch('onUserDisconnection')">Deconnexion</a>
             <router-link to="/connexion">Connexion</router-link>
             <router-link to="/inscription">Inscription</router-link>
         </nav>

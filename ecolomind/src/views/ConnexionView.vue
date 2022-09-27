@@ -23,6 +23,7 @@
 <script>
 import UserServices from '@/services/UserServices';
 import storage from '@/utils/storage';
+
 export default {
     name: 'ConnexionView',
     data(){
@@ -55,15 +56,15 @@ export default {
 
                 const userData = await UserServices.login(this.loginInForm, this.passwordInForm)
 
+                //Storage est déclarée dans la gestion des cookies
                 storage.set('userData', userData);
 
                 const isUserConnected = await UserServices.isConnected();
-
                 if(!isUserConnected){
                     this.errors.loginIncorrects = true;
                 }else{
-                    this.$store.dispatch('onUserConnection');
-                    this.$router.push({name: "home"});
+                    this.$store.dispatch('onUserConnection'); // on envoie une action à appliquer qui attribuera à l'utilisateur un nouvel état de connexion.
+                    this.$router.push({name: "home"}); //Si la connexion est ok, on redirige automatiquement l'utilisateur vers la home (on simule un clic)
                 }
             }
         }
