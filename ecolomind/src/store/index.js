@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    userIsConnect : false,
+    userIsConnect : false, //par defaut, l'utilisateur n'est pas connecté (false)
   },
   getters: {
   },
