@@ -9,13 +9,16 @@
 
         <p>NOM DE L'AUTEUR</p>
         <article> CONTENU DE L'ARTICLE</article>
+        <img src="" alt="">
 
+        <h4> Espace commentaires</h4>
 
-
-
-
-
-
+                     
+            <form>
+                <label for="comment"> Ajoutez votre commentaire</label>
+                <input type="text" name="comment" id="comment">
+                <button type="submit">Envoyez</button>
+            </form>
 
 
         <CommentListComponent />

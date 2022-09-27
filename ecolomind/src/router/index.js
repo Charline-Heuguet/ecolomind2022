@@ -15,14 +15,12 @@ const routes = [
     component: () => import('../views/BathroomView.vue')
   }, 
 
-
-
+// TODO: MODIFIER LE CHEMIN DE CUISINE (test d'affichage)
   {
     path: '/cuisine',
     name: 'cuisine',
-    component: () => import('../views/KitchenView.vue')
+    component: () => import('../views/SingleTipsView.vue')
   },
-
 
 
   {
@@ -30,6 +28,7 @@ const routes = [
     name: 'salon',
     component: () => import('../views/LivingroomView.vue')
   },
+
 
   {
     path: '/article/:id',

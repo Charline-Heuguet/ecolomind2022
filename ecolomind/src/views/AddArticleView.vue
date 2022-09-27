@@ -39,7 +39,7 @@
 
             <div>
                 <label for="content"></label>
-                <textarea name="content" id="content" cols="30" rows="10" placeholder="Ecrivez les quantités des ingredients nécessaires à votre astuce.Rédigez votre recette en la détaillant"></textarea>
+                <input name="content" id="content" placeholder="Ecrivez les quantités des ingredients nécessaires à votre astuce.Rédigez votre recette en la détaillant">
             </div>
 
             <div>
