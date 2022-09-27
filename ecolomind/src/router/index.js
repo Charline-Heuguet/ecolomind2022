@@ -8,6 +8,34 @@ const routes = [
     component: HomeView
   },
 
+  
+  {
+    path: '/salle-de-bain',
+    name: 'salle-de-bain',
+    component: () => import('../views/BathroomView.vue')
+  }, 
+
+// TODO: MODIFIER LE CHEMIN DE CUISINE (test d'affichage)
+  {
+    path: '/cuisine',
+    name: 'cuisine',
+    component: () => import('../views/SingleTipsView.vue')
+  },
+
+
+  {
+    path: '/salon',
+    name: 'salon',
+    component: () => import('../views/LivingroomView.vue')
+  },
+
+
+  {
+    path: '/article/:id',
+    name: 'article-piece',
+    component: () => import('../views/SingleTipsView.vue')
+  },
+
 
   {
     path: '/ajout-article',
@@ -15,11 +43,13 @@ const routes = [
     component: () => import('../views/AddArticleView.vue')
   }, 
 
+
   {
-    path: '/salle-de-bain',
-    name: 'salle-de-bain',
-    component: () => import('../views/BathroomView.vue')
-  }, 
+    path: '/profil',
+    name: 'profil',
+    component: () => import('../views/ProfilView.vue')
+  },
+
 
 
   {
@@ -34,37 +64,6 @@ const routes = [
     name: 'inscription',
     component: () => import('../views/InscriptionView.vue')
   },
-
-
-  {
-    path: '/cuisine',
-    name: 'cuisine',
-    component: () => import('../views/KitchenView.vue')
-  },
-
-
-
-  {
-    path: '/salon',
-    name: 'salon',
-    component: () => import('../views/LivingroomView.vue')
-  },
-
-
-
-  {
-    path: '/profil',
-    name: 'profil',
-    component: () => import('../views/ProfilView.vue')
-  },
-
-
-  {
-    path: '/article/:id',
-    name: 'article-piece',
-    component: () => import('../views/SingleArticleView.vue')
-  },
-  
 
   {
     path: '/contact',
