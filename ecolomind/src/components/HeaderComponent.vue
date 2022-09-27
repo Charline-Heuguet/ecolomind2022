@@ -26,7 +26,7 @@ export default {
             return storage.get('userData').user_display_name;
         },
         RemoveToken(){
-            storage.unset('userData').token;
+            storage.unset('userData');
         },
     }
 }
