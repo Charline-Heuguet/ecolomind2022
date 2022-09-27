@@ -7,7 +7,7 @@
         <div class="user-state" v-if="this.$store.state.userIsConnect">
             <span>{{ getCurrentUserName() }}</span>
             <router-link to="/profil">Profil</router-link>
-            <a href="#" @click="this.$store.dispatch('onUserDisconnection')">Deconnexion</a>     
+            <a href="#" @click="this.$store.dispatch('onUserDisconnection') + RemoveToken()">Deconnexion</a>     
         </div>
         <div class="user-state" v-if="!this.$store.state.userIsConnect">
             <router-link to="/inscription">Inscription</router-link>
@@ -24,7 +24,10 @@ export default {
     methods:{
         getCurrentUserName(){
             return storage.get('userData').user_display_name;
-        }
+        },
+        RemoveToken(){
+            storage.unset('userData').token;
+        },
     }
 }
 </script>
