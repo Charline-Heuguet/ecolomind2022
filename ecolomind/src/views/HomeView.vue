@@ -10,11 +10,8 @@
   <div id="entree"></div>
   <div id="sdb"></div>
 
-
-
 </div> 
-  <!-- <div :style="{'background-image':'url(../assets/maison-vide.png)'}"></div> -->
- <!--  <img src="../assets/maison-vide.png" alt=""> -->
+
  
 </template>
 
