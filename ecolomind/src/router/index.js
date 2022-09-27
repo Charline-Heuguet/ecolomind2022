@@ -8,32 +8,13 @@ const routes = [
     component: HomeView
   },
 
-
-  {
-    path: '/ajout-article',
-    name: 'ajout-article',
-    component: () => import('../views/AddArticleView.vue')
-  }, 
-
+  
   {
     path: '/salle-de-bain',
     name: 'salle-de-bain',
     component: () => import('../views/BathroomView.vue')
   }, 
 
-
-  {
-    path: '/connexion',
-    name: 'connexion',
-    component: () => import('../views/ConnexionView.vue')
-  }, 
-
-
-  {
-    path: '/inscription',
-    name: 'inscription',
-    component: () => import('../views/InscriptionView.vue')
-  },
 
 
   {
@@ -50,6 +31,18 @@ const routes = [
     component: () => import('../views/LivingroomView.vue')
   },
 
+  {
+    path: '/article/:id',
+    name: 'article-piece',
+    component: () => import('../views/SingleTipsView.vue')
+  },
+
+
+  {
+    path: '/ajout-article',
+    name: 'ajout-article',
+    component: () => import('../views/AddArticleView.vue')
+  }, 
 
 
   {
@@ -59,12 +52,19 @@ const routes = [
   },
 
 
+
   {
-    path: '/article/:id',
-    name: 'article-piece',
-    component: () => import('../views/SingleArticleView.vue')
+    path: '/connexion',
+    name: 'connexion',
+    component: () => import('../views/ConnexionView.vue')
+  }, 
+
+
+  {
+    path: '/inscription',
+    name: 'inscription',
+    component: () => import('../views/InscriptionView.vue')
   },
-  
 
   {
     path: '/contact',
