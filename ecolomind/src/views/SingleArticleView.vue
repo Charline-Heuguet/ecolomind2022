@@ -1,4 +1,0 @@
-<!-- Page d'un article unique -->
-
-
-

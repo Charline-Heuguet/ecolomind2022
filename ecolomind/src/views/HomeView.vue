@@ -1,8 +1,8 @@
 <!-- Page d'accueil -->
 
 <template>
-  <div >
-   
+  <div class="home">
+
   </div>
 </template>
 
@@ -12,8 +12,5 @@
 
 export default {
   name: 'HomeView',
-  components: {
-   
-  }
 }
 </script>

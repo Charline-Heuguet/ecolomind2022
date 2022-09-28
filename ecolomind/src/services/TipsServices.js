@@ -123,8 +123,10 @@ const TipsServices =
 
     },
 
-    // On utilise le token stocké dans storage
+    // AddComment va ajouter un commentaire dans l'api wordpress en utilisant le token stocké dans storage
+
     async addComment(comment, tips_id){
+        
     const response = await axios.post(this.base_url + "/wp/v2/comments", {
         content: comment,
         post: tips_id
@@ -134,10 +136,7 @@ const TipsServices =
         }
     });
     return response.data
-}
-
-
-
+    }
 
 }
 
