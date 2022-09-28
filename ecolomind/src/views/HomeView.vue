@@ -52,8 +52,8 @@ export default {
   position: absolute;
   top: 7.36%;
   left: 27.45%;
- /*  transform: scale(1);
-  transition: all .6s ; */
+  transform: scale(1);
+  transition: all .6s ; 
  filter:brightness(50%)
 }
 #chambre{
@@ -61,8 +61,8 @@ export default {
   position: absolute;
   top: 38.7%;
   left: 27.55%;
- /*  transform: scale(1);
-  transition: all .6s ; */
+  transform: scale(1);
+  transition: all .6s ; 
   filter:brightness(50%)
 }
 #bureau{
@@ -70,8 +70,8 @@ export default {
   position: absolute;
   top: 38.7%;
   left: 56.04%;
- /*  transform: scale(1);
-  transition: all .6s ; */
+  transform: scale(1);
+  transition: all .6s ; 
   filter:brightness(50%)
 }
 #entree{
@@ -79,8 +79,8 @@ export default {
   position: absolute;
   top: 63.4%;
   left: 27.5%;
- /*  transform: scale(1);
-  transition: all .6s ; */
+  transform: scale(1);
+  transition: all .6s ; 
   filter:brightness(50%)
 }
 #cuisine {
@@ -88,8 +88,8 @@ export default {
   position: absolute;
   top: 63.4%;
   left: 43.9%;
-  /* transform: scale(1);
-  transition: all .6s ; */
+   transform: scale(1);
+  transition: all .6s ; 
   filter:brightness(50%)
 }
 
@@ -98,8 +98,8 @@ export default {
   position: absolute;
   top: 75%;
   left: 2%;
- /*  transform: scale(1);
-  transition: all .6s ; */
+  transform: scale(1);
+  transition: all .6s ; 
   filter:brightness(50%)
 
 }
@@ -126,7 +126,7 @@ export default {
 }
 #potager:hover{
   filter: brightness(100%);
- /*  transform: scale(1.1); */
+  transform: scale(1.1); 
 }
 
 
