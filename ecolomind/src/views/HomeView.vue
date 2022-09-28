@@ -1,23 +1,20 @@
 <!-- Page d'accueil -->
 
 <template>
-
-<div id="image"> 
-
-  <div id="bureau"></div>
-  <div id="chambre"></div>
-  <div id="cuisine"></div>
-  <div id="entree"></div>
-  <div id="sdb"></div>
-
-</div> 
-
  
+  <div id="image"> 
+      <div id="bureau"></div>
+      <div id="chambre"></div>
+      <div id="cuisine"></div>
+      <div id="entree"></div>
+      <div id="sdb"></div>
+  </div>
+
 </template>
 
 <script>
-// @ is an alias to /src
 
+// @ is an alias to /src
 
 export default {
   name: 'HomeView',
@@ -27,16 +24,22 @@ export default {
  
  
 }
+
+ 
+
 </script>
 
 <style lang="scss">
 
-#image {
+
+#image{
   display: grid;
   background-image: url('../assets/maison_vide_2.png');
   width: 103em;
   height: 102.5em;
   background-repeat: no-repeat;
+  background-size: contain;
+  
 } 
 #bureau{
   background-image: url('../assets/bureau.png');
@@ -46,7 +49,7 @@ export default {
   grid-column: 3/5;
   grid-row: 2/5;
   margin-left: 1.6em;
-  margin-top: 2.5em;
+  margin-top: 2.5em; 
 }
 #chambre{
   background-image: url('../assets/chambre.png');
@@ -75,7 +78,7 @@ export default {
   grid-column: 2/5;
   grid-row: 3/5;
   margin-bottom: 14em;
-  margin-left: 0.5em;
+  margin-left: 0.5em; 
 }
 #sdb{
   background-image: url('../assets/sdb.png');
@@ -83,7 +86,7 @@ export default {
   height:100%;
   background-repeat: no-repeat;
   margin-top: 1.4em;
-  margin-left: 0.6em;
+  margin-left: 0.6em; 
 }
 
 
