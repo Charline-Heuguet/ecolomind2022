@@ -2,12 +2,13 @@
 
 <template>
  
-  <div id="image"> 
-      <div id="bureau"></div>
-      <div id="chambre"></div>
-      <div id="cuisine"></div>
-      <div id="entree"></div>
-      <div id="sdb"></div>
+ <div id="image">
+    <img id="background" src="../assets/maison-vide.png" alt="">
+    <img id="sdb" src="../assets/sdb.png" alt="" >
+    <img id="entree" src="../assets/entrée.png" alt="">
+    <img id="bureau" src="../assets/bureau.png" alt="">
+    <img id="cuisine" src="../assets/cuisine.png" alt="">
+    <img id="chambre" src="../assets/chambre.png" alt="">
   </div>
 
 </template>
@@ -24,72 +25,78 @@ export default {
  
  
 }
-
- 
-
 </script>
 
 <style lang="scss">
 
 
 #image{
-  display: grid;
-  background-image: url('../assets/maison_vide_2.png');
-  width: 103em;
-  height: 102.5em;
+  max-width: 100%;
   background-repeat: no-repeat;
-  background-size: contain;
-  
-} 
-#bureau{
-  background-image: url('../assets/bureau.png');
-  width:100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  grid-column: 3/5;
-  grid-row: 2/5;
-  margin-left: 1.6em;
-  margin-top: 2.5em; 
+  width: 80%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
-#chambre{
-  background-image: url('../assets/chambre.png');
+#background{
   width: 100%;
-  height:100%;
-  background-repeat: no-repeat;
-  grid-column: 2/5;
-  grid-row: 2/5;
-  margin-left: 0.7em;
-  margin-top: 2.5em;
-  
-}
-#cusine{
-  background-image: url('../assets/cuisine.png');
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  grid-column: 2/3;
-  grid-row: 2/5;
-}
-#entree{
-  background-image: url('../assets/entrée.png');
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  grid-column: 2/5;
-  grid-row: 3/5;
-  margin-bottom: 14em;
-  margin-left: 0.5em; 
 }
 #sdb{
-  background-image: url('../assets/sdb.png');
-  width: 200%;
-  height:100%;
-  background-repeat: no-repeat;
-  margin-top: 1.4em;
-  margin-left: 0.6em; 
+  width: 50.7333333%;
+  position: absolute;
+  top: 7.36%;
+  left: 27.45%;
+  transform: scale(1);
+  transition: all .6s ;
 }
-
-
+#bureau{
+ width: 22.1%;
+  position: absolute;
+  top: 38.7%;
+  left: 56.09999%;
+  transform: scale(1);
+  transition: all .6s ;
+}
+#entree{
+  width: 14.8%;
+  position: absolute;
+  top: 63.4%;
+  left: 27.5%;
+  transform: scale(1);
+  transition: all .6s ;
+}
+#cuisine {
+  width: 34.3%;
+  position: absolute;
+  top: 63.4%;
+  left: 43.8%;
+  transform: scale(1);
+  transition: all .6s ;
+}
+#chambre{
+  width: 27%;
+  position: absolute;
+  top: 38.7%;
+  left: 27.5%;
+  transform: scale(1);
+  transition: all .6s ;
+}
+#bureau:hover{
+  transform: scale(1.1);
+} 
+#sdb:hover{
+  
+  transform: scale(1.1);
+}
+#entree:hover{
+  transform: scale(1.1);
+}
+#cuisine:hover{
+  transform: scale(1.1);
+}
+#chambre:hover{
+  transform: scale(1.1);
+}
 
 
 
