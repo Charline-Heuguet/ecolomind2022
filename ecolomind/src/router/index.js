@@ -8,19 +8,40 @@ const routes = [
     component: HomeView
   },
 
+  {
+    path: '/rooms/:id',
+    name: 'single-room',
+    component: () => import('../views/SingleRoomView.vue')
+  },
+
+
+  // {
+  //   path: '/salle-de-bain',
+  //   name: 'salle-de-bain',
+  //   component: () => import('../views/BathroomView.vue')
+  // }, 
+
+
+  // {
+  //   path: '/cuisine',
+  //   name: 'cuisine',
+  //   component: () => import('../views/SingleTipsView.vue')
+  // },
+
+
+
+  // {
+  //   path: '/salon',
+  //   name: 'salon',
+  //   component: () => import('../views/LivingroomView.vue')
+  // },
+
 
   {
     path: '/ajout-article',
     name: 'ajout-article',
     component: () => import('../views/AddArticleView.vue')
   }, 
-
-  {
-    path: '/salle-de-bain',
-    name: 'salle-de-bain',
-    component: () => import('../views/BathroomView.vue')
-  }, 
-
 
   {
     path: '/connexion',
@@ -35,23 +56,6 @@ const routes = [
     component: () => import('../views/InscriptionView.vue')
   },
 
-
-  {
-    path: '/cuisine',
-    name: 'cuisine',
-    component: () => import('../views/KitchenView.vue')
-  },
-
-
-
-  {
-    path: '/salon',
-    name: 'salon',
-    component: () => import('../views/LivingroomView.vue')
-  },
-
-
-
   {
     path: '/profil',
     name: 'profil',
@@ -59,12 +63,19 @@ const routes = [
   },
 
 
+
   {
-    path: '/article/:id',
-    name: 'article-piece',
-    component: () => import('../views/SingleArticleView.vue')
+    path: '/connexion',
+    name: 'connexion',
+    component: () => import('../views/ConnexionView.vue')
+  }, 
+
+
+  {
+    path: '/inscription',
+    name: 'inscription',
+    component: () => import('../views/InscriptionView.vue')
   },
-  
 
   {
     path: '/contact',
