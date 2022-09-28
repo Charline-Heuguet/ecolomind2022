@@ -1,4 +1,4 @@
-<!-- Page d'une astuce unique avec espace commentaires (édition et liste) -->
+<!-- Page d'une astuce unique avec espace commentaires (ajout et liste) -->
 
 <template>
 
@@ -17,11 +17,15 @@
             <form>
                 <label for="comment"> Ajoutez votre commentaire</label>
                 <input type="text" name="comment" id="comment">
-                <button type="submit">Envoyez</button>
+
+                <button type="submit" @click.prevent="submitComment">Envoyez</button>
             </form>
 
-
         <CommentListComponent />
+
     </div>
 </template>
+
+
+
 
