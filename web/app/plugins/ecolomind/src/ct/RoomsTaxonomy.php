@@ -13,14 +13,15 @@ class RoomsTaxonomy
     {
         register_taxonomy(
             self::CT_SLUG,
-            ['post'],
+            ['tips'],
             [
                 'labels' => [
                     'name' => 'Pièces',
                     'new_item_name' => 'Ajouter une nouvelle pièce'
                 ],
                 'public' => true,
-                'show_in_rest' => true
+                'show_in_rest' => true,
+                'hierarchical' => true
             ]
         );
     }

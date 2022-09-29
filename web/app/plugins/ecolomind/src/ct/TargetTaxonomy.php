@@ -13,14 +13,15 @@ class TargetTaxonomy
     {
         register_taxonomy(
             self::CT_SLUG,
-            ['post'],
+            ['tips'],
             [
                 'labels' => [
                     'name' => 'Cible',
                     'new_item_name' => 'Définir une cible'
                 ],
                 'public' => true,
-                'show_in_rest' => true
+                'show_in_rest' => true,
+                'hierarchical' => true
             ]
         );
     }

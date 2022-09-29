@@ -7,3 +7,7 @@
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 require_once dirname(__DIR__) . '/config/application.php';
 require_once ABSPATH . 'wp-settings.php';
+
+define('JWT_AUTH_SECRET_KEY', 'project-ecolomind-oclock-2022');
+
+define('JWT_AUTH_CORS_ENABLE', true);
