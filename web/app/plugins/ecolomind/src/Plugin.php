@@ -2,6 +2,8 @@
 
 namespace Ecolomind;
 
+
+use Ecolomind\model\PostDifficultyModel;
 use Ecolomind\ct\DifficultyTaxonomy;
 use Ecolomind\ct\IngredientsTaxonomy;
 use Ecolomind\ct\RoomsTaxonomy;
@@ -9,24 +11,37 @@ use Ecolomind\ct\TargetTaxonomy;
 use Ecolomind\ct\ToolsTaxonomy;
 use Ecolomind\role\ModeratorRole;
 use Ecolomind\role\UserRole;
+use Ecolomind\security\AccessBO;
+use Ecolomind\cpt\TipsPostType;
+
 
 class Plugin
 {
 
     public function run()
     {
- //Dans une classe, la fonction add_action à besoin de connaitre, en plus du nom de la fonction à exécuté, le contexte d'execution
- add_action('init', [$this, 'onInit']);
-        
- //Lorsque l'on active le plugin on effectue l'action 
- register_activation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginActivation"]);
 
- //Le callback s'execute à la desactivation du plugin
- register_deactivation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginDeactivation"]);
+      
+        
+        // add_action adds a callback function to an action hook
+        add_action('init', [$this, 'onInit']);
+     
+        // Sets the activation hook for a plugin
+        register_activation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginActivation"]);
+
+        // Sets the deactivation hook for a plugin
+
+        register_deactivation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginDeactivation"]);
         
     }
-    
     public function onPluginActivation(){
+
+        $activateCustomTable = new PostDifficultyModel;
+        $activateCustomTable->create();
+     /*    $insert_data_into_table= new PostDifficultyModel;
+        $insert_data_into_table->insert_data_into_table();  */
+
+        
 
         // Taxonomies
         DifficultyTaxonomy::register();
@@ -39,13 +54,17 @@ class Plugin
         ModeratorRole::register();
         UserRole::register();
 
-    }
+        //CPT
+        TipsPostType::addCapsToAdmin();
 
+    }
     public function onPluginDeactivation(){
 
-
-
+        $activateCustomTable = new PostDifficultyModel;
+        $activateCustomTable->drop();
+        UserRole::unregister();
     }
+  
 
     public function onInit(){
 
@@ -54,7 +73,10 @@ class Plugin
         RoomsTaxonomy::register();
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
-        
+        AccessBO::checkAccess();
+        TipsPostType::register();        
+
+
     }
 }
 

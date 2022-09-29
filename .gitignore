@@ -8,9 +8,12 @@ web/app/upgrade
 !web/app/uploads/.gitkeep
 web/app/cache/*
 web/app/plugins/wp-api-swaggerui
+web/app/plugins/fakerpress
+web/app/plugins/view-admin-as
 
 # WordPress
 web/wp
+web/wp-config.php
 #web/.htaccess
 
 # Logs
