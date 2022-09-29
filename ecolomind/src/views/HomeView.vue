@@ -19,6 +19,7 @@ export default {
   name: 'HomeView',
   components: {
   }
+}
 </script>
 
 <style lang="scss">
