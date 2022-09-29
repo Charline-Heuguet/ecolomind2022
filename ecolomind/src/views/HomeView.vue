@@ -1,7 +1,6 @@
 <!-- Page d'accueil -->
 
 <template>
- 
  <div id="image">
     <img id="background" src="../assets/maison-vide.png" alt="">
     <img id="sdb" src="../assets/sdb.png" alt="" >
@@ -10,30 +9,19 @@
     <img id="cuisine" src="../assets/cuisine.png" alt="">
     <img id="chambre" src="../assets/chambre.png" alt="">
     <img id="potager"  src="../assets/potager.png" alt="" />
-    
- 
     </div>
-
-  
-
 </template>
 
 <script>
 
 // @ is an alias to /src
-
 export default {
   name: 'HomeView',
   components: {
-   
   }
- 
- 
-}
 </script>
 
 <style lang="scss">
-
 
 #image{
   max-width: 60%;
@@ -92,7 +80,6 @@ export default {
   transition: all .6s ; 
   filter:brightness(50%)
 }
-
 #potager{
   width: 22%;
   position: absolute;
@@ -101,12 +88,10 @@ export default {
   transform: scale(1);
   transition: all .6s ; 
   filter:brightness(50%)
-
 }
 #bureau:hover{
   /* transform: scale(1.1); */
   filter: brightness(100%);
-  
 } 
 #sdb:hover{
   filter: brightness(100%);
@@ -128,7 +113,4 @@ export default {
   filter: brightness(100%);
   transform: scale(1.1); 
 }
-
-
-
 </style>
