@@ -54,7 +54,7 @@ class TipsPostType {
     }
     
     public static function addCapsToAdmin(){
-        $customerRole = get_role("users");
+        $customerRole = get_role("administrator");
     
         foreach(self::CAPABILITIES as $caps){
           $customerRole->add_cap($caps);
@@ -62,7 +62,7 @@ class TipsPostType {
     }
     
     public static function removeCapsToAdmin(){
-        $customerRole = get_role("users");
+        $customerRole = get_role("administrator");
     
         foreach(self::CAPABILITIES as $caps){
           $customerRole->remove_cap($caps);
