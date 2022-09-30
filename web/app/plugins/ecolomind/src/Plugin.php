@@ -20,20 +20,41 @@ class Plugin
 
     public function run()
     {
+    // add_action adds a callback function to an action hook
+    add_action('init', [$this, 'onInit']);
 
-      
-        
-        // add_action adds a callback function to an action hook
-        add_action('init', [$this, 'onInit']);
-     
-        // Sets the activation hook for a plugin
-        register_activation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginActivation"]);
 
-        // Sets the deactivation hook for a plugin
+    add_action('rest_api_init', function($server){
+        $server->register_route('', '/test', [
+            'methods'  => 'POST',
+            'callback' => 'customroutepost_callback_function',
+        ]);
+    });
 
-        register_deactivation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginDeactivation"]);
-        
+
+    // Sets the activation hook for a plugin
+    register_activation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginActivation"]);
+
+    // Sets the deactivation hook for a plugin
+
+    register_deactivation_hook(ECOLOMIND_PLUGIN_ENTRY, [$this, "onPluginDeactivation"]);
+}
+    
+
+
+/* public function pleb_remove_rest_endpoints( $endpoints ) {
+    foreach ($endpoints as $endpoint => $details){
+        var_dump($endpoint);
+        if( !in_array($endpoint, [
+            'wp-json',
+        ]) ){
+            unset( $endpoints[$endpoint] );
+        }
     }
+    return $endpoints;
+    return [];
+}  */
+        
     public function onPluginActivation(){
 
         $activateCustomTable = new PostDifficultyModel;
@@ -74,9 +95,12 @@ class Plugin
         TargetTaxonomy::register();
         ToolsTaxonomy::register();
         AccessBO::checkAccess();
-        TipsPostType::register();        
+        TipsPostType::register();  
+
 
 
     }
 }
+
+
 
