@@ -24,12 +24,7 @@ class Plugin
     add_action('init', [$this, 'onInit']);
 
 
-    add_action('rest_api_init', function($server){
-        $server->register_route('', '/test', [
-            'methods'  => 'POST',
-            'callback' => 'customroutepost_callback_function',
-        ]);
-    });
+ 
 
 
     // Sets the activation hook for a plugin
@@ -42,25 +37,13 @@ class Plugin
     
 
 
-/* public function pleb_remove_rest_endpoints( $endpoints ) {
-    foreach ($endpoints as $endpoint => $details){
-        var_dump($endpoint);
-        if( !in_array($endpoint, [
-            'wp-json',
-        ]) ){
-            unset( $endpoints[$endpoint] );
-        }
-    }
-    return $endpoints;
-    return [];
-}  */
+
         
     public function onPluginActivation(){
 
         $activateCustomTable = new PostDifficultyModel;
         $activateCustomTable->create();
-     /*    $insert_data_into_table= new PostDifficultyModel;
-        $insert_data_into_table->insert_data_into_table();  */
+    
 
         
 
