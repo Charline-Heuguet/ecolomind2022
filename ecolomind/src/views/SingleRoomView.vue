@@ -4,13 +4,17 @@
 
     <h1>{{singleRoom.name}}</h1>
 
-    <h2
-    v-for="astuce in tips"
-    :key="astuce.id" v-html="astuce.title.rendered">  </h2>
-
-    
-
-    
+    <article v-for="astuce in tips"
+    :key="astuce.id">
+        <router-link :to="{name: 'single-tips'}">
+            <h2 v-html="astuce.title.rendered"></h2> 
+        </router-link> 
+            <p v-html="astuce.excerpt.rendered"></p>
+        <router-link :to="{name: 'single-tips'}">
+            <p>Lire la suite</p> 
+        </router-link> 
+        
+    </article>
 </div>
 </template>
 
@@ -22,7 +26,7 @@ import TipsServices from "@/services/TipsServices"
 //import TipsServices from '@/services/TipsServices.js';
 export default ({
     name: 'SingleRoomView',
-    
+       
     data(){
         return{
             singleRoom:"",
@@ -30,18 +34,14 @@ export default ({
         }
     },
     
-
-        
-
     async created()
     {        
         let RoomId = this.$route.params.id ;
         this.singleRoom = await TipsServices.getRoomById(RoomId);
 
         this.tips = await TipsServices.getTipsByRoom(RoomId);
-        console.log(this.tips);
+        console.log(this.$route);
     },
-
 
     // WATCH regarde la $route (qu'on ne connait pas et qui est introuvable)
     // to: destination
@@ -55,9 +55,5 @@ export default ({
             } 
         } 
     }
-
-
-  
-
 })
 </script>

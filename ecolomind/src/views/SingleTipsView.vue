@@ -11,9 +11,7 @@
         <article> CONTENU DE L'ARTICLE</article>
         <img src="" alt="">
 
-        <h4> Espace commentaires</h4>
-
-                     
+        <h4> Espace commentaires</h4>          
             <form>
                 <label for="comment"> Ajoutez votre commentaire</label>
                 <input type="text" name="comment" id="comment">
@@ -26,6 +24,23 @@
     </div>
 </template>
 
+<script>
+
+export default({
+    name: 'SingleTipsView',
+
+    data(){
+        return{
+
+        }
+    },
+
+    async created()
+    {
+        
+    }
+})
+</script>
 
 
 
