@@ -29,21 +29,20 @@ export default ({
             tips:[],
         }
     },
-    
 
         
-
     async created()
     {        
-        let RoomId = this.$route.params.id ;
+        let RoomId = this.$route.params.id;
+
         this.singleRoom = await TipsServices.getRoomById(RoomId);
 
         this.tips = await TipsServices.getTipsByRoom(RoomId);
-        console.log(this.tips);
+        console.log(this.$route);
     },
 
 
-    // WATCH regarde la $route (qu'on ne connait pas et qui est introuvable)
+    // WATCH regarde la $route
     // to: destination
     // from: provenance
     // Si la destination est différente de la provenance, alors on reload.
