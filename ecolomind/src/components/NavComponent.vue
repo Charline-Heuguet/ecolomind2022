@@ -1,7 +1,7 @@
 <!-- Header et navbar !-->
 <template>
         <nav>
-            <router-link to="/">Accueil</router-link>&ensp;
+            <router-link to="/">Accueil</router-link>
 
 <!-- On souhaite avoir une seule view pour les différentes pièces, donc on doit rendre la navBar dynamique, ce qui facilitera egalement si on veut 
 rajouter une pièce plus tard. 
@@ -15,9 +15,9 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
                     params: {
                         id: room.id, 
                     }
-                }">{{room.name}}&ensp;</router-link>
+                }">{{room.name}}</router-link>
 
-&ensp;<router-link to="/ajout-article">Proposer une astuce</router-link>
+<router-link to="/ajout-article">Proposer une astuce</router-link>
 
         </nav>
 </template>
