@@ -4,29 +4,29 @@
 
     <h1>{{singleRoom.name}}</h1>
 
-    <article v-for="astuce in tips"
-    :key="astuce.id">
-        <router-link :to="{name: 'single-tips'}">
-            <h2 v-html="astuce.title.rendered"></h2> 
-        </router-link> 
-            <p v-html="astuce.excerpt.rendered"></p>
-        <router-link :to="{name: 'single-tips'}">
-            <p>Lire la suite</p> 
-        </router-link> 
-        
-    </article>
+    <TipsCardComponent 
+    v-for="astuce in tips"
+    :key="astuce.id"
+    :dbid="astuce.id"
+    :title="astuce.title.rendered"
+    :excerpt="astuce.excerpt.rendered"
+    />
+    
 </div>
 </template>
 
 <script>
 
-import TipsServices from "@/services/TipsServices"
-
+import TipsServices from "@/services/TipsServices";
+import TipsCardComponent from '@/components/TipsCardComponent';
 
 //import TipsServices from '@/services/TipsServices.js';
 export default ({
     name: 'SingleRoomView',
-       
+    components:{
+        TipsCardComponent
+    }, 
+
     data(){
         return{
             singleRoom:"",

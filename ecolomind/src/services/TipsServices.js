@@ -88,8 +88,7 @@ const TipsServices =
     {
         const response = await axios.get(this.base_url + "/wp/v2/rooms/"+id);
         return response.name
-    },
-    
+    }, 
 
 
 
