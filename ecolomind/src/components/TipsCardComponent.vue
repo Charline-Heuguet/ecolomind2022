@@ -23,3 +23,11 @@ export default({
     },
 })
 </script>
+
+<style lang="scss" scoped>
+
+article{
+    width: 30%;
+}
+
+</style>
