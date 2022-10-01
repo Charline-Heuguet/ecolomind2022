@@ -1,4 +1,4 @@
-/* import axios from "axios";
+ import axios from "axios";
 
 
 const CreateUser = {
@@ -30,4 +30,4 @@ const CreateUser = {
 
 }
 
-export default CreateUser; */
+export default CreateUser; 
