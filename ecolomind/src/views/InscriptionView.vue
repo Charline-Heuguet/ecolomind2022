@@ -39,6 +39,7 @@
 
 import axios from 'axios';
 
+
 export default {
     name : 'InscriptionView',
     data(){
@@ -58,9 +59,12 @@ export default {
              console.log('debut from data');
             console.log(JSON.parse(JSON.stringify(this.formData)));
              console.log('fin from data');
-            axios.post('http://ecolotips.local/wp-json/wp/v2/users', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
+            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
             .then(response => console.log(response))
-            .catch(error => console.log(error))
+            .catch(function(){
+            // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
+            return {data: null}
+        })
         }
     }
 }
