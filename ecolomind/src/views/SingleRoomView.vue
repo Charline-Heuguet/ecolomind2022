@@ -33,12 +33,8 @@ export default ({
             tips:[],
         }
     },
-<<<<<<< HEAD
 
         
-=======
-    
->>>>>>> 1dfb29faff4d034a90f21499ea5d662c488fbbba
     async created()
     {        
         let RoomId = this.$route.params.id;
@@ -49,12 +45,8 @@ export default ({
         console.log(this.$route);
     },
 
-<<<<<<< HEAD
 
     // WATCH regarde la $route
-=======
-    // WATCH regarde la $route (qu'on ne connait pas et qui est introuvable)
->>>>>>> 1dfb29faff4d034a90f21499ea5d662c488fbbba
     // to: destination
     // from: provenance
     // Si la destination est différente de la provenance, alors on reload.
