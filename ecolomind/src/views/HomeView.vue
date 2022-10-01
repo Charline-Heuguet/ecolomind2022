@@ -3,12 +3,12 @@
 <template>
  <div id="image">
     <img id="background" src="../assets/maison-vide.png" alt="">
-    <img id="sdb" src="../assets/sdb.png" alt="" >
-    <img id="entree" src="../assets/entrée.png" alt="">
-    <img id="bureau" src="../assets/bureau.png" alt="">
-    <img id="cuisine" src="../assets/cuisine.png" alt="">
-    <img id="chambre" src="../assets/chambre.png" alt="">
-    <img id="potager"  src="../assets/potager.png" alt="" />
+    <router-link to="/rooms/5"><img id="sdb" src="../assets/sdb.png" alt="" ></router-link>
+    <router-link to="/rooms/7"><img id="entree" src="../assets/entrée.png" alt=""></router-link>
+    <router-link to="/rooms/8"><img id="bureau" src="../assets/bureau.png" alt=""></router-link>
+    <router-link to="/rooms/2"><img id="cuisine" src="../assets/cuisine.png" alt=""></router-link>
+    <router-link to="/rooms/3"><img id="chambre" src="../assets/chambre.png" alt=""></router-link>
+    <router-link to="/rooms/4"><img id="potager"  src="../assets/potager.png" alt="" /></router-link>
     </div>
 </template>
 
