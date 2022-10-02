@@ -63,5 +63,16 @@ export default ({
 
 <style lang="scss">
 
+h1 {
+    margin-top: 50px;
+}
+
+article{
+    background-color: rgba($color: #FFCED8, $alpha: 0.5);
+    //border: 0.5px solid ;
+    border-radius: 15px;
+}
+
+
 
 </style>

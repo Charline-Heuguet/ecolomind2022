@@ -6,7 +6,7 @@
             </router-link> 
                 <p v-html="this.excerpt"></p>
             <router-link :to="{name: 'single-tips', params: {id: this.dbid}}">
-                <p>Lire la suite</p> 
+                <p id="suite">Lire la suite</p> 
             </router-link>    
         </article>
     </div>
@@ -28,6 +28,17 @@ export default({
 
 article{
     width: 30%;
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+}
+
+
+
+#suite {
+    text-align: right;
 }
 
 </style>
