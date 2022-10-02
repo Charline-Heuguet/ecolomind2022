@@ -64,7 +64,7 @@ nav{
     border-radius: 30px;
     box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
     padding: 20px 0px;
-    margin: 20px 0 50px;
+    margin: 20px 0;
 }
 
 a{

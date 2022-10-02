@@ -4,13 +4,17 @@
 
     <h1>{{singleRoom.name}}</h1>
 
-    <TipsCardComponent 
-    v-for="astuce in tips"
-    :key="astuce.id"
-    :dbid="astuce.id"
-    :title="astuce.title.rendered"
-    :excerpt="astuce.excerpt.rendered"
-    />
+    <div id="tipscardcomponent">
+
+        <TipsCardComponent 
+        v-for="astuce in tips"
+        :key="astuce.id"
+        :dbid="astuce.id"
+        :title="astuce.title.rendered"
+        :excerpt="astuce.excerpt.rendered"
+        />
+
+    </div>
     
 </div>
 </template>
@@ -61,7 +65,23 @@ export default ({
 })
 </script>
 
+
+
 <style lang="scss">
+
+h1 {
+    margin-top: 50px;
+}
+
+#tipscardcomponent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+
+
 
 
 </style>
