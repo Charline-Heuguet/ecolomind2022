@@ -30,7 +30,7 @@
                 Politique de confidentialité
                 </router-link></label>                               
             </div> -->
-            <button>Je m'inscris</button>
+            <button >Je m'inscris</button>
 
         </form>
     </div>
@@ -67,13 +67,17 @@ export default {
     
             console.log(JSON.parse(JSON.stringify(this.formData)));
             console.log('fin from data');
-            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
+            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "connexion"})) //don't forget LE PIÈGE
              .then(response => console.log(response)) 
             .catch(function(){
+               
             // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
             return {data: null}
         })
         }
+        
     }
+
+   
 }
 </script>
