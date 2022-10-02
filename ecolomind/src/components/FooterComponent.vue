@@ -2,8 +2,6 @@
 
     <footer>
 
-        <div>
-
             <router-link :to="{name: 'qui-sommes-nous'}">
                 Qui sommes-nous?
             </router-link>
@@ -12,12 +10,7 @@
                 Contactez-nous
             </router-link>
 
-        </div>
-
-        <img src="@/assets/logo.png" alt="logo ecolomind">        
-
-
-        <div>
+       <!-- <img src="@/assets/logo.png" alt="logo ecolomind">         -->
 
             <router-link :to="{name: 'mentions'}"> 
                 Mentions légales
@@ -26,8 +19,6 @@
             <router-link :to="{name: 'politique-de-confidentialite'}">
                 Politique de confidentialité
             </router-link>
-
-        </div>
     
 
     </footer>
@@ -40,3 +31,19 @@ export default {
     
 }
 </script>
+
+<style lang="scss" scoped>
+
+footer{
+    padding: 80px;
+    background: rgba(130, 150, 47, 0.5);
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    color: white;
+}
+
+
+</style>
