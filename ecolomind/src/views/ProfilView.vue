@@ -2,15 +2,6 @@
 
 
 <template>
-
-    <form>
-        <div>
-            <img src="https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg" id="output" width="200" />
-            <label for="file"></label>
-            <input type="file" id="file" >    
-        </div>
-    </form>
-
     <form>
         <div>
             <label for="pseudo"></label>
