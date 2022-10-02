@@ -27,9 +27,10 @@ export default({
 article{
     background-color: rgba($color: #FFCED8, $alpha: 0.5);
     border-radius: 15px;
-    flex: 0 1 33%; //flex: capacité à s'étendre, capacité à se réduire et la largeur
+    flex: 0 1 32%; //flex: capacité à s'étendre, capacité à se réduire et la largeur
     text-align: center;
-    padding: 5px;
+    padding: 20px 20px 0px;
+    margin: 10px 0;
     
     h2{
         text-align: left;

@@ -75,6 +75,7 @@ h1 {
 
 #tipscardcomponent {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
 
 }
