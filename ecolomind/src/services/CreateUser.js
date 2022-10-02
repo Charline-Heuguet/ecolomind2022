@@ -13,7 +13,7 @@ const CreateUser = {
         {
            username: username,
            email: email,
-           roles: ["users"],
+           roles: ["contributor"],
            password: password,
 
         }, ).catch(function(){
