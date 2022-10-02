@@ -50,3 +50,28 @@ export default ({
 })
 </script>
 
+<style lang="scss">
+
+body{
+    background: rgb(196,211,229);
+    background: linear-gradient(180deg, rgba(196,211,229,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    border: solid 0px;
+    border-radius: 30px;
+    box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
+    padding: 20px 0px;
+    margin: 20px 0 50px;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+</style>
+
