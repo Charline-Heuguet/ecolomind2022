@@ -38,6 +38,14 @@ const TipsServices =
         return response.data
     },
 
+    //Récupération des tips par pièces.
+
+    async getTipsByRoom(id)
+    {
+        const response = await axios.get(this.base_url + "/wp/v2/tips/?rooms=" + id);
+        return response.data
+    },
+
 
     // LES DIFFICULTES
     //Récupération de toutes les difficultés
@@ -74,6 +82,15 @@ const TipsServices =
         return response.data
     },
 
+    // Récupération du nom de la pièce (grâce à son id)
+
+    async getRoomNameById(id)
+    {
+        const response = await axios.get(this.base_url + "/wp/v2/rooms/"+id);
+        return response.name
+    }, 
+
+
 
 
     //Récupération de toutes les cibles
@@ -107,7 +124,15 @@ const TipsServices =
 
     async getIngredientByTipsId(id)
     {
-        const response = await axios.get(this.base_url + "/wp/v2/ingredients" + id);
+        const response = await axios.get(this.base_url + "/wp/v2/ingredients?tips=" + id);
+        return response.data
+    },
+
+    // Récupération des ingrédients en fonction des tips_id
+
+    async getRoomByTipsId(id)
+    {
+        const response = await axios.get(this.base_url + "/wp/v2/rooms?tips=" + id);
         return response.data
     },
 
