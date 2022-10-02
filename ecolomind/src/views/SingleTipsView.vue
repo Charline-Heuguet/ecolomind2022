@@ -7,13 +7,13 @@
         <h3 v-html="this.astuce.title.rendered"></h3>
         <!-- <img src="" alt="">         -->
 
-        <p>De : <span v-html="this.astuce._embedded.author.name"></span></p>
+        <!-- <p v-html="this.astuce._embedded.author.name"></p> -->
         <p v-html="this.astuce.content.rendered"></p>
-        <img src="" alt="">
+        <!-- <img src="" alt=""> -->
 
-        <h4> Espace commentaires</h4>          
+        <h4>Espace commentaires</h4>          
         <form @click.prevent="submitComment">
-            <label for="comment"> Ajoutez votre commentaire :</label><br/>
+            <label for="comment">Ajoutez votre commentaire :</label><br/>
             <input type="text" name="comment" id="comment">
 
             <button type="submit">Envoyez</button>
