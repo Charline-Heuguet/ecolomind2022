@@ -4,13 +4,17 @@
 
     <h1>{{singleRoom.name}}</h1>
 
-    <TipsCardComponent 
-    v-for="astuce in tips"
-    :key="astuce.id"
-    :dbid="astuce.id"
-    :title="astuce.title.rendered"
-    :excerpt="astuce.excerpt.rendered"
-    />
+    <div id="tipscardcomponent">
+
+        <TipsCardComponent 
+        v-for="astuce in tips"
+        :key="astuce.id"
+        :dbid="astuce.id"
+        :title="astuce.title.rendered"
+        :excerpt="astuce.excerpt.rendered"
+        />
+
+    </div>
     
 </div>
 </template>
@@ -61,17 +65,21 @@ export default ({
 })
 </script>
 
+
+
 <style lang="scss">
 
 h1 {
     margin-top: 50px;
 }
 
-article{
-    background-color: rgba($color: #FFCED8, $alpha: 0.5);
-    //border: 0.5px solid ;
-    border-radius: 15px;
+#tipscardcomponent {
+    display: flex;
+    flex-wrap: wrap;
+
 }
+
+
 
 
 
