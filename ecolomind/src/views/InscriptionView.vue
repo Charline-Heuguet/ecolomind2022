@@ -30,7 +30,7 @@
                 Politique de confidentialité
                 </router-link></label>                               
             </div> -->
-            <button>Je m'inscris</button>
+            <button >Je m'inscris</button>
 
         </form>
     </div>
@@ -40,7 +40,6 @@
 
 
 import axios from 'axios';
-
 
 
 export default {
@@ -73,6 +72,12 @@ export default {
             // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
             return {data: null}
         })
+        },
+
+        redirectConnexion(){
+            if(this.creatUser === true){
+                this.$router.push({name : "connexion"});
+            }
         }
     }
 }
