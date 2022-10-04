@@ -21,7 +21,7 @@ const CreateUser = {
             return {data: null}
         }) // catch va nous permettre de définir un comportement spécifique en cas d'erreur dans la promise (fonction js)
 
-        console.log(response.data);
+        // console.log(response.data);
 
         return response.data;
 
