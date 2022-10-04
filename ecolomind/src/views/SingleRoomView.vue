@@ -74,9 +74,10 @@ h1 {
 }
 
 #tipscardcomponent {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
 
 }
 
