@@ -37,6 +37,7 @@ export default{
     data(){
         return{
             astuce: false,
+            ingredients: false,
             comments : false,
         }
     },
@@ -48,6 +49,11 @@ export default{
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
             console.log(this.astuce);
+
+            axios.get(base_url + "/wp/v2/ingredients?tips="+this.astuce.id ).then((response) => {
+                this.ingredients = response.data;
+            });
+            console.log(this.ingredients);
 
             this.readComments();
         })
