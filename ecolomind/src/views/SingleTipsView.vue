@@ -6,8 +6,20 @@
         
         <h3 v-html="this.astuce.title.rendered"></h3>
         <!-- <img src="" alt="">         -->
-
         <p v-html="this.astuce._embedded.author.name"></p>
+        
+        <div class="ingredients">
+            <span>Ingrédients :</span>
+            <ul>
+                <li 
+                    v-for="ingredient of this.ingredients"
+                    :key="ingredient.id"
+                    v-html="ingredient.name"
+                    >  
+                </li>
+            </ul>
+        </div>
+        
         <p v-html="this.astuce.content.rendered"></p>
         <!-- <img src="" alt=""> -->
 
@@ -50,7 +62,7 @@ export default{
             this.astuce = response.data;
             console.log(this.astuce);
 
-            axios.get(base_url + "/wp/v2/ingredients?tips="+this.astuce.id ).then((response) => {
+            axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
                 this.ingredients = response.data;
             });
             console.log(this.ingredients);
