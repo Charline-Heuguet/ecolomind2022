@@ -52,7 +52,7 @@ export default({
 
     async created()
     {
-        const base_url= "http://ecolotips.local/wp-json";
+        const base_url= "http://ecolomind.local/wp-json";
 
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;

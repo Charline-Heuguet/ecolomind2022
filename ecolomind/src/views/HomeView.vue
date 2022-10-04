@@ -4,7 +4,7 @@
  <div id="image">
     <img id="background" src="../assets/maison-vide3.png" alt="">
     <img id="sdb" src="../assets/sdb.png" alt="" >
-    <img id="entree" src="../assets/entrée.png" alt="">
+    <img id="entree" src="../assets/entree.png" alt="">
     <img id="bureau" src="../assets/bureau.png" alt="">
     <img id="cuisine" src="../assets/cuisine.png" alt="">
     <img id="chambre" src="../assets/chambre.png" alt="">
