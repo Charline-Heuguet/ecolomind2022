@@ -13,25 +13,12 @@
   </template>
   
   <script>
-<<<<<<< HEAD
-      export default{
-=======
   export default {
->>>>>>> eb26af1531242df161865c931afab32f1f3d0f99
     name: "CommentListComponent",
     props: {
       // on crée une props qui va nous permettre de récupérer les commentaires
       comments: Array,
-<<<<<<< HEAD
-      title: String,
-      content: String,
-    }, 
-  }
-
-
-=======
     },
 
   }
->>>>>>> eb26af1531242df161865c931afab32f1f3d0f99
   </script>

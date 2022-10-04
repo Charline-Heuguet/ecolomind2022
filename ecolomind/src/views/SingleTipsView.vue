@@ -14,14 +14,6 @@
         <p v-html="this.astuce._embedded.author.name"></p>
 
         <div>
-<<<<<<< HEAD
-            <CommentListComponent 
-                v-for="comment in comments"
-                :key="comment.id"
-                :title="comment.title.rendered"
-                :content="comment.excerpt.rendered"
-            />
-=======
             <span>Astuce pour :</span>
             {{this.target.name}}
         </div>
@@ -29,7 +21,6 @@
         <div>
             <span>Niveau de difficulté :</span>
             {{this.difficulty.name}}
->>>>>>> eb26af1531242df161865c931afab32f1f3d0f99
         </div>
         
         <div class="ingredients">
@@ -100,8 +91,9 @@ export default{
 
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
+            this.readComments();
             // console.log(this.astuce);
-
+            });
             axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
                 this.ingredients = response.data;
             });
@@ -122,23 +114,17 @@ export default{
                 this.room = response.data[0];
             });
 
-            this.readComments();
-        })
+            
+        
 
         
     },
 
     methods: {
 
-<<<<<<< HEAD
-    //     /**
-    //      * Cette fonction est executée deux fois. Une fois au moment de la création du composant et une fois à chaque fois qu'un commentaire est ajouté
-    //      */
-=======
         /**
          * Cette fonction est executée deux fois. Une fois au moment de la création du composant et une fois à chaque fois qu'un commentaire est ajouté
          */
->>>>>>> eb26af1531242df161865c931afab32f1f3d0f99
         
             readComments(){
                 const base_url =  "http://ecolomind.local/wp-json";
