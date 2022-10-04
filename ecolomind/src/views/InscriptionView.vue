@@ -67,7 +67,7 @@ export default {
     
             console.log(JSON.parse(JSON.stringify(this.formData)));
             console.log('fin from data');
-            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "connexion"})) //don't forget LE PIÈGE
+            axios.post('http://ecolotips.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "connexion"})) //don't forget LE PIÈGE
              .then(response => console.log(response)) 
             .catch(function(){
                
