@@ -11,7 +11,7 @@
             {{this.room.name}}
         </div>
 
-        <p v-html="this.astuce._embedded.author.name"></p>
+       <p v-html="this.astuce._embedded.author.name"></p> 
 
         <div>
             <span>Astuce pour :</span>
@@ -89,10 +89,12 @@ export default{
     {
         const base_url= "http://ecolomind.local/wp-json";
 
+     
+
         // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
-            // console.log(this.astuce);
+         console.log(this.astuce);
 
             axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
                 this.ingredients = response.data;

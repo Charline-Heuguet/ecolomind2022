@@ -3,7 +3,7 @@
 
 const CreateUser = {
 
-    base_url :  "http://ecolotips.local/wp-json",
+    base_url :  "http://ecolomind.local/wp-json",
 
     async createUser (username, email, password){
         
