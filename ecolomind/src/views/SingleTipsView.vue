@@ -3,10 +3,25 @@
 <template>
 
     <div id="SingleView">
-        
-        <h3 v-html="this.astuce.title.rendered"></h3>
-        <!-- <img src="" alt="">         -->
+
+        <div>      
+            <h3 v-html="this.astuce.title.rendered"></h3>
+            <!-- <img src="" alt="">         -->
+
+            {{this.room.name}}
+        </div>
+
         <p v-html="this.astuce._embedded.author.name"></p>
+
+        <div>
+            <span>Astuce pour :</span>
+            {{this.target.name}}
+        </div>
+
+        <div>
+            <span>Niveau de difficulté :</span>
+            {{this.difficulty.name}}
+        </div>
         
         <div class="ingredients">
             <span>Ingrédients :</span>
@@ -63,6 +78,9 @@ export default{
             astuce: false,
             ingredients: false,
             comments : false,
+            difficulty : "",
+            room : "",
+            target : "",
             tools : false,
         }
     },
@@ -81,6 +99,18 @@ export default{
 
             axios.get(base_url + "/wp/v2/tools?post="+this.astuce.id ).then((response) => {
                 this.tools = response.data;
+            });
+
+            axios.get(base_url + "/wp/v2/target?post="+this.astuce.id ).then((response) => {
+                this.target = response.data[0];
+            });
+
+            axios.get(base_url + "/wp/v2/difficulty?post="+this.astuce.id ).then((response) => {
+                this.difficulty = response.data[0];
+            });
+
+            axios.get(base_url + "/wp/v2/rooms?post="+this.astuce.id ).then((response) => {
+                this.room = response.data[0];
             });
 
             this.readComments();
