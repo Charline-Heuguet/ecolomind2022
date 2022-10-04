@@ -9,7 +9,7 @@ const TipsServices =
 
 {
 
-    base_url : "http://ecolomind.local/wp-json",
+    base_url : "http://ecolotips.local/wp-json",
 
     // Using Async to parallel a method with other actions.
 

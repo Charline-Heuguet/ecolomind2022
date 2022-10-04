@@ -4,7 +4,7 @@ import axios from "axios";
 
 const UserServices = {
 
-    base_url : "http://ecolomind.local/wp-json", //Change for the greate base URL 
+    base_url : "http://ecolotips.local/wp-json", //Change for the greate base URL 
 
     async login(p_username, p_password){
 
