@@ -34,7 +34,7 @@ export default {
     },
     methods : {
         async submitComment(){
-            console.log(this.content);
+            // console.log(this.content);
             await TipsServices.addComment(this.content, this.astuce_id);
             this.$emit('commentAdded');
         }
