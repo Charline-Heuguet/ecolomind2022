@@ -19,14 +19,14 @@
             <button type="submit">Envoyez</button>
         </form>
 
-        <!-- <div>
+        <div>
             <CommentListComponent 
                 v-for="comment in comments"
                 :key="comment.id"
                 :title="comment.title.rendered"
                 :content="comment.excerpt.rendered"
             />
-        </div> -->
+        </div>
         
 
     </div>
@@ -65,7 +65,7 @@ export default({
     // methods: {
 
     //     /**
-    //      * Cette fonction est éxectué deux fois. Une fois au moment de la création du composant et une fois à chaque fois qu'un commentaire est ajouté
+    //      * Cette fonction est executée deux fois. Une fois au moment de la création du composant et une fois à chaque fois qu'un commentaire est ajouté
     //      */
         
     //         readComments(){

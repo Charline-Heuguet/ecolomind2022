@@ -10,7 +10,7 @@
   </template>
   
   <script>
-  export default({
+      export default{
     name: "CommentListComponent",
     props: {
       // on crée une props qui va nous permettre de récupérer les commentaires
@@ -18,5 +18,7 @@
       title: String,
       content: String,
     }, 
-  })
+  }
+
+
   </script>
