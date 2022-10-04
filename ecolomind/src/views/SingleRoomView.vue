@@ -46,7 +46,7 @@ export default ({
         this.singleRoom = await TipsServices.getRoomById(RoomId);
 
         this.tips = await TipsServices.getTipsByRoom(RoomId);
-        console.log(this.$route);
+        // console.log(this.$route);
     },
 
 
