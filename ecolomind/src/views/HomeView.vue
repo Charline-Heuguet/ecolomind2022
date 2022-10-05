@@ -36,6 +36,7 @@
       params: {
         id: room.id,
       }
+     
     }">
     <img :id="room.slug" :src="getUrlImg(room)" alt="">  
     </router-link>
@@ -147,6 +148,10 @@ export default {
   transform: scale(1);
   transition: all .6s ; 
   filter:brightness(50%)
+}
+#salle-de-bain:hover{
+   /* transform: scale(1.1); */
+   filter: brightness(100%);
 }
 #salon:hover{
   /* transform: scale(1.1); */
