@@ -9,16 +9,15 @@
         <form @submit.prevent="createTips">
 
             <div >
-                <p>{{ selected }}</p>
-                <select  name="rooms" id="room-select">
-                    <option v-for="room in rooms"  :key="room" :value="room.value" >
-                        {{room.text}}
+                <select name="rooms" id="room-select" v-model="this.formData.selectedRoom">
+                    <option v-for="room in this.rooms" :key="room.id" :value="room.name">
+                        {{room.name}}
                     </option>
-                </select >
+                </select>
             </div>
             
-            <select name="difficulty" id="difficulty-select" v-model="formData.selectedDifficulty">
-                <option v-for="difficulty in formData.difficulties" :key="difficulty" :value="difficulty.value">
+            <select name="difficulty" id="difficulty-select" v-model="this.formData.selectedDifficulty">
+                <option v-for="difficulty in this.difficulties" :key="difficulty.id" :value="difficulty.name">
                     {{difficulty.name}}
                 </option>
             </select>
@@ -68,25 +67,27 @@ export default {
 
     data(){
         return {
+            difficulties: [],
+            rooms: [],
+
             formData: {
-                // rooms: [],
-                difficulties: [],
+                selectedDifficulty: "",
+                selectedRoom: "",
                 titre: '',
                 ingredient: '',
                 contenu: "",
                 photo:"",
-                selectedDifficulty: "",
                
             }, 
-            selected : 'La pièce concernée',
-                rooms: [
-                { text: 'La pièce concernée', value: 'La pièce concernée' },
-                { text: 'Cuisine', value: 'Cuisine' },
-                { text: 'Jardin', value: 'Jardin' },
-                { text: 'Salon', value: 'Salon' },
-                { text: 'Salle de bain', value: 'Salle de bain' },
-                { text: 'Chambre', value: 'Chambre' },
-                ],
+            // selected : 'La pièce concernée',
+            //     rooms: [
+            //     { text: 'La pièce concernée', value: 'La pièce concernée' },
+            //     { text: 'Cuisine', value: 'Cuisine' },
+            //     { text: 'Jardin', value: 'Jardin' },
+            //     { text: 'Salon', value: 'Salon' },
+            //     { text: 'Salle de bain', value: 'Salle de bain' },
+            //     { text: 'Chambre', value: 'Chambre' },
+            //     ],
 
                 // difficulties: [
                 // { text: 'Niveau de difficulté', value: 'A' },
@@ -100,16 +101,17 @@ export default {
 
     async created(){
 
-        this.formData.difficulties = await TipsServices.getAllDifficulties();
-        console.log(this.formData.difficulties);
+        this.difficulties = await TipsServices.getAllDifficulties();
+        // console.log(this.formData.difficulties);
 
-        // this.formData.rooms = await TipsServices.getAllRooms();
+        this.rooms = await TipsServices.getAllRooms();
 
     },
     methods:
     {   
          async createTips(){
     
+            // console.log(this.formData.selectedDifficulty);
             console.log(JSON.parse(JSON.stringify(this.formData)));
             //  console.log('fin from data');
             axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/tips', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
@@ -120,6 +122,10 @@ export default {
                 return {data: null}
             })
         },
+
+        // debug(){
+        //     console.log(this.selectedDifficulty);
+        // }
 
         // onChange:function(evenement){
         //     console.log(evenement.target.value);
