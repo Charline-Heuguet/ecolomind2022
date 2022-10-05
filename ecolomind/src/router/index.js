@@ -14,6 +14,12 @@ const routes = [
     component: () => import('../views/SingleRoomView.vue')
   },
 
+  {
+    path: '/tips/:id',
+    name: 'single-tips',
+    component: () => import('../views/SingleTipsView.vue')
+  },
+
 
   // {
   //   path: '/salle-de-bain',

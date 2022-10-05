@@ -10,14 +10,14 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
             <router-link   
             v-for="room in rooms"
             :key="room.id" 
-            v-bind:to="{
+            :to="{
                     name: 'single-room', //nom de la route donnée dans Routers pour aller sur la view SingleRoomView
                     params: {
                         id: room.id, 
                     }
                 }">{{room.name}}</router-link>
 
-            <router-link to="/ajout-article">Proposer une astuce</router-link>
+            <router-link to="/ajout-article" v-if="this.$store.state.userIsConnect">Proposer une astuce</router-link>
 
         </nav>
 </template>
@@ -46,9 +46,32 @@ export default ({
 
         this.rooms = await TipsServices.getAllRooms();
     }
-
-
     
 })
 </script>
+
+<style lang="scss">
+
+body{
+    background: rgb(196,211,229);
+    background: linear-gradient(180deg, rgba(196,211,229,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    border: solid 0px;
+    border-radius: 30px;
+    box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
+    padding: 20px 0px;
+    margin: 20px 0;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+</style>
 
