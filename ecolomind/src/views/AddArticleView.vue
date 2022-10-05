@@ -10,14 +10,14 @@
 
             <div >
                 <p>{{ selected }}</p>
-                <select  name="rooms" id="room-select" v-model="rooms">
+                <select  name="rooms" id="room-select">
                     <option v-for="room in rooms"  :key="room" :value="room.value" >
                         {{room.text}}
                     </option>
                 </select >
             </div>
             
-            <select name="difficulty" id="difficulty-select" v-model="value">
+            <select name="difficulty" id="difficulty-select" v-model="formData.selectedDifficulty">
                 <option v-for="difficulty in formData.difficulties" :key="difficulty" :value="difficulty.value">
                     {{difficulty.name}}
                 </option>
@@ -69,13 +69,13 @@ export default {
     data(){
         return {
             formData: {
-                rooms: [],
+                // rooms: [],
                 difficulties: [],
                 titre: '',
                 ingredient: '',
                 contenu: "",
                 photo:"",
-                select: "",
+                selectedDifficulty: "",
                
             }, 
             selected : 'La pièce concernée',
@@ -107,10 +107,7 @@ export default {
 
     },
     methods:
-    
-    
-    {
-             
+    {   
          async createTips(){
     
             console.log(JSON.parse(JSON.stringify(this.formData)));
@@ -118,11 +115,15 @@ export default {
             axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/tips', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
              .then(response => console.log(response)) 
             .catch(function(){ 
-               
-            // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
-            return {data: null}
-        })
-        }
+                
+                // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
+                return {data: null}
+            })
+        },
+
+        // onChange:function(evenement){
+        //     console.log(evenement.target.value);
+        // }
         
     },
 }
