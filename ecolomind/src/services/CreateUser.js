@@ -3,7 +3,7 @@
 
 const CreateUser = {
 
-    base_url :  "http://ecolomind.local/wp-json",
+    base_url :  "http://ecolotips.local/wp-json",
 
     async createUser (username, email, password){
         
@@ -21,7 +21,7 @@ const CreateUser = {
             return {data: null}
         }) // catch va nous permettre de définir un comportement spécifique en cas d'erreur dans la promise (fonction js)
 
-        console.log(response.data);
+        // console.log(response.data);
 
         return response.data;
 

@@ -15,7 +15,7 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
                     params: {
                         id: room.id, 
                     }
-                }">{{room.name}}</router-link>
+            }">{{room.name}}</router-link>
 
             <router-link to="/ajout-article" v-if="this.$store.state.userIsConnect">Proposer une astuce</router-link>
 
