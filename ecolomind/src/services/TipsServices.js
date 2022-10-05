@@ -91,8 +91,6 @@ const TipsServices =
     }, 
 
 
-
-
     //Récupération de toutes les cibles
 
     async getAllTarget()
