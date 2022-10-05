@@ -4,21 +4,21 @@
 
     <div id="add-article">
         
-        <h3> Ajouter une astuce </h3>
+        <h3> Ajouter une astuce</h3>
 
         <form @submit.prevent="createTips">
 
             <div >
-                <select  name="rooms" id="room-select" v-model="this.formData.select">
-                    <option v-for="room in formData.rooms"  :key="room" :value="room.value">
-                        {{room.name}}
+                <p>{{ selected }}</p>
+                <select  name="rooms" id="room-select" v-model="rooms">
+                    <option v-for="room in rooms"  :key="room" :value="room.value" >
+                        {{room.text}}
                     </option>
-                </select>
+                </select >
             </div>
             
-
-            <select name="difficulty" id="difficulty-select">
-                <option v-for="difficulty in formData.difficulties"  :key="difficulty" :value="difficulty.value">
+            <select name="difficulty" id="difficulty-select" v-model="value">
+                <option v-for="difficulty in formData.difficulties" :key="difficulty" :value="difficulty.value">
                     {{difficulty.name}}
                 </option>
             </select>
@@ -28,7 +28,6 @@
                 <p>{{ formData.titre }}</p>
                 <input type="text" id="title" name="title" placeholder="Titre de votre astuce" v-model="formData.titre">
             </div>
-
 
             <div>
                 <label for="ingredients"></label>
@@ -46,7 +45,6 @@
                 <label for="photo">Postez la photo de votre produit</label>
                 <input type="file" id="photo" name="photo" accept="image/png, image/jpeg">
             </div>
-
 
             <button>Envoyez votre astuce</button>
 
@@ -80,25 +78,22 @@ export default {
                 select: "",
                
             }, 
-            // selected : 'A',
-                // rooms: [
-                // { text: 'La pièce concernée', value: 'A' },
-                // { text: 'Cuisine', value: 'B' },
-                // { text: 'Jardin', value: 'C' },
-                // { text: 'Salon', value: 'D' },
-                // { text: 'Salle de bain', value: 'E' },
-                // { text: 'Chambre', value: 'F' },
-                // ],
+            selected : 'La pièce concernée',
+                rooms: [
+                { text: 'La pièce concernée', value: 'La pièce concernée' },
+                { text: 'Cuisine', value: 'Cuisine' },
+                { text: 'Jardin', value: 'Jardin' },
+                { text: 'Salon', value: 'Salon' },
+                { text: 'Salle de bain', value: 'Salle de bain' },
+                { text: 'Chambre', value: 'Chambre' },
+                ],
 
                 // difficulties: [
                 // { text: 'Niveau de difficulté', value: 'A' },
                 // { text: 'Facile', value: 'B' },
                 // { text: 'Moyen', value: 'C' },
                 // { text: 'Difficile', value: 'D' }
-                // ]
-
-            
-            
+                // ] 
         }
         
     },
@@ -108,7 +103,7 @@ export default {
         this.formData.difficulties = await TipsServices.getAllDifficulties();
         console.log(this.formData.difficulties);
 
-        this.formData.rooms = await TipsServices.getAllRooms();
+        // this.formData.rooms = await TipsServices.getAllRooms();
 
     },
     methods:
