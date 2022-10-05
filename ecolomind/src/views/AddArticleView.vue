@@ -24,19 +24,16 @@
 
             <div>
                 <label for="title">Inscrire le titre de votre astuce :</label>
-                <p>{{ formData.titre }}</p>
                 <input type="text" id="title" name="title" placeholder="Titre de votre astuce" v-model="formData.titre">
             </div>
 
             <div>
                 <label for="ingredients"></label>
-                <p>{{ formData.ingredient }}</p>
                 <input type="text" id="ingredients" name="ingredients" placeholder="Les ingrédients nécessaires" v-model="formData.ingredient">
             </div>
 
             <div>
                 <label for="content"></label>
-                <p>{{ formData.contenu }}</p>
                 <input type="textarea" name="content" id="content" placeholder="Ecrivez les quantités des ingredients nécessaires à votre astuce.Rédigez votre recette en la détaillant" v-model="formData.contenu">
             </div>
 
