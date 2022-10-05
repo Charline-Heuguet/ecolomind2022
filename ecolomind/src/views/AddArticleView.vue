@@ -10,14 +10,14 @@
 
             <div >
                 <select name="rooms" id="room-select" v-model="this.formData.selectedRoom">
-                    <option v-for="room in this.rooms" :key="room.id" :value="room.name">
+                    <option v-for="room in this.rooms" :key="room.id" :value="room.id">
                         {{room.name}}
                     </option>
                 </select>
             </div>
             
             <select name="difficulty" id="difficulty-select" v-model="this.formData.selectedDifficulty">
-                <option v-for="difficulty in this.difficulties" :key="difficulty.id" :value="difficulty.name">
+                <option v-for="difficulty in this.difficulties" :key="difficulty.id" :value="difficulty.id">
                     {{difficulty.name}}
                 </option>
             </select>
@@ -76,28 +76,13 @@ export default {
                 photo:"",
                
             }, 
-            // selected : 'La pièce concernée',
-            //     rooms: [
-            //     { text: 'La pièce concernée', value: 'La pièce concernée' },
-            //     { text: 'Cuisine', value: 'Cuisine' },
-            //     { text: 'Jardin', value: 'Jardin' },
-            //     { text: 'Salon', value: 'Salon' },
-            //     { text: 'Salle de bain', value: 'Salle de bain' },
-            //     { text: 'Chambre', value: 'Chambre' },
-            //     ],
-
-                // difficulties: [
-                // { text: 'Niveau de difficulté', value: 'A' },
-                // { text: 'Facile', value: 'B' },
-                // { text: 'Moyen', value: 'C' },
-                // { text: 'Difficile', value: 'D' }
-                // ] 
         }
         
     },
 
     async created(){
 
+        // this.difficulties = await TipsServices.getDifficultyById();
         this.difficulties = await TipsServices.getAllDifficulties();
         // console.log(this.formData.difficulties);
 
