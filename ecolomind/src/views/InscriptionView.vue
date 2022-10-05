@@ -30,7 +30,7 @@
                 Politique de confidentialité
                 </router-link></label>                               
             </div> -->
-            <button >Je m'inscris</button>
+            <button>Je m'inscris</button>
 
         </form>
     </div>
@@ -77,11 +77,11 @@ export default {
         })
         },
 
-        redirectConnexion(){
-            if(this.creatUser === true){
-                this.$router.push({name : "connexion"});
-            }
-        }
+        // redirectConnexion(){
+        //     if(this.creatUser === true){
+        //         this.$router.push({name : "connexion"});
+        //     }
+        // }
         
     }
 

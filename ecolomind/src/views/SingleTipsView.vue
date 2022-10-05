@@ -5,13 +5,13 @@
     <div id="SingleView">
 
         <div>      
-            <h3 v-html="this.astuce.title.rendered"></h3>
+            <!-- <h3 v-html="this.astuce.title.rendered"></h3> -->
             <!-- <img src="" alt="">         -->
 
             {{this.room.name}}
         </div>
 
-        <p v-html="this.astuce._embedded.author.name"></p>
+        <!-- <p v-html="this.astuce._embedded.author.name"></p> -->
 
         <div>
             <span>Astuce pour :</span>
@@ -94,7 +94,7 @@ export default{
             this.astuce = response.data;
             this.readComments();
             // console.log(this.astuce);
-            });
+            
             axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
                 this.ingredients = response.data;
             });
@@ -115,7 +115,7 @@ export default{
                 this.room = response.data[0];
             });
 
-            
+            });
         
 
         
