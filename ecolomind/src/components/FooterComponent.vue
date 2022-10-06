@@ -19,6 +19,10 @@
             <router-link :to="{name: 'politique-de-confidentialite'}">
                 Politique de confidentialité
             </router-link>
+
+             <router-link :to="{name: 'faq'}">
+                F.A.Q
+            </router-link>
     
 
     </footer>

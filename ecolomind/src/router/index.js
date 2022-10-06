@@ -111,6 +111,12 @@ const routes = [
     component: () => import('../views/LegalView.vue')
   },
 
+  {
+    path: '/faq',
+    name: 'faq',
+    component: () => import('../views/FaqView.vue')
+  },
+
   
 ]
 
