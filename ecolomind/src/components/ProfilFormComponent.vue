@@ -5,12 +5,12 @@
 
         <form @submit.prevent="updateMyInfos">
             <div>
-                <label for="pseudo"></label>
+                <label for="pseudo">Modifier mon pseudo</label>
                 <input type="text" :placeholder="this.getCurrentUserName()" id="pseudo" name="pseudo" v-model="formData.pseudo"/>
             </div>
 
             <div>
-                <label for="email"></label>
+                <label for="email">Modifier mon email</label>
                 <input type="text"  :placeholder="this.getCurrentUserEmail()" id="email" name="email" v-model="formData.email"/>
             </div>
 
