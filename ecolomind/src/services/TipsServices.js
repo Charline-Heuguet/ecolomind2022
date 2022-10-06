@@ -163,6 +163,17 @@ const TipsServices =
     return response.data
     },
 
+    // getCurrentUserName(){
+    //     return storage.get('userData').user_display_name;
+    // },
+
+    async TipsCreatedByCurrentUser(id)
+    {
+        const response = await axios.get(this.base_url + "/wp/v2/tips?author=" + id);
+        return response.data;
+
+    }
+
 }
 
 //I make this module exportable so that I can import it and use it in my components

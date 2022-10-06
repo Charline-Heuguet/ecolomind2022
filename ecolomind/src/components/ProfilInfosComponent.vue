@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Mon profil</h3>
+        <h2>Mon profil</h2>
 
         <h5>Mon pseudo</h5>
         <p>{{ getCurrentUserName() }}</p>

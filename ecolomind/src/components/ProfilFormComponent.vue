@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <h3>Modifier mon profil</h3>
+        <h2>Modifier mon profil</h2>
 
         <form @submit.prevent="updateMyInfos">
             <div>
