@@ -6,7 +6,7 @@
     <div>
         <ProfilInfosComponent v-if="this.mode == 'profil'"/>
   
-          <button v-if="this.mode == 'profil'" @click="switchToEditProfil">Modifier mon profil</button>
+        <button v-if="this.mode == 'profil'" @click="switchToEditProfil">Modifier mon profil</button>
 
         <ProfilFormComponent v-if="this.mode == 'editProfil'"/>
 

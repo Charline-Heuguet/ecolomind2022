@@ -27,13 +27,17 @@
 
 <script>
 
-import axios from 'axios';
+// import axios from 'axios';
+import storage from '@/utils/storage';
+
 
 export default {
     name: 'ProfilFormComponent',
 
     data(){
         return{
+
+            pseudoPlaceholder: "",
 
             usersInfos: {},
 
@@ -53,13 +57,21 @@ export default {
 
     methods:
     {
-        async updateMyInfos(){
-            console.log(JSON.parse(JSON.stringify(this.formData)));
-            axios.patch('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
-            .then(response => console.log(response))
-            .catch(function(){
-                return {data: null}
-            })
+        // async updateMyInfos(){
+        //     console.log(JSON.parse(JSON.stringify(this.formData)));
+        //     axios.patch('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
+        //     .then(response => console.log(response))
+        //     .catch(function(){
+        //         return {data: null}
+        //     })
+        // },
+
+        getCurrentUserName(){
+            this.pseudoPlaceholder = storage.get('userData').user_display_name;
+        },
+
+        getCurrentUserEmail(){
+            return storage.get('userData').user_email;
         },
 
         // async getUsersInfos(){

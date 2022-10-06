@@ -3,21 +3,30 @@
         <h3>Mon profil</h3>
 
         <h5>Mon pseudo</h5>
-        <p>pseudo</p>
+        <p>{{ getCurrentUserName() }}</p>
 
         <h5>Mon adresse email</h5>
-        <p>mail@mail.com</p>
-
-        <h5>Mon mot de passe</h5>
-        <p>*******</p>
+        <p>{{ getCurrentUserEmail() }}</p>
 
 
     </div>
 </template>
 
 <script>
+import storage from '@/utils/storage';
 
 export default{
     name: 'ProfilInfosComponent',
+
+    methods:{
+        getCurrentUserName(){
+            return storage.get('userData').user_display_name;
+        },
+
+        getCurrentUserEmail(){
+            return storage.get('userData').user_email;
+        },
+
+    }
 }
 </script>
