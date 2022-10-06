@@ -6,18 +6,18 @@
         <form @submit.prevent="updateMyInfos">
             <div>
                 <label for="pseudo"></label>
-                <input type="text" placeholder="Gerceval" id="pseudo" name="pseudo" v-model="formData.pseudo"/>
+                <input type="text" :placeholder="this.getCurrentUserName()" id="pseudo" name="pseudo" v-model="formData.pseudo"/>
             </div>
 
             <div>
                 <label for="email"></label>
-                <input type="text"  placeholder="gerceval@legallois.com" id="email" name="email" v-model="formData.email"/>
+                <input type="text"  :placeholder="this.getCurrentUserEmail()" id="email" name="email" v-model="formData.email"/>
             </div>
 
-            <div>
+            <!-- <div>
                 <label for="password"></label>
                 <input type="password" placeholder="******" id="password" name="password" v-model="formData.password"/>
-            </div>
+            </div> -->
 
             <button>Enregistrer les modifications</button>
         </form>
@@ -27,7 +27,7 @@
 
 <script>
 
-// import axios from 'axios';
+import axios from 'axios';
 import storage from '@/utils/storage';
 
 
@@ -37,37 +37,37 @@ export default {
     data(){
         return{
 
-            pseudoPlaceholder: "",
+            // pseudoPlaceholder: "",
 
             usersInfos: {},
 
             formData: {
                 pseudo: "",
                 email: "",
-                password: "",
+                // password: "",
             },
         }
     },
 
-    // async created() {
-    //     this.usersInfos = await this.getUsersInfos();
-    //     console.log(this.usersInfos);
-    //     console.log("là");
-    // },
+    async created() {
+        // this.usersInfos = await this.getUsersInfos();
+        console.log(this.getCurrentUserName());
+        console.log("là");
+    },
 
     methods:
     {
-        // async updateMyInfos(){
-        //     console.log(JSON.parse(JSON.stringify(this.formData)));
-        //     axios.patch('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
-        //     .then(response => console.log(response))
-        //     .catch(function(){
-        //         return {data: null}
-        //     })
-        // },
+        async updateMyInfos(){
+            console.log(JSON.parse(JSON.stringify(this.formData)));
+            axios.patch('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
+            .then(response => console.log(response))
+            .catch(function(){
+                return {data: null}
+            })
+        },
 
         getCurrentUserName(){
-            this.pseudoPlaceholder = storage.get('userData').user_display_name;
+            return storage.get('userData').user_display_name;
         },
 
         getCurrentUserEmail(){
