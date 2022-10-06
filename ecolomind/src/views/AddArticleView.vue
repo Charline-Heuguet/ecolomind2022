@@ -14,14 +14,14 @@
                     </option>
             </select>
 
-        <!--     <div>
+          <!-- <div>
                 <select name="difficulty" id="difficulty-select" v-model="formData.difficulty">
                     <option value="" style="display: none">Quel est le niveau de difficulté? </option>
                     <option value="">Facile</option>
                     <option value="">Moyen</option>
                     <option value="">Difficile</option>
                 </select>                
-            </div> -->
+            </div>  -->
 
             <div>
                 <label for="title"></label>
@@ -59,7 +59,7 @@
 
 
 export default {
- 
+
     name: "AddArticleView",
 
 
@@ -73,12 +73,7 @@ export default {
                 photo:"",
                
             }, 
-            selected : 'A',
-                options: [
-                { text: 'One', value: 'A' },
-                { text: 'Two', value: 'B' },
-                { text: 'Three', value: 'C' }
-                ]
+           
             
         }
         
@@ -90,7 +85,7 @@ export default {
              
          async createTips(){
     
-            /*console.log(JSON.parse(JSON.stringify(this.formData)));
+           /* console.log(JSON.parse(JSON.stringify(this.formData)));
              console.log('fin from data');
             axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/tips', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "connexion"})) //don't forget LE PIÈGE
              .then(response => console.log(response)) 
@@ -99,7 +94,7 @@ export default {
             // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
             return {data: null}
         })*/
-        }
+        } 
         
     }
 }

@@ -10,7 +10,9 @@
         </div>
         
 
+
         <p v-html="this.author.name"></p>
+
 
         <div>
 
@@ -83,6 +85,7 @@ export default{
     {
        
         const base_url= "http://ecolomind.local/wp-json";
+
  
         // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
@@ -90,7 +93,9 @@ export default{
             this.title= response.data.title.rendered;
             const em = Object.assign({}, this.astuce._embedded);
 
+
             this.author = em.author[0];
+
 
             
             this.isloaded = true;
@@ -98,6 +103,7 @@ export default{
         });   
 
         
+
     },
     mounted(){
         // this.$nextTick(function(){console.log(this.astuce)});
