@@ -4,79 +4,45 @@
 <template>
 
     <div>
+        <ProfilInfosComponent v-if="this.mode == 'profil'"/>
+  
+          <button v-if="this.mode == 'profil'" @click="switchToEditProfil">Modifier mon profil</button>
 
-        <h3>Modifier mes informations :</h3>
+        <ProfilFormComponent v-if="this.mode == 'editProfil'"/>
 
-        <form @submit.prevent="updateMyInfos">
-            <div>
-                <label for="pseudo"></label>
-                <input type="text" placeholder="Gerceval" id="pseudo" name="pseudo" v-model="formData.pseudo"/>
-            </div>
-
-            <div>
-                <label for="email"></label>
-                <input type="text"  placeholder="gerceval@legallois.com" id="email" name="email" v-model="formData.email"/>
-            </div>
-
-            <div>
-                <label for="password"></label>
-                <input type="password" placeholder="******" id="password" name="password" v-model="formData.password"/>
-            </div>
-
-            <button>Enregistrer les modifications</button>
-        </form>
+        <button v-if="this.mode == 'editProfil'" @click="switchToProfil">Annuler</button>
     </div>
+    
 
     
 </template>
 
 
 <script>
-
-import axios from 'axios';
+import ProfilInfosComponent from '@/components/ProfilInfosComponent.vue';
+import ProfilFormComponent from '@/components/ProfilFormComponent.vue';
 export default {
-    name: 'ProfilView',
+    name: "ProfilView",
+
+    components: {
+        ProfilFormComponent,
+        ProfilInfosComponent,
+    },
 
     data(){
         return{
-
-            usersInfos: {},
-
-            formData: {
-                pseudo: "",
-                email: "",
-                password: "",
-            },
+            mode: 'profil',
         }
     },
-
-    async created() {
-        this.usersInfos = await this.getUsersInfos();
-        console.log(this.usersInfos);
-        console.log("là");
-    },
-
-    methods:
-    {
-        async updateMyInfos(){
-            console.log(JSON.parse(JSON.stringify(this.formData)));
-            axios.put('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
-            .then(response => console.log(response))
-            .catch(function(){
-                return {data: null}
-            })
+    methods: {
+        switchToEditProfil(){
+            this.mode = 'editProfil';
         },
+        switchToProfil(){
+            this.mode = 'profil';
+        }
+    }
 
-        async getUsersInfos(){
-            this.usersInfos = await axios.get('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.usersInfos)))
-            .then(response => console.log(response))
-            .catch(function(){
-                return {data: null}
-            })
-
-        },
-
-        
-    },
 }
+
 </script>
