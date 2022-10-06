@@ -2,27 +2,8 @@
 
 <template>
  <div id="image">
-    <img id="background" src="../assets/maison-vide3.png" alt="">
+    <img id="background" src="../assets/maison-vide3.png" alt="maison sans les pieces">
 
-    <!-- <a href="http://localhost:8080/#/rooms/10">  
-      <img id="sdb" src="../assets/sdb.png" alt="" >
-    </a>
-
-    <a href="">
-      <img id="entree" src="../assets/entree.png" alt="">
-    </a>
-
-    <a href="http://localhost:8080/#/rooms/11">
-      <img id="salon" src="../assets/salon.png" alt="">
-    </a>
-    
-    <a href="http://localhost:8080/#/rooms/7">
-      <img id="cuisine" src="../assets/cuisine.png" alt="">
-    </a>
-
-    <a href="http://localhost:8080/#/rooms/12">
-      <img id="chambre" src="../assets/chambre.png" alt="">
-    </a> -->
 
     <a href="">
       <img id="entree" src="../assets/entree.png" alt="">
@@ -37,7 +18,7 @@
         id: room.id,
       }
     }">
-    <img :id="room.slug" :src="getUrlImg(room)" alt="">  
+    <img :id="room.slug" :src="getUrlImg(room)" :alt="room.name">  
     </router-link>
 
 
