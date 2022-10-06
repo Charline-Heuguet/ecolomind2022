@@ -1,7 +1,6 @@
 <template>
-     <div>
-            <span>Niveau de difficulté :</span>
-            {{this.difficulty.name}}
+        <div>
+            <img :src=" this.difficulty.description " alt="">
         </div>
 </template>
 
@@ -28,6 +27,7 @@ export default {
 
         axios.get(base_url + "/wp/v2/difficulty?post="+this.astuce.id ).then((response) => {
                 this.difficulty = response.data[0];
+                console.log(this.difficulty);
             });
         });
     }
