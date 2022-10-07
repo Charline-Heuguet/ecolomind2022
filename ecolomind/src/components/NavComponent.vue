@@ -52,10 +52,6 @@ export default ({
 
 <style lang="scss">
 
-body{
-    background: rgb(196,211,229);
-    background: linear-gradient(180deg, rgba(196,211,229,1) 0%, rgba(255,255,255,1) 100%);
-}
 
 nav{
     display: flex;
