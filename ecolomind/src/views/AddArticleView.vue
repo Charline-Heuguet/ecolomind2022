@@ -96,7 +96,7 @@ export default {
             // console.log(this.formData.selectedDifficulty);
             console.log(JSON.parse(JSON.stringify(this.formData)));
             //  console.log('fin from data');
-            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/tips', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
+            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/addTips', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
              .then(response => console.log(response)) 
             .catch(function(){ 
                 
