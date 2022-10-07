@@ -1,31 +1,33 @@
 <!-- Liste des commentaires -->
 <template>
-<form v-if="this.$store.state.userIsConnect">
-     
-    <div >
-      <label for="content">Commentaire</label>
-      <textarea
-        rows="3"
-        v-model="content"
-      ></textarea>
-    </div>
-    <button
-      type="submit"
-      @click.prevent="submitComment"
-    >
-      Envoyer
-    </button>
-  </form>
-    <section>
-      <h2>{{ this.comments.length }} commentaire(s)</h2>
-      <article
-        v-for="comment in comments"
-        :key="comment.id"
+  <div>
+    <form v-if="this.$store.state.userIsConnect">
+        
+        <div >
+          <label for="content">Commentaire</label>
+          <textarea
+            rows="3"
+            v-model="content"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          @click.prevent="submitComment"
         >
-        <h3>{{ comment.author_name }}</h3>
-        <p v-html="comment.content.rendered"></p>
-      </article>
-    </section>
+          Envoyer
+        </button>
+      </form>
+        <section>
+          <h2>{{ this.comments.length }} commentaire(s)</h2>
+          <article
+            v-for="comment in comments"
+            :key="comment.id"
+            >
+            <h3>{{ comment.author_name }}</h3>
+            <p v-html="comment.content.rendered"></p>
+          </article>
+        </section>
+    </div>
   </template>
 
 
