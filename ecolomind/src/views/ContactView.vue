@@ -7,15 +7,17 @@
     <form>
 
             <div class="form">
+                <div v-if="this.errors.nameMissing">Pseudo non renseigné</div>
                 <label for="name"> Votre nom (obligatoire)</label>
                 <input v-model="this.nameForm" type="text" id="name"/>
-                <div v-if="this.errors.nameMissing">Pseudo non renseigné</div>
+                
             </div>
 
             <div class="form">
+                <div v-if="this.errors.mailMissing"> Mail non renseigné</div>
                 <label for="mail"> Votre email (obligatoire)</label>
                 <input v-model="this.mailForm" type="text" id="mail" />
-                <div v-if="this.errors.mailMissing"> Mail non renseigné</div>
+                
             </div>
 
             <div class="form">
