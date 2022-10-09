@@ -1,5 +1,6 @@
 <!-- Liste des commentaires -->
 <template>
+ <div>
 <form v-if="this.$store.state.userIsConnect">
      
     <div >
@@ -16,6 +17,7 @@
       Envoyer
     </button>
   </form>
+ 
     <section>
       <h2>{{ this.comments.length }} commentaire(s)</h2>
       <article
@@ -26,7 +28,9 @@
         <p v-html="comment.content.rendered"></p>
       </article>
     </section>
+    </div>
   </template>
+
 
 
   <script>
@@ -48,7 +52,7 @@
     },
     methods:{
       async submitComment(){
-            // console.log(this.content);
+            //console.log(this.content);
             await TipsServices.addComment(this.content, this.$route.params.id);
             this.$emit('commentAdded'); 
             this.readcomment();
