@@ -7,14 +7,14 @@
     <form>
 
             <div class="form">
-                <div v-if="this.errors.nameMissing">Pseudo non renseigné</div>
+                <div v-if="this.errors.nameMissing" class=obli>Pseudo non renseigné</div>
                 <label for="name"> Votre nom (obligatoire)</label>
                 <input v-model="this.nameForm" type="text" id="name"/>
                 
             </div>
 
             <div class="form">
-                <div v-if="this.errors.mailMissing"> Mail non renseigné</div>
+                <div v-if="this.errors.mailMissing" class=obli> Mail non renseigné</div>
                 <label for="mail"> Votre email (obligatoire)</label>
                 <input v-model="this.mailForm" type="text" id="mail" />
                 
@@ -28,7 +28,7 @@
             <div class="form">
                 <label for="message" > Votre message</label>
                 <textarea v-model="this.msgForm" rows="10" cols="50"  > </textarea>
-                <div v-if="this.errors.msgMissing"> Vous n'avez pas écrit de message</div>
+                <div v-if="this.errors.msgMissing" class=obli> Vous n'avez pas écrit de message</div>
             </div>
 
             <button v-on:click.prevent="Send()" >Envoyer</button>
@@ -78,6 +78,10 @@ export default{
 </script>
 
 <style lang="scss">
+
+.obli{
+    color:red;
+}
 
 input{
     height: 30px;
