@@ -5,9 +5,9 @@
 
     <div>
         <!-- 
-                Si tu es en mode 'profil' (qui est le mode par défaut)
-                Alors tu verras le composant ProfilInfosComponent, le bouton "Modifier mon profil", mes asruces et mes astuces préférées
-            -->
+            Si tu es en mode 'profil' (qui est le mode par défaut)
+            Alors tu verras le composant ProfilInfosComponent, le bouton "Modifier mon profil", mes astuces et mes astuces préférées
+        -->
         <div v-if="this.mode == 'profil'">
 
             <ProfilInfosComponent />
