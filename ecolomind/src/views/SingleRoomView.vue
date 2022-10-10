@@ -46,7 +46,7 @@ export default ({
         this.singleRoom = await TipsServices.getRoomById(RoomId);
 
         this.tips = await TipsServices.getTipsByRoom(RoomId);
-        console.log(this.$route);
+        // console.log(this.$route);
     },
 
 
@@ -74,9 +74,10 @@ h1 {
 }
 
 #tipscardcomponent {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
 
 }
 

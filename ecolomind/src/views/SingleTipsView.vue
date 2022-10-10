@@ -2,81 +2,115 @@
 
 <template>
 
-    <div id="SingleView">
-        
-        <h3 v-html="this.astuce.title.rendered"></h3>
-        <!-- <img src="" alt="">         -->
+    <div id="SingleView" v-if="isloaded">
+        <div>      
+            <h3 v-html="this.title"></h3>
 
-        <p>De : <span v-html="this.astuce._embedded.author.name"></span></p>
+            <RoomTipsComponent />
+        </div>
+        
+
+
+        <p v-html="this.author.name"></p>
+
+
+        <div>
+
+            <TargetTipsComponent />
+        </div>
+
+        <div>
+            <DifficultyTipsComponent />
+        </div>
+            
+        
+        
+        <div class="ingredients">
+
+            <IngredientsTipsComponent />
+        </div>
+
+        <div class="ingredients">
+            <ToolsTipsComponent />
+        </div>
+        
         <p v-html="this.astuce.content.rendered"></p>
-        <img src="" alt="">
 
-        <h4> Espace commentaires</h4>          
-        <form @click.prevent="submitComment">
-            <label for="comment"> Ajoutez votre commentaire :</label><br/>
-            <input type="text" name="comment" id="comment">
 
-            <button type="submit">Envoyez</button>
-        </form>
+        <div>
 
-        <!-- <div>
-            <CommentListComponent 
-                v-for="comment in comments"
-                :key="comment.id"
-                :title="comment.title.rendered"
-                :content="comment.excerpt.rendered"
-            />
-        </div> -->
-        
+            <CommentListComponent />
+        </div>
 
     </div>
 </template>
 
 <script>
-
-// import CommentListComponent from '@/components/CommentListComponent';
+import ToolsTipsComponent from '@/components/ToolsTipsComponent.vue';
+import RoomTipsComponent from '@/components/RoomTipsComponent.vue';
+import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
+import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
+import CommentListComponent from '@/components/CommentListComponent.vue';
+import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
 import axios from 'axios';
 
-export default({
+export default{
     name: 'SingleTipsView',
-    // components : {
-    //     CommentListComponent,
-    // },
+    components : {
+        CommentListComponent,
+        IngredientsTipsComponent,
+        DifficultyTipsComponent,
+        TargetTipsComponent,
+        RoomTipsComponent,
+        ToolsTipsComponent,
+    },
 
     data(){
         return{
             astuce: false,
-            // comments : false,
+            // ingredients: false,
+            // difficulty : "",
+            // room : "",
+            // target : "",
+            tools : false,
+            title : "",
+            author : "",
+            newcomments: [],
+            isloaded: false,
+
         }
     },
 
-    async created()
+    created()
     {
+       
         const base_url= "http://ecolomind.local/wp-json";
 
+ 
+        // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
-            console.log(this.astuce);
-        })
+            this.title= response.data.title.rendered;
+            const em = Object.assign({}, this.astuce._embedded);
 
-        // this.readComments();
+
+            this.author = em.author[0];
+
+
+            
+            this.isloaded = true;
+            
+        });   
+
+        
+
+    },
+    mounted(){
+        // this.$nextTick(function(){console.log(this.astuce)});
+        
     },
 
-    // methods: {
-
-    //     /**
-    //      * Cette fonction est éxectué deux fois. Une fois au moment de la création du composant et une fois à chaque fois qu'un commentaire est ajouté
-    //      */
-        
-    //         readComments(){
-    //             const base_url =  "http://ecolomind.local/wp-json";
-    //             axios.get(base_url + "/wp/v2/comments?tips="+this.astuce.id ).then((response) => {
-    //                 this.comments = response.data;
-    //                 console.log(this.comments);
-    //             });
-    //         }
-    // }
-})
+}
 </script>
 
 

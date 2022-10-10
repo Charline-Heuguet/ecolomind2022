@@ -1,12 +1,14 @@
 <!-- Page de contact -->
 <template>
+    
+    <p> Vous désirez nous poser une question ? Nous suggérer une amélioration ?</p>
+    <p> Contactez-nous ! </p>
 
-    <h3> Vous désirez nous poser une question ? Nous suggérer une amélioration ?</h3>
-    <h3>Contactez-nous !</h3> 
 
     <form>
 
             <div class="form">
+
                 <div v-if="this.errors.nameMissing" class=obli>Pseudo non renseigné</div>
                 <label for="name"> Votre nom (obligatoire)</label>
                 <input v-model="this.nameForm" type="text" id="name"/>
@@ -27,12 +29,14 @@
 
             <div class="form">
                 <label for="message" > Votre message</label>
+
                 <textarea v-model="this.msgForm" rows="10" cols="50"  > </textarea>
                 <div v-if="this.errors.msgMissing" class=obli> Vous n'avez pas écrit de message</div>
             </div>
 
             <button v-on:click.prevent="Send()" >Envoyer</button>
     </form>
+
 </template>
 
 
@@ -50,13 +54,16 @@ export default{
                 mailMissing : false,
                 msgMissing : false,
             }
-        }
+
+         }
     },
+
     methods: {
         async Send(){
             this.errors.nameMissing = false;
             this.errors.msgMissing = false;
             this.errors.mailMissing = false;
+
             //form with error
             if(this.nameForm == ""){
                 this.errors.nameMissing = true;
@@ -67,6 +74,7 @@ export default{
             if(this.msgForm == ""){
                 this.errors.msgMissing = true;
             }
+
             //form without error
             // if(!this.errors.nameMissing && !this.errors.mailMissing &&!this.errors.msgMissing){
             //     const sendMessage = await ;
@@ -75,9 +83,11 @@ export default{
     }
 }
 //import axios from 'axios';
+
 </script>
 
 <style lang="scss">
+
 
 .obli{
     color:red;
@@ -95,5 +105,10 @@ label, input {
 button, h3{
     margin-top: 20px;
     margin-bottom: 30px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
 }
 </style>

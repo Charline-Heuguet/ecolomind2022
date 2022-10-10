@@ -2,25 +2,65 @@
 
 <template>
  <div id="image">
-    <img id="background" src="../assets/maison-vide3.png" alt="">
-    <img id="sdb" src="../assets/sdb.png" alt="" >
-    <img id="entree" src="../assets/entrée.png" alt="">
-    <img id="bureau" src="../assets/bureau.png" alt="">
-    <img id="cuisine" src="../assets/cuisine.png" alt="">
-    <img id="chambre" src="../assets/chambre.png" alt="">
-    <img id="potager"  src="../assets/potager.png" alt="" />
+    <img id="background" src="../assets/maison-vide3.png" alt="maison sans les pieces">
+
+
+    <a href="">
+      <img id="entree" src="../assets/entree.png" alt="">
+    </a>
+
+    <router-link 
+    v-for="room in rooms" 
+    :key="room.id" 
+    :to="{
+      name: 'single-room',
+      params: {
+        id: room.id,
+      }
+     
+    }">
+    <img :id="room.slug" :src="getUrlImg(room)" :alt="room.name">  
+    </router-link>
+
+
     </div>
 </template>
 
+
+
 <script>
+
+import TipsServices from "@/services/TipsServices";
+
 
 // @ is an alias to /src
 export default {
   name: 'HomeView',
   components: {
+  },
+
+  //les déclarations
+  data(){
+    return{
+      rooms:[],
+    }
+  },
+
+  methods : {
+        getUrlImg(room){
+            return require("../assets/"+room.slug+".png")
+        }
+  },
+
+  async created()
+  {
+    this.rooms = await TipsServices.getAllRooms();
+
   }
 }
 </script>
+
+
 
 <style lang="scss">
 
@@ -36,7 +76,7 @@ export default {
 #background{
   width: 100%;
 }
-#sdb{
+#salle-de-bain{
   width: 50.7333333%;
   position: absolute;
   top: 7.36%;
@@ -54,7 +94,7 @@ export default {
   transition: all .6s ; 
   filter:brightness(50%)
 }
-#bureau{
+#salon{
  width: 22.1%;
   position: absolute;
   top: 38.7%;
@@ -81,7 +121,7 @@ export default {
   transition: all .6s ; 
   filter:brightness(50%)
 }
-#potager{
+#jardin{
   width: 22%;
   position: absolute;
   top: 75%;
@@ -90,7 +130,11 @@ export default {
   transition: all .6s ; 
   filter:brightness(50%)
 }
-#bureau:hover{
+#salle-de-bain:hover{
+   /* transform: scale(1.1); */
+   filter: brightness(100%);
+}
+#salon:hover{
   /* transform: scale(1.1); */
   filter: brightness(100%);
 } 
@@ -110,7 +154,7 @@ export default {
   filter: brightness(100%);
 /*   transform: scale(1.1); */
 }
-#potager:hover{
+#jardin:hover{
   filter: brightness(100%);
   transform: scale(1.1); 
 }
