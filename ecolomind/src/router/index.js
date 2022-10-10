@@ -110,13 +110,6 @@ const routes = [
     name: 'mentions',
     component: () => import('../views/LegalView.vue')
   },
-
-  {
-    path: '/faq',
-    name: 'faq',
-    component: () => import('../views/FaqView.vue')
-  },
-
   
 ]
 
