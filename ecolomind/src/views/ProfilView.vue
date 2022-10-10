@@ -49,6 +49,8 @@
 
 
 <script>
+// import axios from 'axios';
+// import TipsServices from '@/services/TipsServices.js';
 import ProfilInfosComponent from '@/components/ProfilInfosComponent.vue';
 import ProfilFormComponent from '@/components/ProfilFormComponent.vue';
 import TipsCreatedByUserComponent from '../components/TipsCreatedByUserComponent.vue';
@@ -61,13 +63,20 @@ export default {
         ProfilInfosComponent,
         TipsCreatedByUserComponent,
         TipsLikedByUserComponent,
+        // TipsServices
     },
 
     data(){
         return{
             mode: 'profil',
+            // createdTips: [],
         }
     },
+
+    // async created(){
+    //     this.createdTips = await TipsServices.TipsCreatedByCurrentUser(id);
+    // },
+
     methods: {
         switchToEditProfil(){
             this.mode = 'editProfil';
