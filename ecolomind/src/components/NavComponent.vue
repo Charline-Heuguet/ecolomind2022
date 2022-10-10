@@ -15,7 +15,7 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
                     params: {
                         id: room.id, 
                     }
-                }">{{room.name}}</router-link>
+            }">{{room.name}}</router-link>
 
             <router-link to="/ajout-article" v-if="this.$store.state.userIsConnect">Proposer une astuce</router-link>
 
@@ -52,10 +52,6 @@ export default ({
 
 <style lang="scss">
 
-body{
-    background: rgb(196,211,229);
-    background: linear-gradient(180deg, rgba(196,211,229,1) 0%, rgba(255,255,255,1) 100%);
-}
 
 nav{
     display: flex;

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import TipsServices from '@/services/TipsServices.js';
+import TipsServices from '@/services/TipsServices';
 export default {
     name: 'CommentFormComponent',
     data(){

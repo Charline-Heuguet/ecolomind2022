@@ -110,7 +110,6 @@ const routes = [
     name: 'mentions',
     component: () => import('../views/LegalView.vue')
   },
-
   
 ]
 
