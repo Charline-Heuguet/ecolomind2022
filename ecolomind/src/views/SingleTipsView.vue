@@ -85,6 +85,7 @@ export default{
             author : "",
             newcomments: [],
             isloaded: false,
+            
 
         }
     },
@@ -110,6 +111,8 @@ export default{
             this.title= response.data.title.rendered;
             const em = Object.assign({}, this.astuce._embedded);
 
+            
+
 
 
             this.author = em.author[0];
@@ -118,6 +121,8 @@ export default{
 
             
             this.isloaded = true;
+
+            
             
         });   
 

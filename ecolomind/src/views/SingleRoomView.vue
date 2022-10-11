@@ -12,6 +12,7 @@
         :dbid="astuce.id"
         :title="astuce.title.rendered"
         :excerpt="astuce.excerpt.rendered"
+        :difficultyId="astuce.difficulty[0]" 
         />
 
     </div>
@@ -20,7 +21,6 @@
 </template>
 
 <script>
-
 import TipsServices from "@/services/TipsServices";
 import TipsCardComponent from '@/components/TipsCardComponent';
 
@@ -35,18 +35,22 @@ export default ({
         return{
             singleRoom:"",
             tips:[],
+            astuce:"",
         }
     },
 
         
     async created()
-    {        
+    {     
+        // const base_url= "http://ecolomind.local/wp-json";
+        
+   
         let RoomId = this.$route.params.id;
 
         this.singleRoom = await TipsServices.getRoomById(RoomId);
 
         this.tips = await TipsServices.getTipsByRoom(RoomId);
-        // console.log(this.$route);
+        
     },
 
 
