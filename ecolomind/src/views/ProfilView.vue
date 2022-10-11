@@ -20,7 +20,13 @@
 
             <h3>Mes astuces</h3>
 
-            <TipsCreatedByUserComponent />
+            <TipsCreatedByUserComponent 
+            v-for="astuce in createdTips"
+            :key="astuce.id"
+            :dbid="astuce.id"
+            :title="astuce.title.rendered"
+            :excerpt="astuce.excerpt.rendered"
+            />
 
             <h3>Mes astuces préférées</h3>
 
@@ -49,8 +55,8 @@
 
 
 <script>
-// import axios from 'axios';
-// import TipsServices from '@/services/TipsServices.js';
+import storage from '@/utils/storage.js';
+import TipsServices from '@/services/TipsServices.js';
 import ProfilInfosComponent from '@/components/ProfilInfosComponent.vue';
 import ProfilFormComponent from '@/components/ProfilFormComponent.vue';
 import TipsCreatedByUserComponent from '../components/TipsCreatedByUserComponent.vue';
@@ -63,19 +69,23 @@ export default {
         ProfilInfosComponent,
         TipsCreatedByUserComponent,
         TipsLikedByUserComponent,
-        // TipsServices
     },
 
     data(){
         return{
             mode: 'profil',
-            // createdTips: [],
+            createdTips: [],
         }
     },
 
-    // async created(){
-    //     this.createdTips = await TipsServices.TipsCreatedByCurrentUser(id);
-    // },
+    async created(){
+
+        const currentUserID = storage.get('userData').userID;
+
+        this.createdTips = await TipsServices.TipsCreatedByCurrentUser(currentUserID);
+
+        console.log(this.createdTips);
+    },
 
     methods: {
         switchToEditProfil(){
@@ -83,7 +93,7 @@ export default {
         },
         switchToProfil(){
             this.mode = 'profil';
-        }
+        },
     }
 
 }

@@ -1,7 +1,7 @@
 <template>
     <article>
         <router-link :to="{name: 'single-tips', params: {id: this.dbid}}">
-            <h2 v-html="this.title"></h2> 
+            <h4 v-html="this.title"></h4> 
         </router-link> 
             <p v-html="this.excerpt"></p>
         <router-link :to="{name: 'single-tips', params: {id: this.dbid}}">
