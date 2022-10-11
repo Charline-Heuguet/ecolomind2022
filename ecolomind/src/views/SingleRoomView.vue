@@ -4,6 +4,8 @@
 
     <h1>{{singleRoom.name}}</h1>
 
+    <img :src="this.difficulty.description" alt="">
+
     <div id="tipscardcomponent">
 
         <TipsCardComponent 
@@ -12,6 +14,7 @@
         :dbid="astuce.id"
         :title="astuce.title.rendered"
         :excerpt="astuce.excerpt.rendered"
+        :difficultyId="this.difficulty.description"
         />
 
     </div>
@@ -20,7 +23,7 @@
 </template>
 
 <script>
-
+import axios from "axios";
 import TipsServices from "@/services/TipsServices";
 import TipsCardComponent from '@/components/TipsCardComponent';
 
@@ -35,18 +38,30 @@ export default ({
         return{
             singleRoom:"",
             tips:[],
+            astuce:"",
+            difficulty:[],
         }
     },
 
         
     async created()
-    {        
+    {     
+        const base_url= "http://ecolomind.local/wp-json";
+        
+   
         let RoomId = this.$route.params.id;
 
         this.singleRoom = await TipsServices.getRoomById(RoomId);
 
         this.tips = await TipsServices.getTipsByRoom(RoomId);
         // console.log(this.$route);
+        console.log(this.tips);
+
+        axios.get(base_url + "/wp/v2/difficulty?tips="+this.tips.id).then((response) => {
+                this.difficulty = response.data[0];
+                //console.log(response.data);
+                
+            });
     },
 
 
