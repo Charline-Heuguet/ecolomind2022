@@ -1,8 +1,8 @@
 <template>
     <article>
 
-        <img :src="this.difficultyId" alt="">
-
+        <img :src="this.difficulty.description" alt="">
+       
         <router-link :to="{name: 'single-tips', params: {id: this.dbid}}">
             <h2 v-html="this.title"></h2> 
         </router-link> 
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-
+import axios from 'axios';
 
 
 export default({
@@ -26,7 +26,25 @@ export default({
         dbid: Number,
         title: String,
         excerpt: String,
-        difficultyId: String,
+        difficultyId: Number,        
+    },
+
+    data(){
+        return{
+            difficulty: false,
+
+        }
+    },
+
+    async created()
+    {     
+        const base_url= "http://ecolomind.local/wp-json";
+
+        axios.get(base_url + "/wp/v2/difficulty/"+ this.difficultyId).then((response) => {
+                this.difficulty = response.data;
+                //console.log(response.data);
+                
+            });
     },
 
 })

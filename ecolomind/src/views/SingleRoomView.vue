@@ -4,8 +4,6 @@
 
     <h1>{{singleRoom.name}}</h1>
 
-    <img :src="this.difficulty.description" alt="">
-
     <div id="tipscardcomponent">
 
         <TipsCardComponent 
@@ -14,7 +12,7 @@
         :dbid="astuce.id"
         :title="astuce.title.rendered"
         :excerpt="astuce.excerpt.rendered"
-        :difficultyId="this.difficulty.description"
+        :difficultyId="astuce.difficulty"
         />
 
     </div>
@@ -39,7 +37,7 @@ export default ({
             singleRoom:"",
             tips:[],
             astuce:"",
-            difficulty:[],
+            difficulty:"",
         }
     },
 
