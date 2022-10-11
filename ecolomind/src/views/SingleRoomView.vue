@@ -12,7 +12,7 @@
         :dbid="astuce.id"
         :title="astuce.title.rendered"
         :excerpt="astuce.excerpt.rendered"
-        :difficultyId="astuce.difficulty[0]"
+        :difficultyId="astuce.difficulty[0]" 
         />
 
     </div>
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 import TipsServices from "@/services/TipsServices";
 import TipsCardComponent from '@/components/TipsCardComponent';
 
@@ -37,7 +36,6 @@ export default ({
             singleRoom:"",
             tips:[],
             astuce:"",
-            difficulty:"",
         }
     },
 

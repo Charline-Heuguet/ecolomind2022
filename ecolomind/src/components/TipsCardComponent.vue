@@ -1,7 +1,7 @@
 <template>
     <article>
 
-        <img :src="this.difficulty.description" alt="">
+        <img :src="this.difficulty.description" :alt="this.difficulty.name">
        
         <router-link :to="{name: 'single-tips', params: {id: this.dbid}}">
             <h2 v-html="this.title"></h2> 
@@ -42,7 +42,6 @@ export default({
 
         axios.get(base_url + "/wp/v2/difficulty/"+ this.difficultyId).then((response) => {
                 this.difficulty = response.data;
-                //console.log(response.data);
                 
             });
     },
