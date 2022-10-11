@@ -23,20 +23,20 @@ export default {
 
         }
     },
+     props: {
+        astuce: Object,
+    },
 
     created(){
 
         const base_url= "http://ecolomind.local/wp-json";
 
-         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
-            this.astuce = response.data;
 
          axios.get(base_url + "/wp/v2/tools?post="+this.astuce.id ).then((response) => {
                 this.tools = response.data;
-                // console.log('Ici les tools');
-                // console.log(this.tools);
-            });
-         });
+
+        });
+
     }
 }
 </script>

@@ -11,7 +11,7 @@
             <h3 v-html="this.title"></h3>
 
 
-            <RoomTipsComponent />
+            <RoomTipsComponent :astuce="this.astuce" />
         </div>
         
 
@@ -24,22 +24,22 @@
 
         <div>
 
-            <TargetTipsComponent />
+            <TargetTipsComponent :astuce="this.astuce" />
         </div>
 
         <div>
-            <DifficultyTipsComponent />
+            <DifficultyTipsComponent :astuce="this.astuce" />
         </div>
             
         
         
         <div class="ingredients">
 
-            <IngredientsTipsComponent />
+            <IngredientsTipsComponent :astuce="this.astuce" />
         </div>
 
         <div class="ingredients">
-            <ToolsTipsComponent />
+            <ToolsTipsComponent :astuce="this.astuce" />
         </div>
         
         <p v-html="this.astuce.content.rendered"></p>
@@ -99,6 +99,8 @@ export default{
         // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
+
+
 
             // ICI cette fonction n'existe plus, elle date d'une version précédente
             // this.readComments();
