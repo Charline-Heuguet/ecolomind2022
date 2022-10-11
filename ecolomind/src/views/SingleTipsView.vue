@@ -99,7 +99,9 @@ export default{
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
 
-           
+            // ICI cette fonction n'existe plus, elle date d'une version précédente
+            // this.readComments();
+            // console.log(this.astuce);
             
             axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
                 this.ingredients = response.data;
