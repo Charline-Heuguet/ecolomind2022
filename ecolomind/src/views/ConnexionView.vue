@@ -13,7 +13,7 @@
                 <div v-if="this.errors.passwordMissing" >Mot de passe non valide</div>
             </div>
 
-             <div v-if="this.errors.loginIncorrects" class="error">Login ou mot de passe incorrecte</div>
+            <div v-if="this.errors.loginIncorrects" class="error">Login ou mot de passe incorrect</div>
              
             <button v-on:click.prevent="Connexion()" >Se connecter</button>
         </form>
