@@ -65,6 +65,7 @@ import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
+import ButtonFavComponent from '@/components/ButtonFavComponent.vue';
 import axios from 'axios';
 
 export default{
@@ -76,6 +77,7 @@ export default{
         TargetTipsComponent,
         RoomTipsComponent,
         ToolsTipsComponent,
+        ButtonFavComponent
       
     },
 
