@@ -15,7 +15,7 @@ export default{
     {
         async deleteMyInfos(){
             console.log(JSON.parse(JSON.stringify(this.formData)));
-            axios.delete('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
+            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
             .then(response => console.log(response))
             .catch(function(){
                 return {data: null}
