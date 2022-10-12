@@ -14,7 +14,7 @@
             <RoomTipsComponent :astuce="this.astuce" />
         </div>
         
-
+       
 
         <p v-html="this.author.name"></p>
 
@@ -60,6 +60,7 @@ import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
+
 import axios from 'axios';
 
 export default{
@@ -71,6 +72,7 @@ export default{
         TargetTipsComponent,
         RoomTipsComponent,
         ToolsTipsComponent,
+      
     },
 
     data(){
