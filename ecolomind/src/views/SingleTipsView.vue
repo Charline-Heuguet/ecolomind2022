@@ -17,18 +17,16 @@
         <div>
             <ButtonFavComponent
             :astuce_id ="this.astuce.id"/>
+
+            <ButtonUnFavComponent
+            :astuce_id="this.astuce.id"/>
         </div>
         
 
 
         <p v-html="this.author.name"></p>
 
-
-        <!-- <p v-html="this.astuce._embedded.author.name"></p> -->
-
-
         <div>
-
             <TargetTipsComponent :astuce="this.astuce" />
         </div>
 
@@ -66,6 +64,7 @@ import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue'
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
 import ButtonFavComponent from '@/components/ButtonFavComponent.vue'
+import ButtonUnFavComponent from '@/components/ButtonUnFavComponent.vue'
 import axios from 'axios';
 
 export default{
@@ -78,6 +77,7 @@ export default{
         RoomTipsComponent,
         ToolsTipsComponent,
         ButtonFavComponent,
+        ButtonUnFavComponent
     },
 
     data(){
