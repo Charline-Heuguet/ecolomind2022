@@ -18,7 +18,7 @@
             <ButtonFavComponent
             :astuce_id ="this.astuce.id"/>
 
-            <ButtonUnFavComponent
+            <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
             :astuce_id="this.astuce.id"/>
         </div>
         
