@@ -11,12 +11,16 @@ import axios from 'axios';
 import storage from '@/utils/storage.js'
 export default{
     name: 'DeleteProfilComponent',
-
+    data(){
+        return{
+            userToDelete : storage.get('userData').userID,
+        }
+    },
     methods:
     {
         async deleteMyInfos(){
-            // console.log(JSON.parse(JSON.stringify(this.formData)));
-            axios.delete('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil'/* , JSON.parse(JSON.stringify(this.formData)) */)
+            console.log(JSON.parse(JSON.stringify(this.userToDelete)));
+            axios.delete('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.userToDelete)))
             .then(response => console.log(response))
             .catch(function(){
                 return {data: null}
