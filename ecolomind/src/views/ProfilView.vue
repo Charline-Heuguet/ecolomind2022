@@ -17,6 +17,7 @@
                 Alors l'écouteur d'événement au click déclenchera la fonction switchToEditProfil qui passera le mode de 'profil' à 'editProfil'
             -->
             <button @click="switchToEditProfil">Modifier mon profil</button>
+            <button @click="switchToDeleteProfil">Supprimer mon profil</button>
 
             <h3>Mes astuces</h3>
 
@@ -48,6 +49,17 @@
             -->
             <button @click="switchToProfil">Annuler</button>
         </div>
+
+        <div v-if="this.mode == 'deleteProfil'">
+            
+            <DeleteProfilComponent />
+
+            <!-- 
+                Si tu cliques sur "Annuler", 
+                Alors l'écouteur d'événement au click déclenchera la fonction switchToProfil qui passera le mode de 'editProfil' à 'profil'
+            -->
+            <button @click="switchToProfil">Annuler</button>
+        </div>
         
     </div>
     
@@ -61,12 +73,14 @@ import ProfilInfosComponent from '@/components/ProfilInfosComponent.vue';
 import ProfilFormComponent from '@/components/ProfilFormComponent.vue';
 import TipsCreatedByUserComponent from '../components/TipsCreatedByUserComponent.vue';
 import TipsLikedByUserComponent from '../components/TipsLikedByUserComponent.vue';
+import DeleteProfilComponent from '@/components/DeleteProfilComponent.vue';
 export default {
     name: "ProfilView",
 
     components: {
         ProfilFormComponent,
         ProfilInfosComponent,
+        DeleteProfilComponent,
         TipsCreatedByUserComponent,
         TipsLikedByUserComponent,
     },
@@ -94,6 +108,9 @@ export default {
         switchToProfil(){
             this.mode = 'profil';
         },
+        switchToDeleteProfil(){
+            this.mode = 'deleteProfil';
+        }
     }
 
 }
