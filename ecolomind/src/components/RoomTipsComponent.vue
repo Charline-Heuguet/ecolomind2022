@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span>Une astuce à utilisé dans :</span>
+        <span>Une astuce à utiliser dans :</span>
             {{this.room.name}}
     </div>
 </template>

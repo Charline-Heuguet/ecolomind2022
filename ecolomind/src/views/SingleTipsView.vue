@@ -13,6 +13,11 @@
 
             <RoomTipsComponent :astuce="this.astuce" />
         </div>
+
+        <div>
+            <ButtonFavComponent
+            :astuce_id ="this.astuce.id"/>
+        </div>
         
        
 
@@ -60,7 +65,6 @@ import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
-
 import axios from 'axios';
 
 export default{
@@ -101,6 +105,7 @@ export default{
         // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
+            console.log(this.astuce);
 
 
 
