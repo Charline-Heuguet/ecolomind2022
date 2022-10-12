@@ -3,7 +3,7 @@
     <div>
         <form>
             <div>
-                <label for="email">Email :</label>
+                <label for="email">Email ou nom d'utilisateur :</label>
                 <input v-model="this.loginInForm" placeholder="gerceval@gmail.com" type="text" id="email" />
                 <div v-if="this.errors.loginMissing" >Pseudo non valide</div>
             </div>

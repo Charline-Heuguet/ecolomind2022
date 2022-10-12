@@ -27,6 +27,7 @@
             :title="astuce.title.rendered"
             :excerpt="astuce.excerpt.rendered"
             />
+            <div v-if="createdTips.length < 1">Vous n'avez pas encore proposé d'astuce !</div>
 
             <h3>Mes astuces préférées</h3>
 
