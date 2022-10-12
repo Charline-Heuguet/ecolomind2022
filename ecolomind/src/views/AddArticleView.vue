@@ -34,7 +34,7 @@
 
             <div>
                 <label for="content"></label>
-                <input type="textarea" name="content" id="content" placeholder="Ecrivez les quantités des ingredients nécessaires à votre astuce.Rédigez votre recette en la détaillant" v-model="formData.contenu">
+                <textarea type="textarea" name="content" id="content" placeholder="Ecrivez les quantités des ingredients nécessaires à votre astuce.Rédigez votre recette en la détaillant" v-model="formData.contenu"></textarea>
             </div>
 
             <div>
@@ -43,7 +43,6 @@
             </div>
 
             <button>Envoyez votre astuce</button>
-
 
         </form>
 
@@ -54,6 +53,7 @@
 <script>
 
 import axios from 'axios';
+import storage from '@/utils/storage.js';
 import TipsServices from '@/services/TipsServices.js';
 
 
@@ -74,7 +74,7 @@ export default {
                 ingredient: '',
                 contenu: "",
                 photo:"",
-               
+                authorID: storage.get('userData').userID,
             }, 
         }
         
@@ -103,6 +103,9 @@ export default {
                 // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
                 return {data: null}
             })
+        },
+        getCurrentUserName(){
+            return storage.get('userData').user_display_name;
         },
 
         // debug(){

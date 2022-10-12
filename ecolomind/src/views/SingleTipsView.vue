@@ -102,7 +102,9 @@ export default{
 
 
 
+
             // ICI cette fonction n'existe plus, elle date d'une version précédente
+
             // this.readComments();
             // console.log(this.astuce);
             
