@@ -15,7 +15,8 @@
         </div>
 
         <div>
-            <ButtonFavComponent/>
+            <ButtonFavComponent
+            :astuce_id ="this.astuce.id"/>
         </div>
         
 
@@ -105,6 +106,7 @@ export default{
         // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
+            console.log(this.astuce);
 
 
 

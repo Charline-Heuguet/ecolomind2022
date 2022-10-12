@@ -9,18 +9,23 @@
 <script>
 import axios from "axios";
 import storage from "@/utils/storage";
-// import TipsServices from '@/services/TipsServices';
+//import TipsServices from '@/services/TipsServices';
 export default {
     name: "ButtonFavoritesComponent",
     data(){
         return{
             favData: {
-            astuce_id: "71",
-            authorID: storage.get('userData').userID,
-
+                authorID: storage.get('userData').userID,
+                astuce_id: this.astuce_id,
             }
         }
     },
+
+    props :{
+        astuce_id : Number,
+    },
+
+
     methods : {
         async ClickFav(){
             console.log(JSON.parse(JSON.stringify(this.favData)));
