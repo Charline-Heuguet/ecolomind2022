@@ -108,28 +108,17 @@ export default{
             this.astuce = response.data;
             console.log(this.astuce);
 
-
-
-
-            // ICI cette fonction n'existe plus, elle date d'une version précédente
-
-            // this.readComments();
-            // console.log(this.astuce);
             
             axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
                 this.ingredients = response.data;
             });
 
             this.title= response.data.title.rendered;
-            const em = Object.assign({}, this.astuce._embedded);
-
-            
+            const em = Object.assign({}, this.astuce._embedded);           
 
 
 
             this.author = em.author[0];
-
-
 
             
             this.isloaded = true;
