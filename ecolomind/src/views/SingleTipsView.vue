@@ -4,9 +4,14 @@
 
     <div id="SingleView" v-if="isloaded">
         <div>      
+
+            <!-- <h3 v-html="this.astuce.title.rendered"></h3> -->
+            <!-- <img src="" alt="">         -->
+
             <h3 v-html="this.title"></h3>
 
-            <RoomTipsComponent />
+
+            <RoomTipsComponent :astuce="this.astuce" />
         </div>
         
 
@@ -14,24 +19,27 @@
         <p v-html="this.author.name"></p>
 
 
+        <!-- <p v-html="this.astuce._embedded.author.name"></p> -->
+
+
         <div>
 
-            <TargetTipsComponent />
+            <TargetTipsComponent :astuce="this.astuce" />
         </div>
 
         <div>
-            <DifficultyTipsComponent />
+            <DifficultyTipsComponent :astuce="this.astuce" />
         </div>
             
         
         
         <div class="ingredients">
 
-            <IngredientsTipsComponent />
+            <IngredientsTipsComponent :astuce="this.astuce" />
         </div>
 
         <div class="ingredients">
-            <ToolsTipsComponent />
+            <ToolsTipsComponent :astuce="this.astuce" />
         </div>
         
         <p v-html="this.astuce.content.rendered"></p>
@@ -77,6 +85,7 @@ export default{
             author : "",
             newcomments: [],
             isloaded: false,
+            
 
         }
     },
@@ -90,17 +99,37 @@ export default{
         // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
+
+
+
+
+            // ICI cette fonction n'existe plus, elle date d'une version précédente
+
+            // this.readComments();
+            // console.log(this.astuce);
+            
+            axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
+                this.ingredients = response.data;
+            });
+
             this.title= response.data.title.rendered;
             const em = Object.assign({}, this.astuce._embedded);
+
+            
+
 
 
             this.author = em.author[0];
 
 
+
             
             this.isloaded = true;
+
+            
             
         });   
+
 
         
 

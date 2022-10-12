@@ -2,29 +2,100 @@
 
 
 <template>
-    <form>
-        <div>
-            <label for="pseudo"></label>
-            <input type="text" placeholder="Gerceval" id="pseudo" />
+
+    <div>
+        <!-- 
+            Si tu es en mode 'profil' (qui est le mode par défaut)
+            Alors tu verras le composant ProfilInfosComponent, le bouton "Modifier mon profil", mes astuces et mes astuces préférées
+        -->
+        <div v-if="this.mode == 'profil'">
+
+            <ProfilInfosComponent />
+    
+            <!-- 
+                Si tu cliques sur "Modifier mon profil", 
+                Alors l'écouteur d'événement au click déclenchera la fonction switchToEditProfil qui passera le mode de 'profil' à 'editProfil'
+            -->
+            <button @click="switchToEditProfil">Modifier mon profil</button>
+
+            <h3>Mes astuces</h3>
+
+            <TipsCreatedByUserComponent 
+            v-for="astuce in createdTips"
+            :key="astuce.id"
+            :dbid="astuce.id"
+            :title="astuce.title.rendered"
+            :excerpt="astuce.excerpt.rendered"
+            />
+
+            <h3>Mes astuces préférées</h3>
+
+            <TipsLikedByUserComponent />
         </div>
 
-        <div>
-            <label for="email"></label>
-            <input type="text"  placeholder="gerceval@legallois.com" id="email" />
-        </div>
 
-        <div>
-            <label for="password"></label>
-            <input type="password" placeholder="******" id="password" />
-        </div>
+        <!-- 
+            Si tu es en mode 'editProfil'
+            Alors tu verras le composant ProfilFormComponent et le bouton "Annuler"
+        -->
+        <div v-if="this.mode == 'editProfil'">
+            
+            <ProfilFormComponent />
 
-        <button>Enregistrer les modifications</button>
-    </form>
+            <!-- 
+                Si tu cliques sur "Annuler", 
+                Alors l'écouteur d'événement au click déclenchera la fonction switchToProfil qui passera le mode de 'editProfil' à 'profil'
+            -->
+            <button @click="switchToProfil">Annuler</button>
+        </div>
+        
+    </div>
+    
 </template>
 
 
 <script>
+import storage from '@/utils/storage.js';
+import TipsServices from '@/services/TipsServices.js';
+import ProfilInfosComponent from '@/components/ProfilInfosComponent.vue';
+import ProfilFormComponent from '@/components/ProfilFormComponent.vue';
+import TipsCreatedByUserComponent from '../components/TipsCreatedByUserComponent.vue';
+import TipsLikedByUserComponent from '../components/TipsLikedByUserComponent.vue';
 export default {
-    name: 'ProfilView',
+    name: "ProfilView",
+
+    components: {
+        ProfilFormComponent,
+        ProfilInfosComponent,
+        TipsCreatedByUserComponent,
+        TipsLikedByUserComponent,
+    },
+
+    data(){
+        return{
+            mode: 'profil',
+            createdTips: [],
+        }
+    },
+
+    async created(){
+
+        const currentUserID = storage.get('userData').userID;
+
+        this.createdTips = await TipsServices.TipsCreatedByCurrentUser(currentUserID);
+
+        console.log(this.createdTips);
+    },
+
+    methods: {
+        switchToEditProfil(){
+            this.mode = 'editProfil';
+        },
+        switchToProfil(){
+            this.mode = 'profil';
+        },
+    }
+
 }
+
 </script>
