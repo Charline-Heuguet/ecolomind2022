@@ -1,5 +1,5 @@
 <template>
-    <button name="favorite" type="button" v-on:click.prevent="ClickFav()">
+    <button class="fav" name="favorite" type="button" v-on:click.prevent="ClickFav()">
         <img src="../assets/coeur-like.png" alt="coeur-vert">
     </button>
 </template>
@@ -44,3 +44,22 @@ export default {
     }
 }
 </script>
+
+
+<style lang="scss">
+
+
+button.fav{
+    border: none;
+    background: none;
+    transition: all 0.6s;
+    &:hover{
+        transform: scale(1.1);
+    }
+    img{
+        width: 30px;
+    }
+
+} 
+
+</style>
