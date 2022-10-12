@@ -1,6 +1,6 @@
 <template>
-<div v-if="this.$store.state.userIsConnect">
-    <button v-if="this.$store.state.userIsConnect" class="fav" name="favorite" type="button" v-on:click.prevent="ClickFav()">
+<div>
+    <button class="fav" name="favorite" type="button" v-on:click.prevent="ClickFav()">
         <img src="../assets/coeur-like.png" alt="coeur-vert">
     </button>
 </div>
