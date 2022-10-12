@@ -27,10 +27,21 @@
                 <input type="text" id="title" name="title" placeholder="Titre de votre astuce" v-model="formData.titre">
             </div>
 
-            <div>
-                <label for="ingredients"></label>
-                <input type="text" id="ingredients" name="ingredients" placeholder="Les ingrédients nécessaires" v-model="formData.ingredient">
+            <div v-for="(ingr, index) in this.formData.ingredient" :key="ingr">
+                <label for="ingredients">Ingrédient {{index+1}}</label>
+                <input 
+                type="text" id="ingredients" name="ingredients" placeholder="Les ingrédients nécessaires" v-model="this.formData.ingredient.ing">
+                <button @click.prevent="newIngredient">+</button>
+                <button @click.prevent="removeIngredient">x</button>
             </div>
+            <!-- <div>
+                <ul>
+                    <li v-for="ing in this.formData.ingredient" :key="ing.id">
+                        <p>{{ingredient.name}}</p>
+
+                    </li>
+                </ul>
+            </div> -->
 
             <div>
                 <label for="content"></label>
@@ -71,7 +82,7 @@ export default {
                 selectedDifficulty: "",
                 selectedRoom: "",
                 titre: '',
-                ingredient: '',
+                ingredient: [{ing: ''},],
                 contenu: "",
                 photo:"",
                 authorID: storage.get('userData').userID,
@@ -107,6 +118,15 @@ export default {
         getCurrentUserName(){
             return storage.get('userData').user_display_name;
         },
+        newIngredient(){
+          this.formData.ingredient.push({ing: ''},)  
+        },
+        removeIngredient(index){
+            if(this.formData.ingredient.length > 1){
+                this.formData.ingredient.splice(index, 1)
+            }
+            
+        }
 
         // debug(){
         //     console.log(this.selectedDifficulty);
