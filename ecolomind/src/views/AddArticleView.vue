@@ -30,7 +30,7 @@
             <div v-for="(ingr, index) in this.formData.ingredient" :key="ingr">
                 <label for="ingredients">Ingrédient {{index+1}}</label>
                 <input 
-                type="text" id="ingredients" name="ingredients" placeholder="Les ingrédients nécessaires" v-model="this.formData.ingredient.ing">
+                type="text" id="ingredients" name="ingredients" placeholder="Les ingrédients nécessaires" v-model="ingr.ing">
                 <button @click.prevent="newIngredient">+</button>
                 <button @click.prevent="removeIngredient">x</button>
             </div>
