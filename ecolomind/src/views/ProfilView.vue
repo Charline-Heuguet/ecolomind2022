@@ -5,9 +5,9 @@
 
     <div>
         <!-- 
-                Si tu es en mode 'profil' (qui est le mode par défaut)
-                Alors tu verras le composant ProfilInfosComponent, le bouton "Modifier mon profil", mes asruces et mes astuces préférées
-            -->
+            Si tu es en mode 'profil' (qui est le mode par défaut)
+            Alors tu verras le composant ProfilInfosComponent, le bouton "Modifier mon profil", mes astuces et mes astuces préférées
+        -->
         <div v-if="this.mode == 'profil'">
 
             <ProfilInfosComponent />
@@ -20,7 +20,13 @@
 
             <h3>Mes astuces</h3>
 
-            <TipsCreatedByUserComponent />
+            <TipsCreatedByUserComponent 
+            v-for="astuce in createdTips"
+            :key="astuce.id"
+            :dbid="astuce.id"
+            :title="astuce.title.rendered"
+            :excerpt="astuce.excerpt.rendered"
+            />
 
             <h3>Mes astuces préférées</h3>
 
@@ -49,6 +55,8 @@
 
 
 <script>
+import storage from '@/utils/storage.js';
+import TipsServices from '@/services/TipsServices.js';
 import ProfilInfosComponent from '@/components/ProfilInfosComponent.vue';
 import ProfilFormComponent from '@/components/ProfilFormComponent.vue';
 import TipsCreatedByUserComponent from '../components/TipsCreatedByUserComponent.vue';
@@ -66,15 +74,26 @@ export default {
     data(){
         return{
             mode: 'profil',
+            createdTips: [],
         }
     },
+
+    async created(){
+
+        const currentUserID = storage.get('userData').userID;
+
+        this.createdTips = await TipsServices.TipsCreatedByCurrentUser(currentUserID);
+
+        console.log(this.createdTips);
+    },
+
     methods: {
         switchToEditProfil(){
             this.mode = 'editProfil';
         },
         switchToProfil(){
             this.mode = 'profil';
-        }
+        },
     }
 
 }
