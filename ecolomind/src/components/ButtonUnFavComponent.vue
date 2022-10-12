@@ -1,7 +1,9 @@
 <template>
+<div v-if="this.$store.state.userIsConnect">
     <button class="fav" name="favorite" type="button" v-on:click.prevent="RemoveFav()">
         <img src="../assets/coeur-unlike.png" alt="coeur-gris">
     </button>
+</div>
 </template>
 
 <script>
