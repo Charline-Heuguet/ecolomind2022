@@ -14,7 +14,7 @@
             <RoomTipsComponent :astuce="this.astuce" />
         </div>
 
-        <div>
+        <div >
             <ButtonFavComponent
             :astuce_id ="this.astuce.id"/>
 
