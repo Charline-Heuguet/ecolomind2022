@@ -5,9 +5,6 @@
     <div id="SingleView" v-if="isloaded">
         <div>      
 
-            <!-- <h3 v-html="this.astuce.title.rendered"></h3> -->
-            <!-- <img src="" alt="">         -->
-
             <h3 v-html="this.title"></h3>
 
 
@@ -22,9 +19,6 @@
 
 
         <p v-html="this.author.name"></p>
-
-
-        <!-- <p v-html="this.astuce._embedded.author.name"></p> -->
 
 
         <div>

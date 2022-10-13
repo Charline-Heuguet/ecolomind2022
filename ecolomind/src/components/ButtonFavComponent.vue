@@ -11,7 +11,6 @@
 <script>
 import axios from "axios";
 import storage from "@/utils/storage";
-//import TipsServices from '@/services/TipsServices';
 export default {
     name: "ButtonFavoritesComponent",
     data(){
