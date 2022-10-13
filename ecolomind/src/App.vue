@@ -1,18 +1,23 @@
 <template>
-  <div :class="theme === 'light' ? 'light-theme' : 'dark-theme' ">
+  <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'">
     <div  class="header-container">
       <HeaderComponent />
-      <a  href="" @click.prevent="changeTheme()" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>   
-      <a  href="" @click.prevent="changeTheme()" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
+      <div v-if="this.theme == 'light'">
+        <a href="" @click.prevent="changeTheme()" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>  
+      </div>
+      <div v-if="this.theme == 'dark'">        
+          <a href="" @click.prevent="changeTheme()" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
+      </div>   
     </div>
     <NavComponent />
     <router-view />
     <FooterComponent />
-  </div>
+    </div>
 </template>
 
 
 <script>
+import storage from '@/utils/storage.js';
 import NavComponent from '@/components/NavComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
@@ -20,15 +25,15 @@ import UserServices from '@/services/UserServices';
 export default {
   name: 'App',
   data(){
-    return{
-      theme: "light"
+    return{     
+      theme: storage.get('theme', this.theme),     
     }
   },
   methods: {
     changeTheme(){
       this.theme = this.theme === "dark" ? "light" : "dark";
-
-    }
+      storage.set('theme', this.theme); 
+    },    
   },
   components: {
     NavComponent,
@@ -82,7 +87,7 @@ a{
       }
 
 }
-.dark-theme{
+.dark-theme{   
     background: linear-gradient(180deg, #053A79 0%, #5C6269 100%);
     color: #b9b9b9;
       nav{
@@ -95,8 +100,8 @@ a{
           }
         }
       }
-      .user-state{
-        background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);
+      .user-state{       
+        background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
         border-radius: 30px;
         span{
           color: #b9b9b9;
