@@ -57,7 +57,6 @@ export default {
       let viewport_width = window.innerHeight;
       let offSet = -15*posX/viewport_width;
       move.style.top = offSet+"px";
-      console.log(posX);
     });
   }
 }
