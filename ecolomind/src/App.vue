@@ -2,9 +2,8 @@
   <div :class="theme === 'light' ? 'light-theme' : 'dark-theme' ">
     <div  class="header-container">
       <HeaderComponent />
-      <img src="@/assets/soleil.png" class="switcher" alt="">    
+      <a href="" @click.prevent="changeTheme()" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>   
     </div>
-    <button @click="changeTheme()" >color</button>
     <NavComponent />
     <router-view />
     <FooterComponent />
