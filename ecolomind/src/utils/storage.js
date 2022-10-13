@@ -1,3 +1,6 @@
+
+
+
 // Gestion des cookies
 const storage = {
 
@@ -20,7 +23,8 @@ const storage = {
     //unset : qui va permettre de supprimer un JSON en LocalStorage
     unset(key){
         window.localStorage.removeItem(key);
-    }
+    },
+    
 }
 
 export default storage;

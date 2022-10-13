@@ -1,12 +1,12 @@
 <template>
-  <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'">
+  <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'" >
     <div  class="header-container">
       <HeaderComponent />
       <div v-if="this.theme == 'light'">
-        <a href="" @click.prevent="changeTheme()" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>  
+        <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>  
       </div>
       <div v-if="this.theme == 'dark'">        
-          <a href="" @click.prevent="changeTheme()" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
+          <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
       </div>   
     </div>
     <NavComponent />
@@ -25,8 +25,8 @@ import UserServices from '@/services/UserServices';
 export default {
   name: 'App',
   data(){
-    return{     
-      theme: storage.get('theme', this.theme),     
+    return{       
+      theme: "",
     }
   },
   methods: {
@@ -40,11 +40,25 @@ export default {
     FooterComponent,
     HeaderComponent,
   },
-
-
-  async created(){
+  async created(){    
     const stateInLoad = await UserServices.isConnected();
     this.$store.commit('setConnectionState', stateInLoad);
+    let color = storage.get('theme')
+    if(color){
+      this.theme = storage.get('theme')
+    }else{
+      this.theme = 'light'
+    }
+
+    addEventListener('mousemove', () => {
+      var e = window.event;
+      var posX = e.clientY;
+      let move = document.getElementById('move');
+      let viewport_width = window.innerHeight;
+      let offSet = -15*posX/viewport_width;
+      move.style.top = offSet+"px";
+      console.log(posX);
+    });
   }
 }
 
@@ -56,10 +70,12 @@ export default {
 body{
   margin: 0;
 }
-
 * {
   box-sizing: border-box;
   
+}
+#move{
+  position: relative;
 }
 a{
   &.router-link-exact-active {
@@ -87,12 +103,15 @@ a{
       }
 
 }
-.dark-theme{   
-    background: linear-gradient(180deg, #053A79 0%, #5C6269 100%);
+.dark-theme{       
+    background: url('~@/assets/stars.png'), linear-gradient(180deg, #053A79 0%, #5C6269 100%);
+    background-size: contain;
+    background-position: center;
     color: #b9b9b9;
       nav{
         background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);
         border-radius: 100px;
+        z-index: 10;
           a{
             color: #b9b9b9;
             &.router-link-exact-active {
