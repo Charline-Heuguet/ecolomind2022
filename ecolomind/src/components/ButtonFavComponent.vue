@@ -1,7 +1,9 @@
 <template>
+<div>
     <button class="fav" name="favorite" type="button" v-on:click.prevent="ClickFav()">
         <img src="../assets/coeur-like.png" alt="coeur-vert">
     </button>
+</div>
 </template>
 
 
@@ -9,7 +11,6 @@
 <script>
 import axios from "axios";
 import storage from "@/utils/storage";
-//import TipsServices from '@/services/TipsServices';
 export default {
     name: "ButtonFavoritesComponent",
     data(){
