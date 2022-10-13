@@ -46,17 +46,24 @@ export default {
     }
   },
 
-  methods : {
-        getUrlImg(room){
-            return require("../assets/"+room.slug+".png")
-        }
+  methods : 
+  {
+    getUrlImg(room){
+        return require("../assets/"+room.slug+".png")
+    }
   },
 
   async created()
   {
     this.rooms = await TipsServices.getAllRooms();
+  },
 
-  }
+  
+
+  // computed:
+  // {
+  //   // location.reload();
+  // }
 }
 </script>
 
