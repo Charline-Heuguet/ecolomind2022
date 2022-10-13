@@ -3,7 +3,7 @@
     <div>
         <form>
             <div>
-                <label for="email">Email :</label>
+                <label for="email">Email ou nom d'utilisateur :</label>
                 <input v-model="this.loginInForm" placeholder="gerceval@gmail.com" type="text" id="email" />
                 <div v-if="this.errors.loginMissing" >Pseudo non valide</div>
             </div>
@@ -13,7 +13,7 @@
                 <div v-if="this.errors.passwordMissing" >Mot de passe non valide</div>
             </div>
 
-             <div v-if="this.errors.loginIncorrects" class="error">Login ou mot de passe incorrecte</div>
+            <div v-if="this.errors.loginIncorrects" class="error">Login ou mot de passe incorrect</div>
              
             <button v-on:click.prevent="Connexion()" >Se connecter</button>
         </form>
