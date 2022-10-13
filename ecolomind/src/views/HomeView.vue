@@ -62,7 +62,7 @@ export default {
 
 
 
-<style lang="scss">
+<style lang="scss" >
 
 #image{
   max-width: 60%;

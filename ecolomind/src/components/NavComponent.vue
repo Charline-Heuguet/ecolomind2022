@@ -1,5 +1,5 @@
 <!-- Header et navbar !-->
-<template>
+<template>  
         <nav>
             <router-link to="/">Accueil</router-link>
 
@@ -19,7 +19,7 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
 
             <router-link to="/ajout-article" v-if="this.$store.state.userIsConnect">Proposer une astuce</router-link>
 
-        </nav>
+        </nav>   
 </template>
 
 
@@ -50,8 +50,7 @@ export default ({
 })
 </script>
 
-<style lang="scss">
-
+<style lang="scss" >
 
 nav{
     display: flex;
@@ -59,15 +58,10 @@ nav{
     border: solid 0px;
     border-radius: 30px;
     box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
-    padding: 20px 0px;
+    padding: 20px 0;
     margin: 20px 0;
 }
 
-a{
-    text-decoration: none;
-    font-weight: bold;
-    color: #2c3e50;
-}
 
 </style>
 
