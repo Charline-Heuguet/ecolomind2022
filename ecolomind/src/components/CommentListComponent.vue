@@ -17,6 +17,7 @@
           Envoyer
         </button>
       </form>
+      <div v-if="this.success" class="success">Merci d'avoir partagé votre avis !</div>
         <section>
           <h2>{{ this.comments.length }} commentaire(s)</h2>
           <article
@@ -42,6 +43,7 @@
         comments: false,
         commentsnumber: 0,
         content: "",
+        success : false,
       }
       
     
@@ -55,6 +57,7 @@
             await TipsServices.addComment(this.content, this.$route.params.id);
             this.$emit('commentAdded'); 
             this.readcomment();
+            this.success = true;
       },
       readcomment(){ 
               const base_url= "http://ecolomind.local/wp-json";
