@@ -23,7 +23,13 @@
             <div>
                 <h3>Mes astuces préférées</h3>
 
-                <TipsLikedByUserComponent />
+                <TipsLikedByUserComponent 
+                v-for="astuce in likedTips"
+                :key="astuce.id"
+                :dbid="astuce.id"
+                :title="astuce.title.rendered"
+                :excerpt="astuce.excerpt.rendered"
+                />
             </div>
 
             <div>
@@ -36,7 +42,10 @@
                 :title="astuce.title.rendered"
                 :excerpt="astuce.excerpt.rendered"
                 />
-                <div v-if="createdTips.length < 1">Vous n'avez pas encore proposé d'astuce !</div>
+                <div v-if="createdTips.length < 1">
+                    Vous n'avez pas encore <router-link to="ajout-article">proposé d'astuce</router-link>  !
+                    
+                </div>
             </div>
         </div>
 
@@ -95,6 +104,7 @@ export default {
         return{
             mode: 'profil',
             createdTips: [],
+            likedTips: [],
         }
     },
 
