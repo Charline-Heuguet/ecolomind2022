@@ -11,9 +11,14 @@
             <RoomTipsComponent :astuce="this.astuce" />
         </div>
 
+
         <div>
             <ButtonFavComponent v-if="this.$store.state.userIsConnect"
+
             :astuce_id ="this.astuce.id"/>
+
+            <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
+            :astuce_id="this.astuce.id"/>
         </div>
         
        
@@ -22,7 +27,6 @@
 
 
         <div>
-
             <TargetTipsComponent :astuce="this.astuce" />
         </div>
 
@@ -59,7 +63,10 @@ import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
-import ButtonFavComponent from '@/components/ButtonFavComponent.vue';
+
+import ButtonFavComponent from '@/components/ButtonFavComponent.vue'
+import ButtonUnFavComponent from '@/components/ButtonUnFavComponent.vue'
+
 import axios from 'axios';
 
 export default{
@@ -71,8 +78,10 @@ export default{
         TargetTipsComponent,
         RoomTipsComponent,
         ToolsTipsComponent,
-        ButtonFavComponent
-      
+
+        ButtonFavComponent,
+        ButtonUnFavComponent
+
     },
 
     data(){
@@ -103,28 +112,17 @@ export default{
             this.astuce = response.data;
             console.log(this.astuce);
 
-
-
-
-            // ICI cette fonction n'existe plus, elle date d'une version précédente
-
-            // this.readComments();
-            // console.log(this.astuce);
             
             axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
                 this.ingredients = response.data;
             });
 
             this.title= response.data.title.rendered;
-            const em = Object.assign({}, this.astuce._embedded);
-
-            
+            const em = Object.assign({}, this.astuce._embedded);           
 
 
 
             this.author = em.author[0];
-
-
 
             
             this.isloaded = true;

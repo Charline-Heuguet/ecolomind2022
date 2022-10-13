@@ -1,18 +1,18 @@
 <template>
-
 <div>
-    <button class="fav" name="favorite" type="button" v-on:click.prevent="ClickFav()">
 
-        <img src="../assets/coeur-like.png" alt="coeur-vert">
+    <button class="fav" name="favorite" type="button" v-on:click.prevent="RemoveFav()">
+        <img src="../assets/coeur-unlike.png" alt="coeur-gris">
     </button>
+    
 </div>
 </template>
-
-
 
 <script>
 import axios from "axios";
 import storage from "@/utils/storage";
+
+
 export default {
     name: "ButtonFavoritesComponent",
     data(){
@@ -30,10 +30,10 @@ export default {
 
 
     methods : {
-        async ClickFav(){
+        async RemoveFav(){
             console.log(JSON.parse(JSON.stringify(this.favData)));
 
-             axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/favorites', JSON.parse(JSON.stringify(this.favData)))
+             axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/unfavorites', JSON.parse(JSON.stringify(this.favData)))
              .then(response => console.log(response))
             .catch(function(){
             // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
@@ -47,6 +47,19 @@ export default {
     }
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <style lang="scss">
