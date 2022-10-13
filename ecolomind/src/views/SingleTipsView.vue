@@ -11,17 +11,20 @@
             <RoomTipsComponent :astuce="this.astuce" />
         </div>
 
-        <div >
-            <ButtonFavComponent
+
+        <div>
+            <ButtonFavComponent v-if="this.$store.state.userIsConnect"
+
             :astuce_id ="this.astuce.id"/>
 
             <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
             :astuce_id="this.astuce.id"/>
         </div>
         
-
+       
 
         <p v-html="this.author.name"></p>
+
 
         <div>
             <TargetTipsComponent :astuce="this.astuce" />
@@ -60,8 +63,10 @@ import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
+
 import ButtonFavComponent from '@/components/ButtonFavComponent.vue'
 import ButtonUnFavComponent from '@/components/ButtonUnFavComponent.vue'
+
 import axios from 'axios';
 
 export default{
@@ -73,8 +78,10 @@ export default{
         TargetTipsComponent,
         RoomTipsComponent,
         ToolsTipsComponent,
+
         ButtonFavComponent,
         ButtonUnFavComponent
+
     },
 
     data(){
