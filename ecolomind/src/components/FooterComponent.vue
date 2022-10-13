@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 footer{
     padding: 80px;
@@ -41,7 +41,8 @@ footer{
     border-top: 25px solid #684D41;
 }
 a {
-    color: white;
+    text-decoration: none;
+    font-weight: bold;
     &.router-link-exact-active {
       color: #42b983;
     }
