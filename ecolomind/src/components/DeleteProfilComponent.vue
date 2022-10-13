@@ -13,18 +13,20 @@ export default{
     name: 'DeleteProfilComponent',
     data(){
         return{
-            userToDelete : storage.get('userData').userID,
+            userToDelete : [storage.get('userData').userID],
         }
     },
     methods:
     {
         async deleteMyInfos(){
             console.log(JSON.parse(JSON.stringify(this.userToDelete)));
-            axios.delete('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.userToDelete)))
+            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/profildelete', JSON.parse(JSON.stringify(this.userToDelete)),this.$router.push({name : "home"}))
             .then(response => console.log(response))
             .catch(function(){
                 return {data: null}
             })
+
+            return storage.unset('userData').userID;
         },
 
         getCurrentUserName(){
