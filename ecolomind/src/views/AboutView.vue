@@ -1,5 +1,3 @@
-<!-- Page a propos  -->
-
 <template>
 
 <container class= "about-us">
@@ -12,6 +10,13 @@
 
                <p class="card__name">Charline Heuguet</p>
                <p class="card__name">Product Owner</p>
+               <p class="about__me">A propos de moi</p>
+
+                 <section class="socials-icons">
+                  <a href="#"><img src= "../assets/github_repository_resource_icon.png" alt=""></a>
+                  <a href="#"><img src= "../assets/twitter_logo_icon.png" alt=""></a>
+                  <a href="#"><img src= "../assets/linkedin_logo_icon.png" alt=""></a>
+                 </section>
 
           </div>  
 
@@ -22,6 +27,13 @@
 
              <p class="card__name">Guillaume Pourriere</p>
              <p class="card__name">Git Master</p>
+             <p class="about__me">A propos de moi</p>
+
+               <section class="socials-icons">
+                <a href="#"><img src= "../assets/github_repository_resource_icon.png" alt=""></a>
+                <a href="#"><img src= "../assets/twitter_logo_icon.png" alt=""></a>
+                <a href="#"><img src= "../assets/linkedin_logo_icon.png" alt=""></a>
+               </section>
 
           </div> 
 
@@ -33,6 +45,13 @@
 
             <p class="card__name">Alexandre Quemeneur</p>
             <p class="card__name">Lead Front</p>
+            <p class="about__me">A propos de moi</p>
+
+               <section class="socials-icons">
+                  <a href="#"><img src= "../assets/github_repository_resource_icon.png" alt=""></a>
+                  <a href="#"><img src= "../assets/twitter_logo_icon.png" alt=""></a>
+                  <a href="#"><img src= "../assets/linkedin_logo_icon.png" alt=""></a>
+               </section>
 
           </div> 
 
@@ -43,26 +62,35 @@
          
             <p class="card__name">Fabio Chaher</p>
             <p class="card__name">Lead Back</p>
+            <p class="about__me">A propos de moi</p>
+
+               <section class="socials-icons">
+                <a href="#"><img src= "../assets/github_repository_resource_icon.png" alt=""></a>
+                <a href="#"><img src= "../assets/twitter_logo_icon.png" alt=""></a>
+                <a href="#"><img src= "../assets/linkedin_logo_icon.png" alt=""></a>
+               </section>
           
           </div> 
 
        
           <div class="card">
 
-            <div class="card-image"><img src= "../assets/woman-avatar-profil.jpeg"></div>
+            <div class="card-image"><img src= "../assets/woman-avatar-profil.jpeg" alt="" ></div>
 
               <p class="card__name">Jeanne Multon</p>
               <p class="card__name">Scrum Master</p>
+              <p class="about__me">A propos de moi</p>
 
-            <ul class="social-icons">
-                
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                
-              </ul> 
+            
+                <section class="socials-icons">
+                  <a href="#"><img src= "../assets/github_repository_resource_icon.png" alt=""></a>
+                  <a href="#"><img src= "../assets/twitter_logo_icon.png" alt=""></a>
+                  <a href="#"><img src= "../assets/linkedin_logo_icon.png" alt=""></a>
+                </section>
+             
 
             </div> 
+
 
   </container>
 
@@ -79,26 +107,25 @@ container{
 p{
 
   text-align:center;
-  margin-bottom: 25px;
-  margin-top: 18px;
+  margin-bottom: 15px;
+  margin-top: 3px;
   color: white;
 
 }
 
 .card{
 
-  //background: #FFCED8;
-   width: 180px;
-   height: 300px;
-   margin:90px;
-   border-radius:15px;
-   background-color: #667386;
-  
+  width: 180px;
+  height: 300px;
+  margin:90px;
+  border-radius:15px;
+  background-color: #CBD8E8;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.123);
+  box-shadow: rgba(54, 48, 48, 0.123);
   color: white;
+
   }
 
 .card-image{
@@ -107,7 +134,7 @@ p{
   border-radius: 50%;
   border: 5px solid #746d81;
   margin-top: 20px;
-  box-shadow: 0 1px 50px rgb(39, 25, 235);
+  // box-shadow: 0 1px 50px rgb(13, 174, 238);
   // background-color: #FFBF00;
   // height:100px;
   // margin-bottom: 50px;
@@ -117,43 +144,42 @@ p{
       height:110px;
       width:110px;
       border-radius: 50%;
-      margin-top: -8px;
-      margin-left: -8px;
+      margin-top: -5px;
+      margin-left: -5px;
       
     }
   }
 
 .card:hover{ 
-background-color: rgb(209, 190, 190);
+background-color: rgb(176, 211, 83);
 color: whitesmoke;
 cursor: pointer;
 transform: scale(1.03);
 box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
+
   }
 
-.social-icons {
-  padding: 0;
-  list-style: none;
-  margin: 1em;
+.socials-icons{
+
+img{
+  //flex-direction:row;
+  //display:flex;
+  //justify-content: space-between;
+  //display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-top: -90px;
+    margin:20px;
+    margin-bottom: 1px;
+    
+  }
+
 }
 
-.social-icons li {
-  display: inline-block;
-  margin: 0.15em;
-  position: relative;
-  font-size: 1em;
-}
+section{
 
-.social-icons i {
-  color: #fff;
-  position: absolute;
-  top: 0.95em;
-  left: 0.96em;
-  transition: all 265ms ease-out;
-}
+display: flex;
 
-.social-icons a {
-  display: inline-block;
 }
 
 }
