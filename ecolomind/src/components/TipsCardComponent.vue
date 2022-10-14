@@ -1,7 +1,7 @@
 <template>
     <article>
 
-        <img :src="this.difficulty.description" :alt="this.difficulty.name">
+        <img :src="this.difficulty.description" :alt="this.difficulty.name" class="try">
        
         <router-link :to="{name: 'single-tips', params: {id: this.dbid}}">
             <h2 v-html="this.title"></h2> 
@@ -67,7 +67,9 @@ article{
 }
 
 
-
+.try{
+    max-width: 50px;
+}
 #suite {
     text-align: right;
 }
