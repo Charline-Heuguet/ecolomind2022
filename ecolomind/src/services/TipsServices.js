@@ -161,9 +161,22 @@ const TipsServices =
     return response.data
     },
 
-    // getCurrentUserName(){
-    //     return storage.get('userData').user_display_name;
-    // },
+
+    //modifyComment va mettre a jour un commentaire dans l'API WP.
+    
+    async modifyComment(id, content){
+        const response = await axios.post(this.base_url + "/wp/v2/comments/" + id, {
+            id : id,
+            content: content,
+        }, {
+            headers: {
+                Authorization: "Bearer " + storage.get("userData").token
+            }
+        });
+        return response.data
+    },
+
+    
 
     async TipsCreatedByCurrentUser(id)
     {
