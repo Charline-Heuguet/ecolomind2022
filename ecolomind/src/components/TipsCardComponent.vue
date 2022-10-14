@@ -81,5 +81,17 @@ article{
 #suite {
     text-align: right;
 }
-
+.dark-theme{
+    article{
+        color: #e8e8ee;
+            background-color: #253651;
+            border: 2px solid  #a7b2c0;
+        #suite{
+        color: #e8e8ee;     
+        }  
+        #suite:hover{
+            color: #407038;
+        }   
+    }   
+}
 </style>
