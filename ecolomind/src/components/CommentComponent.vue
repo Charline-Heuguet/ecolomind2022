@@ -79,7 +79,8 @@
                 Authorization: "Bearer " + storage.get("userData").token
             }
         });
-      }       
+      },
+      
     }
   }
 
