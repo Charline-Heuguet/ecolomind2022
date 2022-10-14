@@ -9,13 +9,14 @@
         <p v-html="authorID"></p>
 
         <div v-if="comment.author == authorID">
-            Modifier
+            Modifier 
+            <div>{{comment.id}}</div>
+            
             <form>
 
             <div>
                 <label for="content">Commentaire</label>
-                <textarea rows="3" v-model="modifiedcontent"> </textarea>
-                
+                <textarea rows="3" v-model="modifiedcontent"> </textarea>                
             </div>
 
             <button
@@ -29,7 +30,6 @@
 
         </div>
 
-
         </article>
 
 
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  
+  import axios from 'axios';
   //import TipsServices from '@/services/TipsServices';
   import storage from '@/utils/storage';
 
@@ -59,10 +59,20 @@
 
     },
     
-    methods:{
+    methods:{      
       
       async updateComment(){
-        //await TipsServices.modifyComment(this.commentID,this.modifiedcontent);
+        console.log(this.comment.id);
+        console.log(this.modifiedcontent);
+
+         await axios.post("http://ecolomind.local/wp-json/wp/v2/comments/" + this.comment.id, {
+            content: this.modifiedcontent,
+        }, {
+            headers: {
+                Authorization: "Bearer " + storage.get("userData").token
+            }
+        });
+        //await TipsServices.modifyComment(this.comment.id,this.modifiedcontent);
         
 
       }

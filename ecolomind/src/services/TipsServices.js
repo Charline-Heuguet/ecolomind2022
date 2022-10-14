@@ -164,17 +164,10 @@ const TipsServices =
 
     //modifyComment va mettre a jour un commentaire dans l'API WP.
     
-    async modifyComment(id, content){
-        const response = await axios.post(this.base_url + "/wp/v2/comments/" + id, {
-            id : id,
-            content: content,
-        }, {
-            headers: {
-                Authorization: "Bearer " + storage.get("userData").token
-            }
-        });
-        return response.data
-    },
+    // async modifyComment(id, content){
+        
+    //     return response.data
+    // },
 
     
 

@@ -64,7 +64,7 @@
     },
     methods:{
       async submitComment(){
-        // console.log(this.content);
+        //console.log(this.content);
         await TipsServices.addComment(this.content, this.$route.params.id);
         this.$emit('commentAdded'); 
         this.readcomment();
@@ -78,14 +78,6 @@
           this.commentsnumber = this.comments.lenght;
         });  
       },
-
-      async updateComment(){
-        await TipsServices.modifyComment(this.commentID,this.modifiedcontent);
-        
-
-      }
-
-       
     }
   }
   </script>
