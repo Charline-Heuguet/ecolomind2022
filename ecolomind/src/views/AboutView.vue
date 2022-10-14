@@ -42,7 +42,7 @@
             <div class="card-image"><img src= "../assets/man-avatar-profile.webp"></div>
          
             <p class="card__name">Fabio Chaher</p>
-            <p class="card__name">Lead Front</p>
+            <p class="card__name">Lead Back</p>
           
           </div> 
 
