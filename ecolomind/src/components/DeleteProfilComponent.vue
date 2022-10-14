@@ -20,13 +20,13 @@ export default{
     {
         async deleteMyInfos(){
             console.log(JSON.parse(JSON.stringify(this.userToDelete)));
-            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/profildelete', JSON.parse(JSON.stringify(this.userToDelete)),this.$router.push({name : "home"}))
+            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/profildelete', JSON.parse(JSON.stringify(this.userToDelete)),this.$router.push({name : "home"}), this.$store.dispatch('onUserDisconnection'))
             .then(response => console.log(response))
             .catch(function(){
                 return {data: null}
             })
 
-            return storage.unset('userData').userID;
+            return storage.unset('userData');
         },
 
         getCurrentUserName(){
