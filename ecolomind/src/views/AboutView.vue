@@ -109,7 +109,7 @@ p{
   text-align:center;
   margin-bottom: 15px;
   margin-top: 3px;
-  color: white;
+  
 
 }
 
