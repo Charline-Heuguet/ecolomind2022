@@ -2,15 +2,17 @@
 <template>
     <div class="connexion">
         <form>
-            <div>
-                <label for="email">Email ou nom d'utilisateur :</label>
+            <div class="mail-form">
+                <div v-if="this.errors.loginMissing" >Email ou pseudo non valide</div>
+                <label for="email">Email ou pseudo d'utilisateur :</label>
                 <input v-model="this.loginInForm" placeholder="gerceval@gmail.com" type="text" id="email" />
-                <div v-if="this.errors.loginMissing" >Pseudo non valide</div>
+                
             </div>
-            <div>
-                <label for="password">Mot de passe :</label>
-                <input v-model="this.passwordInForm" type="password" id="password" />
+            <div class="pass-form">
                 <div v-if="this.errors.passwordMissing" >Mot de passe non valide</div>
+                <label for="password">Mot de passe :</label>                
+                <input v-model="this.passwordInForm" type="password" id="password" placeholder="***********" />
+                
             </div>
 
             <div v-if="this.errors.loginIncorrects" class="error">Login ou mot de passe incorrect</div>
@@ -71,3 +73,77 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.connexion{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    #email{
+        width: 35vh;
+        height: 5vh;
+        margin:5px 0 20px 0;
+        border-radius: 20px;
+        border: 2px solid  #a7b2c0;
+        background-color: #c7d3e3;
+        padding: 8px;
+    }
+    #password{
+        width: 35vh;
+        height: 5vh;
+        margin:5px 0 20px 0;
+        border-radius: 20px;
+        border: 2px solid  #a7b2c0;
+        background-color: #c7d3e3;
+        padding: 8px;
+    }
+    button{
+        width: 20vh;
+        height: 4vh;
+        border: none;
+        color: #404041;
+        font-weight: bold;
+        border-radius: 20px;
+        background-color: #acd14f;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+    .mail-form{
+        display: flex;
+        flex-direction: column;
+        div{
+            color: red;
+        }
+    }
+    .pass-form{
+        display: flex;
+        flex-direction: column;
+        div{
+            color: red;
+        }
+    }
+    .error{
+        color: red;
+    }
+}    
+.dark-theme{
+    .connexion{
+        #email{
+            color: #e8e8ee;
+            background-color: #253651;
+            border: 2px solid  #a7b2c0;
+        }
+        #password{
+            color: #e8e8ee;
+            background-color: #253651;
+            border: 2px solid  #a7b2c0;
+        }
+        button{
+            color: #e8e8ee;
+            background-color: #407038;
+            
+        }
+    }
+}
+
+</style>
