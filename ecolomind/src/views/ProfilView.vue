@@ -137,10 +137,7 @@ export default {
 </script>
 
 <style lang="scss">
-// .dark-theme{
-    
-   
-// }
+
 .profil-view{
     display: grid;
     grid-template-columns: 2fr;
@@ -263,10 +260,57 @@ export default {
             margin-left: 5%;           
                 article{
                     display: flex;
-                    flex-direction: column;
-                    margin: 5px;                  
+                    flex-direction: column;                
                 } 
         }
     }
+.dark-theme{
+    .profil-view{
+        .profil-modif{
+            color: #6c6f74;
+            background-color: #253651;
+            border: 2px solid  #b7c2cf;
+            button{
+                color: #e8e8ee;
+                background-color: #407038;
+            }
+            h2{
+                color: #6c6f74;
+            }
+            h5{
+                color: #6c6f74;
+            }
+            p{
+                color: #6c6f74;
+            }
+        }
+        .fav-astuce{
+            background-color: #253651;
+            border: 2px solid  #b7c2cf;
+            h3{
+                color: #6c6f74;
+            }
+            p{
+                color: #6c6f74;
+            }
+        }
+        .my-astuce{
+            color: #e8e8ee;
+            background-color: #253651;
+            border: 2px solid  #b7c2cf;
+            article{
+                background-color: #273242;
+                border: 2px solid  #b7c2cf;
+            }
+            h3{
+                color: #e8e8ee;
+            }
+            #suite{
+                color: #407038;
+            }
+        }
+    }
+   
+}
 }
 </style>
