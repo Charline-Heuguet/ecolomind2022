@@ -101,6 +101,15 @@ a{
         }
       }
 
+  .card{
+    
+    background-color: #c7d3e3;
+    border: 2px solid  #a7b2c0;
+      p{
+        color: #6c6f74;
+      }
+  }
+
 }
 .dark-theme{       
     background: url('~@/assets/stars.png'), linear-gradient(180deg, #053A79 0%, #5C6269 100%);
@@ -118,6 +127,12 @@ a{
           }
         }
       }
+
+    .card{
+      color: #e8e8ee;
+      background-color: #253651;
+      border: 2px solid  #a7b2c0;
+    }
       .user-state{       
         background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
         border-radius: 30px;

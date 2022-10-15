@@ -32,6 +32,7 @@
   </template>
 
 
+
   <script>
   import axios from 'axios';
   import TipsServices from '@/services/TipsServices';
@@ -52,7 +53,7 @@
     },
     methods:{
       async submitComment(){
-            // console.log(this.content);
+            //console.log(this.content);
             await TipsServices.addComment(this.content, this.$route.params.id);
             this.$emit('commentAdded'); 
             this.readcomment();
