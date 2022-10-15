@@ -129,12 +129,12 @@ export default {
 .dark-theme{
     .connexion{
         #email{
- color: #e8e8ee;
+            color: #e8e8ee;
             background-color: #253651;
             border: 2px solid  #a7b2c0;
         }
         #password{
- color: #e8e8ee;
+            color: #e8e8ee;
             background-color: #253651;
             border: 2px solid  #a7b2c0;
         }
