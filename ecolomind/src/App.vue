@@ -91,7 +91,7 @@ a{
   margin-top: 2vh;
 }
 .light-theme{
-    background: linear-gradient(180deg, rgba(196,211,229,1) 0%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(180deg, rgb(105, 177, 219) 0%, rgba(255,255,255,1) 100%);
       nav{
         a{
           color: #2c3e50;
@@ -101,8 +101,7 @@ a{
         }
       }
 
-  .card{
-    
+  .card{   
     background-color: #c7d3e3;
     border: 2px solid  #a7b2c0;
       p{
