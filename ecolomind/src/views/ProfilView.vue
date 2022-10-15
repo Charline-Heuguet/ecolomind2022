@@ -264,6 +264,7 @@ export default {
                 } 
         }
     }
+}
 .dark-theme{
     .profil-view{
         .profil-modif{
@@ -312,5 +313,5 @@ export default {
     }
    
 }
-}
+
 </style>
