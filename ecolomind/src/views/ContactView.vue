@@ -85,7 +85,6 @@ export default{
         }
     }
 }
-//import axios from 'axios';
 
 </script>
 
@@ -137,25 +136,6 @@ export default{
 }
 
 
-// .obli{
-    // color:red;
-// }
-
-// input{
-//     height: 30px;
-//     width: 250px;
-//     margin: 5px auto 20px;
-// }
-// label, input {
-//     display: block;
-// }
-
-button, h3{
-    border: none;
-    margin-top: 2px;
-    margin-bottom: 15px;
-}
-
 .form{
     display: flex;
     flex-direction: column;
@@ -178,7 +158,7 @@ button, h3{
             background-color: #253651;
             border: 2px solid  #a7b2c0;
         }
-        .new-ingredients{
+        .message{
             color: #e8e8ee;
             background-color: #253651;
             border: 2px solid  #a7b2c0;
