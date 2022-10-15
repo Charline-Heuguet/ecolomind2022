@@ -9,33 +9,34 @@
             <h3 v-html="this.title"></h3>
         </div>
 
-        <div class="difficulty">
+        
+        <div class="difficulty">Difficulté:
             <DifficultyTipsComponent :astuce="this.astuce" />
         </div> 
 
-        <span> Cette astuce est proposée par : </span>
-        <span v-html="this.author.name"></span>
         
-        <span>
-            <ButtonFavComponent v-if="this.$store.state.userIsConnect"
-            :astuce_id ="this.astuce.id"
-            />
-        </span>
 
-        <span>
-            <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
+        <p>Ajouter aux favoris </p>
+        <ButtonFavComponent v-if="this.$store.state.userIsConnect"
+            :astuce_id ="this.astuce.id"
+        />        
+        <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
             :astuce_id="this.astuce.id"
-            />
-        </span>    
+        />
+        
+          
 
         <div class="ingredients">
-
             <IngredientsTipsComponent :astuce="this.astuce" />
         </div>
 
         
         
-        <p v-html="this.astuce.content.rendered"></p>
+        <p class="content" v-html="this.astuce.content.rendered"></p>
+
+        <p class="author"> 
+            Cette astuce est proposée par : <span v-html="this.author.name"></span>
+        </p>
 
 
         <!-- <div>
@@ -114,22 +115,14 @@ export default{
 
 
 
-            this.author = em.author[0];
-
+            this.author = em.author[0];            
+            this.isloaded = true;            
             
-            this.isloaded = true;
-
-            
-            
-        });   
-
-
-        
+        });    
 
     },
     mounted(){
-        // this.$nextTick(function(){console.log(this.astuce)});
-        
+        // this.$nextTick(function(){console.log(this.astuce)});        
     },
 
 }
@@ -140,12 +133,42 @@ export default{
 
 <style lang="scss">
 
-.ingredients {
+#SingleView {
+    .title{
+        display: flex;
+        justify-content: center;
 
-    border: 2px solid #a7b2c0;
-    background-color: rgba(199, 211, 227, 0.7960784314);
+    }
+    .difficulty{
+        img{  
+            max-width: 70px;
+        }
+    }
 
+    .ingredients{
+        display: flex;
+        justify-content: center;
+            span{
+                font-weight: 600;
+            }
+            ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }    
+    }
+        
+    .content{
+        
+    }
+    .author{
+
+    }
+    
 }
+
+    
+
 
 
 </style>

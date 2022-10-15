@@ -1,6 +1,5 @@
 <template>
-<div>
-
+<div class="fav-button">
     <button class="fav" name="favorite" type="button" v-on:click.prevent="RemoveFav()">
         <img src="../assets/coeur-unlike.png" alt="coeur-gris">
     </button>
