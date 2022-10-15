@@ -91,7 +91,7 @@ a{
   margin-top: 2vh;
 }
 .light-theme{
-    background: linear-gradient(180deg, #97cbe9 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, rgba(196,211,229,1) 0%, rgba(255,255,255,1) 100%);
       nav{
         a{
           color: #2c3e50;
