@@ -28,14 +28,11 @@
 
     </article>
 
-
-
   </div>
 </template>
 
 <script>
-  import axios from 'axios';
-  //import TipsServices from '@/services/TipsServices';
+  import TipsServices from '@/services/TipsServices';
   import storage from '@/utils/storage';
 
   export default {
@@ -44,15 +41,24 @@
     data(){
       return{
         authorID: storage.get('userData').userID,
-        modifiedcontent: "",        
+        modifiedcontent: "",
       }      
     },
 
     props : {
         comment: Object,
+        
     },
+
     
     methods:{ 
+
+      async updateComment(){
+        await TipsServices.updateComments(this.comment.id, this.modifiedcontent)
+        
+        this.$router.go()
+      },
+
 
       //Probleme rencontré: 
       //Lors du clic sur "modifier", que ce soit le 1er ou le 6è commentaire,
@@ -67,23 +73,10 @@
         let form = document.querySelector('form[data-id="'+id+'"]');
         //On ajoute la class "Shown" (qui va afficher) le form ciblé 
         form.classList.toggle('shown');
-      },
-      
-      
-      async updateComment(){
-
-         await axios.post("http://ecolomind.local/wp-json/wp/v2/comments/" + this.comment.id, {
-            content: this.modifiedcontent,
-        }, {
-            headers: {
-                Authorization: "Bearer " + storage.get("userData").token
-            }
-        });
-      },
+      }, 
       
     }
   }
-
 
   </script>
 

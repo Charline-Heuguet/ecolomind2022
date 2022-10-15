@@ -63,6 +63,7 @@
       this.readcomment();
     },
     methods:{
+      
       async submitComment(){
         //console.log(this.content);
         await TipsServices.addComment(this.content, this.$route.params.id);
