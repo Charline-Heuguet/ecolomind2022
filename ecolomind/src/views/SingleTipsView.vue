@@ -5,51 +5,50 @@
     <div id="SingleView" v-if="isloaded">
 
         
-        <div>      
+        <div class="title">      
             <h3 v-html="this.title"></h3>
         </div>
 
-        <div>
+        <div class="difficulty">
             <DifficultyTipsComponent :astuce="this.astuce" />
         </div> 
 
-        <div>
-            <RoomTipsComponent :astuce="this.astuce" />
-        </div>
-
-            <span> Cette astuce est proposée par : </span>
-            <span v-html="this.author.name"></span>
+        <span> Cette astuce est proposée par : </span>
+        <span v-html="this.author.name"></span>
         
-        <div>
+        <span>
             <ButtonFavComponent v-if="this.$store.state.userIsConnect"
             :astuce_id ="this.astuce.id"
             />
+        </span>
 
+        <span>
             <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
             :astuce_id="this.astuce.id"
             />
-        </div>    
+        </span>    
 
-        <div>
-            <TargetTipsComponent :astuce="this.astuce" />
-        </div>
-
-             
-        
         <div class="ingredients">
 
             <IngredientsTipsComponent :astuce="this.astuce" />
         </div>
 
-        <div class="ingredients">
-            <ToolsTipsComponent :astuce="this.astuce" />
-        </div>
+        
         
         <p v-html="this.astuce.content.rendered"></p>
 
-        
 
+        <!-- <div>
+            <TargetTipsComponent :astuce="this.astuce" />
+        </div> -->
 
+        <!-- <div class="ingredients">
+            <ToolsTipsComponent :astuce="this.astuce" />
+        </div> -->
+
+        <!-- <div class="roomtips">
+            <RoomTipsComponent :astuce="this.astuce" />
+        </div> -->
         <div>
             <CommentListComponent />
         </div>
@@ -58,9 +57,9 @@
 </template>
 
 <script>
-import ToolsTipsComponent from '@/components/ToolsTipsComponent.vue';
-import RoomTipsComponent from '@/components/RoomTipsComponent.vue';
-import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
+// import ToolsTipsComponent from '@/components/ToolsTipsComponent.vue';
+//import RoomTipsComponent from '@/components/RoomTipsComponent.vue';
+//import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
@@ -75,9 +74,9 @@ export default{
         CommentListComponent,
         IngredientsTipsComponent,
         DifficultyTipsComponent,
-        TargetTipsComponent,
-        RoomTipsComponent,
-        ToolsTipsComponent,
+        //TargetTipsComponent,
+        //RoomTipsComponent,
+        //ToolsTipsComponent,
         ButtonFavComponent,
         ButtonUnFavComponent
 
