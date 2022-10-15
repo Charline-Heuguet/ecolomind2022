@@ -53,7 +53,7 @@
         commentsnumber: 0,
         content: "",
         success : false,
-        authorID: storage.get('userData').userID,
+        authorID: storage.get('userData'),
         commentID: "",
         modifiedcontent: "",
       }
