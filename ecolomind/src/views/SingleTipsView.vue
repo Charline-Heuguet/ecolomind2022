@@ -3,38 +3,38 @@
 <template>
 
     <div id="SingleView" v-if="isloaded">
+
+        
         <div>      
-
             <h3 v-html="this.title"></h3>
+        </div>
 
+        <div>
+            <DifficultyTipsComponent :astuce="this.astuce" />
+        </div> 
 
+        <div>
             <RoomTipsComponent :astuce="this.astuce" />
         </div>
 
-
+            <span> Cette astuce est proposée par : </span>
+            <span v-html="this.author.name"></span>
+        
         <div>
             <ButtonFavComponent v-if="this.$store.state.userIsConnect"
-
-            :astuce_id ="this.astuce.id"/>
+            :astuce_id ="this.astuce.id"
+            />
 
             <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
-            :astuce_id="this.astuce.id"/>
-        </div>
-        
-       
-
-        <p v-html="this.author.name"></p>
-
+            :astuce_id="this.astuce.id"
+            />
+        </div>    
 
         <div>
             <TargetTipsComponent :astuce="this.astuce" />
         </div>
 
-        <div>
-            <DifficultyTipsComponent :astuce="this.astuce" />
-        </div>
-            
-        
+             
         
         <div class="ingredients">
 
@@ -47,9 +47,10 @@
         
         <p v-html="this.astuce.content.rendered"></p>
 
+        
+
 
         <div>
-
             <CommentListComponent />
         </div>
 
@@ -77,7 +78,6 @@ export default{
         TargetTipsComponent,
         RoomTipsComponent,
         ToolsTipsComponent,
-
         ButtonFavComponent,
         ButtonUnFavComponent
 
@@ -86,17 +86,11 @@ export default{
     data(){
         return{
             astuce: false,
-            // ingredients: false,
-            // difficulty : "",
-            // room : "",
-            // target : "",
             tools : false,
             title : "",
             author : "",
             newcomments: [],
             isloaded: false,
-            
-
         }
     },
 
@@ -141,6 +135,21 @@ export default{
 
 }
 </script>
+
+
+
+
+<style lang="scss">
+
+.ingredients {
+
+    border: 2px solid #a7b2c0;
+    background-color: rgba(199, 211, 227, 0.7960784314);
+
+}
+
+
+</style>
 
 
 
