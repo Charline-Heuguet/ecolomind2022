@@ -39,6 +39,7 @@ footer{
     display: flex;
     justify-content: space-between;
     border-top: 25px solid #684D41;
+    margin-top: 15vh;
 }
 a {
     text-decoration: none;
@@ -46,6 +47,18 @@ a {
     &.router-link-exact-active {
       color: #42b983;
     }
+}
+.dark-theme{
+    footer{
+        background: linear-gradient(11.1deg, rgba(52, 90, 52, 0.98) -23.79%, rgba(62, 125, 40, 0.75) 104.55%);
+            a{
+                color: #b9b9b9; 
+                 &.router-link-exact-active {
+                color: #42b983;
+                }
+            }
+    }
+
 }
 
 

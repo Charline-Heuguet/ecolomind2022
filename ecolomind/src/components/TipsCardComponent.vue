@@ -1,7 +1,7 @@
 <template>
     <article>
 
-        <img :src="this.difficulty.description" :alt="this.difficulty.name">
+        <img :src="this.difficulty.description" :alt="this.difficulty.name" class="try">
        
         <router-link :to="{name: 'single-tips', params: {id: this.dbid}}">
             <h2 v-html="this.title"></h2> 
@@ -53,23 +53,45 @@ export default({
 <style lang="scss" scoped>
 
 article{
-    background-color: rgba($color: #FFCED8, $alpha: 0.5);
+    background-color: #c7d3e3;
     border-radius: 15px;
     flex: 0 1 32%; //flex: capacité à s'étendre, capacité à se réduire et la largeur
-    text-align: center;
+    text-align: left;
     padding: 20px 20px 0px;
     margin: 10px 0;
-    
+    width: 50vh;
     h2{
         text-align: left;
         margin: 0;
     }
+    img{
+        float:right;
+        margin-bottom: 5px;
+    }
+    h2{
+        clear:right;
+    }
+    #suite{
+        
+    }
 }
-
-
-
+.try{
+    max-width: 50px;
+}
 #suite {
     text-align: right;
 }
-
+.dark-theme{
+    article{
+        color: #e8e8ee;
+            background-color: #253651;
+            border: 2px solid  #a7b2c0;
+        #suite{
+        color: #e8e8ee;     
+        }  
+        #suite:hover{
+            color: #407038;
+        }   
+    }   
+}
 </style>
