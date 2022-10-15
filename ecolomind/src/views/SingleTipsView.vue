@@ -77,7 +77,6 @@ export default{
         TargetTipsComponent,
         RoomTipsComponent,
         ToolsTipsComponent,
-
         ButtonFavComponent,
         ButtonUnFavComponent
 
