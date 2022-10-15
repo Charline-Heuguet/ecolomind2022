@@ -69,6 +69,15 @@ export default {
 body{
   margin: 0;
 }
+h1{
+  margin-left: 10px;
+}
+h2{
+  margin-left: 10px;
+}
+h3{
+  margin-left: 10px;
+}
 * {
   box-sizing: border-box;
   
