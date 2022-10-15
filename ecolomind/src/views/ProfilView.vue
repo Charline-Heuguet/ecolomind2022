@@ -214,6 +214,7 @@ export default {
             grid-area: 2 / 1 / 3 / 2;
             border: 2px solid  #a7b2c0;
             background-color: #c7d3e3cb;
+            color: #6c6f74;
             border-radius: 20px;
             padding: 20px;
             margin: 0 3% 0 3%;
