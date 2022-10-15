@@ -63,7 +63,6 @@ import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
-
 import ButtonFavComponent from '@/components/ButtonFavComponent.vue'
 import ButtonUnFavComponent from '@/components/ButtonUnFavComponent.vue'
 
@@ -78,7 +77,6 @@ export default{
         TargetTipsComponent,
         RoomTipsComponent,
         ToolsTipsComponent,
-
         ButtonFavComponent,
         ButtonUnFavComponent
 
