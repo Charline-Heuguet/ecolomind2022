@@ -1,6 +1,6 @@
 <!-- Page de connexion !-->
 <template>
-    <div>
+    <div class="connexion">
         <form>
             <div>
                 <label for="email">Email ou nom d'utilisateur :</label>

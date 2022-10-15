@@ -1,7 +1,8 @@
 <!-- Page d'inscription -->
 <template>
-    <div>
-        <h1>Inscription</h1>
+<h1>Inscription</h1>
+    <div class="inscription-form">
+        
         <p>Rejoignez la communauté Ecolomind</p>
 
         <form @submit.prevent="creatUser">
