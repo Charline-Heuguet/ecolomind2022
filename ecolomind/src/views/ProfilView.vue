@@ -19,20 +19,34 @@
             <button @click="switchToEditProfil">Modifier mon profil</button>
             <button @click="switchToDeleteProfil">Supprimer mon profil</button>
 
-            <h3>Mes astuces</h3>
 
-            <TipsCreatedByUserComponent 
-            v-for="astuce in createdTips"
-            :key="astuce.id"
-            :dbid="astuce.id"
-            :title="astuce.title.rendered"
-            :excerpt="astuce.excerpt.rendered"
-            />
-            <div v-if="createdTips.length < 1">Vous n'avez pas encore proposé d'astuce !</div>
+            <div>
+                <h3>Mes astuces préférées</h3>
 
-            <h3>Mes astuces préférées</h3>
+                <TipsLikedByUserComponent 
+                v-for="astuce in likedTips"
+                :key="astuce.id"
+                :dbid="astuce.id"
+                :title="astuce.title.rendered"
+                :excerpt="astuce.excerpt.rendered"
+                />
+            </div>
 
-            <TipsLikedByUserComponent />
+            <div>
+                <h3>Mes astuces</h3>
+
+                <TipsCreatedByUserComponent 
+                v-for="astuce in createdTips"
+                :key="astuce.id"
+                :dbid="astuce.id"
+                :title="astuce.title.rendered"
+                :excerpt="astuce.excerpt.rendered"
+                />
+                <div v-if="createdTips.length < 1">
+                    Vous n'avez pas encore <router-link to="ajout-article">proposé d'astuce</router-link>  !
+                    
+                </div>
+            </div>
         </div>
 
 
@@ -90,6 +104,7 @@ export default {
         return{
             mode: 'profil',
             createdTips: [],
+            likedTips: [],
         }
     },
 

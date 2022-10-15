@@ -3,20 +3,20 @@
 <div>
 
     <h1>{{singleRoom.name}}</h1>
+    <div class="container-article">
+        <div id="tipscardcomponent">
 
-    <div id="tipscardcomponent">
+            <TipsCardComponent 
+            v-for="astuce in tips"
+            :key="astuce.id"
+            :dbid="astuce.id"
+            :title="astuce.title.rendered"
+            :excerpt="astuce.excerpt.rendered"
+            :difficultyId="astuce.difficulty[0]" 
+            />
 
-        <TipsCardComponent 
-        v-for="astuce in tips"
-        :key="astuce.id"
-        :dbid="astuce.id"
-        :title="astuce.title.rendered"
-        :excerpt="astuce.excerpt.rendered"
-        :difficultyId="astuce.difficulty[0]" 
-        />
-
-    </div>
-    
+        </div>
+    </div>   
 </div>
 </template>
 
@@ -71,22 +71,39 @@ export default ({
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 h1 {
     margin-top: 50px;
 }
 
-#tipscardcomponent {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 5px;
 
+    #tipscardcomponent {
+        display: flex;
+        flex-wrap: wrap;   
+        justify-content: flex-start;
+
+        article{                   
+            margin: 5px 10px 5px 10px;
+            min-width: 80%;
+        }
+    }
+@media screen and (min-width: 905px){
+    #tipscardcomponent{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-
-
-
-
-
+@media screen and (min-width: 1500px){
+    #tipscardcomponent{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 1700px){
+    #tipscardcomponent{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
 </style>
