@@ -69,6 +69,15 @@ export default {
 body{
   margin: 0;
 }
+h1{
+  margin-left: 10px;
+}
+h2{
+  margin-left: 10px;
+}
+h3{
+  margin-left: 10px;
+}
 * {
   box-sizing: border-box;
   
@@ -91,7 +100,7 @@ a{
   margin-top: 2vh;
 }
 .light-theme{
-    background: linear-gradient(180deg, #97cbe9 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, rgb(105, 177, 219) 0%, rgba(255,255,255,1) 100%);
       nav{
         a{
           color: #2c3e50;
@@ -100,6 +109,14 @@ a{
           }
         }
       }
+
+  .card{   
+    background-color: #c7d3e3;
+    border: 2px solid  #a7b2c0;
+      p{
+        color: #6c6f74;
+      }
+  }
 
 }
 .dark-theme{       
@@ -118,6 +135,12 @@ a{
           }
         }
       }
+
+    .card{
+      color: #e8e8ee;
+      background-color: #253651;
+      border: 2px solid  #a7b2c0;
+    }
       .user-state{       
         background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
         border-radius: 30px;

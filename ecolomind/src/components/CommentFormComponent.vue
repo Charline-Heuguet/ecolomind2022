@@ -33,6 +33,7 @@ export default {
         astuce_id: Number,
     },
     methods : {
+      
         async submitComment(){
             // console.log(this.content);
             await TipsServices.addComment(this.content, this.astuce_id);

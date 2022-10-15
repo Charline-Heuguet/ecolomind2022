@@ -136,7 +136,6 @@ const TipsServices =
 
     // NDLR : La récupération de tous les ustensiles et de tous les ingrédients: On n'a pas besoin qu'ils s'affichent sur le site (affiché comme liste des ingrédients sur le site)
 
-    //**IMPORTANT**
     // APPEL A API pour les commentaires sur les tips : récupérer (getComment) et ajouter (addComment)
 
     async getCommentsByTipsId(id)
@@ -161,9 +160,20 @@ const TipsServices =
     return response.data
     },
 
-    // getCurrentUserName(){
-    //     return storage.get('userData').user_display_name;
-    // },
+    //updateComment va modifier le commentaire dans l'api
+
+    async updateComments(comment_id, modifiedcontent){
+
+        const response = await axios.post(this.base_url + "/wp/v2/comments/" + comment_id, {
+           content: modifiedcontent,
+       }, {
+           headers: {
+               Authorization: "Bearer " + storage.get("userData").token
+           }
+       });
+       return response.data
+     },
+
 
     async TipsCreatedByCurrentUser(id)
     {
