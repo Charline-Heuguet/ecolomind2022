@@ -32,9 +32,8 @@ export default{
 
 <style lang="scss">
 .profil-header{
-    display: flex;
-    flex-direction: column;
-    margin-left: 5em;
+
+    margin-left: 10px;
     h2{
         margin: 0; 
     }
