@@ -23,7 +23,7 @@
 
             <div class="fav-astuce">
                 <h3>Mes astuces préférées</h3>
-                <p>Comming soon ....</p>
+                <p>Coming soon ....</p>
                 <TipsLikedByUserComponent 
                 v-for="astuce in likedTips"
                 :key="astuce.id"
@@ -250,23 +250,19 @@ export default {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
         .profil-modif{
-            grid-area: 1 / 1 / 2 / 2; 
-            background-color: #4a70a1;  
+            grid-area: 1 / 1 / 2 / 2;             
             margin-left: 5%;
         }
         .fav-astuce{
-            grid-area: 1 / 2 / 3 / 3;
-            background-color: #4a70a1;  
+            grid-area: 1 / 2 / 3 / 3;              
             margin-right: 5%;
         }
         .my-astuce{
-            grid-area: 2 / 1 / 3 / 2;
-            background-color: #4a70a1;
+            grid-area: 2 / 1 / 3 / 2;          
             margin-left: 5%;           
                 article{
                     display: flex;
-                    flex-direction: row;
-                    background-color: #1b9ab9;
+                    flex-direction: column;
                     margin: 5px;                  
                 } 
         }
