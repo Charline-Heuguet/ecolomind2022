@@ -43,11 +43,6 @@ const routes = [
   // },
 
   {
-    path: '/favoris-user/:id',
-    name: 'favoris-user',
-    component: () => import('../views/FavsTipsUser.vue')
-  },
-  {
     path: '/ajout-article',
     name: 'ajout-article',
     component: () => import('../views/AddArticleView.vue')
