@@ -37,31 +37,84 @@ export default {
 }
 </script>
 
-<style >
+<style lang="scss" >
+
+@media screen and (max-width: 699px){
+
+    .header-container{
+        display: flex;
+        align-items: flex-start;
+        .switcher{ 
+            max-height: 50px;
+        }
+    }   
+    .user-state{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+    .logo{
+        max-height: 100px;
+    }
+    .dark-theme{
+        .user-state{       
+            span{
+            color: #b9b9b9;
+            }
+            a{           
+                color: #b9b9b9;
+            }
+            .router-link-exact-active {
+                color: #42b983;
+            }
+        }
+    }
+}
 .elements{
    display: flex; 
    flex-direction: column;
 }
-.user-state{
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    border-radius: 30px;
-    box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
-    align-items: center;
-    width: 35vh;
-   
-}
+
 a{
     color: #2c3e50;
+    &.router-link-exact-active {
+            color: #42b983;
+          }
 }
 header{
     display: flex;
     justify-content: space-between;
     margin: 2vh 0 0 2vh ;
 }
-.logo{
-    max-height: 120px;
+@media screen and (min-width: 700px){ 
+    .logo{
+       max-height: 140px; 
+    }
+    .user-state{
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border-radius: 30px;
+        background: linear-gradient(180deg, rgb(105, 177, 219) 0%, rgba(255,255,255,1) 100%);
+        box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
+        align-items: center;
+        width: 35vh;  
+    }
+    .dark-theme{
+        .user-state{
+            background: url('~@/assets/stars.png'), linear-gradient(180deg, #053979e0 0%, #5c6269a6 100%);
+            .elements{
+                a{
+                    color: #6c6f74;
+                    &.router-link-exact-active {
+                        color: #42b983;
+                    }
+                }
+            }
+        }
+    }
+
 }
+
 
 </style>

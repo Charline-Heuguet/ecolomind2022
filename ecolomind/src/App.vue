@@ -1,5 +1,6 @@
 <template>
   <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'" >
+
     <div class="wrapper">
       <div  class="header-container">
         <HeaderComponent />
@@ -97,7 +98,7 @@ a{
 }
 .header-container{
   display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
 }
 .switcher{
   max-width: 120px;
@@ -106,14 +107,6 @@ a{
 }
 .light-theme{
     background: linear-gradient(180deg, rgb(105, 177, 219) 0%, rgba(255,255,255,1) 100%);
-      nav{
-        a{
-          color: #2c3e50;
-          &.router-link-exact-active {
-            color: #42b983;
-          }
-        }
-      }
 
   .card{   
     background-color: #c7d3e3;
@@ -129,39 +122,24 @@ a{
     background-size: contain;
     background-position: center;
     color: #b9b9b9;
-      nav{
-        background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);
-        border-radius: 100px;
-        z-index: 10;
-          a{
-            color: #b9b9b9;
-            &.router-link-exact-active {
-            color: #42b983;
-          }
-        }
-      }
-
     .card{
       color: #e8e8ee;
       background-color: #253651;
       border: 2px solid  #a7b2c0;
     }
-      .user-state{       
-        background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
-        border-radius: 30px;
-        span{
-          color: #b9b9b9;
-        }
-          a{           
-            color: #b9b9b9;
-        }
-    }
+    //   .user-state{       
+    //     background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
+    //     border-radius: 30px;
+    //     span{
+    //       color: #b9b9b9;
+    //     }
+    //       a{           
+    //         color: #b9b9b9;
+    //     }
+    // }
     article{
       a{
         color: #b9b9b9;
-        #suite{
-          color: #9a19b4;
-        }
       }
     }
 }
@@ -170,6 +148,16 @@ a{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+@media screen and (max-width: 699px){
+  .dark-theme{
+    background-position: top;
+  }
+}
+
+  
+.router-link-exact-active {
+    color: #42b983;
 }
 
 </style>
