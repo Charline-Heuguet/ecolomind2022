@@ -80,9 +80,11 @@ export default{
         CommentListComponent,
         IngredientsTipsComponent,
         DifficultyTipsComponent,
+
         //TargetTipsComponent,
         //RoomTipsComponent,
         //ToolsTipsComponent,
+
         ButtonFavComponent,
         ButtonUnFavComponent
 

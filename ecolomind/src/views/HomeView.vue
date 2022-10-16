@@ -70,7 +70,15 @@ export default {
 
 
 <style lang="scss" >
+@media screen and (max-width: 699px){
+  #image{
+  display: none;
+}
 
+}
+
+
+@media screen and (min-width: 700px){   
 #image{
   max-width: 60%;
   background-repeat: no-repeat;
@@ -164,5 +172,6 @@ export default {
 #jardin:hover{
   filter: brightness(100%);
   transform: scale(1.1); 
+}
 }
 </style>
