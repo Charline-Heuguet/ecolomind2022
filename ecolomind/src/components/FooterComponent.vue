@@ -34,6 +34,8 @@ export default {
 <style lang="scss">
 
 footer{
+
+
     padding: 80px;
     background: linear-gradient(0deg, rgba(130, 150, 47, 0.5) -38.26%, rgba(149, 197, 22, 0.75) 49.94%);
     display: flex;
@@ -59,6 +61,17 @@ a {
             }
     }
 
+}
+ @media screen and (max-width: 699px){
+     footer{
+         display: flex;
+         flex-direction: column;          
+         a{
+             display: flex;
+             justify-content: center;
+             margin: 7px 0;
+         }               
+     }
 }
 
 

@@ -1,6 +1,6 @@
 <!-- Header et navbar !-->
 <template>  
-        <nav>
+        <nav class="navb">
             <router-link to="/">Accueil</router-link>
 
 <!-- On souhaite avoir une seule view pour les différentes pièces, donc on doit rendre la navBar dynamique, ce qui facilitera egalement si on veut 
@@ -15,11 +15,12 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
                     params: {
                         id: room.id, 
                     }
-            }">{{room.name}}</router-link>
+            }" class="test">{{room.name}}</router-link>
 
             <router-link to="/ajout-article" v-if="this.$store.state.userIsConnect">Proposer une astuce</router-link>
 
-        </nav>   
+        </nav>  
+       
 </template>
 
 
@@ -51,16 +52,55 @@ export default ({
 </script>
 
 <style lang="scss" >
-
-nav{
+@media screen and (max-width: 699px){
+.navb{
     display: flex;
-    justify-content: space-around;
-    border: solid 0px;
-    border-radius: 30px;
-    box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
-    padding: 20px 0;
-    margin: 20px 0;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 18px;
+        a{
+            display: flex;
+            justify-content: center;
+            margin: 7px 0;         
+         }  
+         .Proposer{
+             border-bottom: solid;
+         }            
+    .dark-theme{
+        .navb{
+            color: #b9b9b9;
+            .test{
+                color: #a19d9d;
+            }  
+        }                    
+    }
 }
+}
+@media screen and (min-width: 700px){
+    nav{
+        display: flex;
+        justify-content: space-around;
+        border: solid 0px;
+        border-radius: 30px;
+        box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
+        padding: 20px 0;
+        margin: 20px 0;
+    }
+    .dark-theme{      
+        nav{
+        background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);
+        border-radius: 100px;
+        z-index: 10;
+          a{
+            color: #b9b9b9;
+            &.router-link-exact-active {
+            color: #42b983;
+          }
+        }
+      }
+    }
+}
+
 
 
 </style>
