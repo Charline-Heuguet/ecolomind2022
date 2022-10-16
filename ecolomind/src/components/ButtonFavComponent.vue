@@ -4,7 +4,6 @@
     <button class="fav" name="favorite" type="button" v-on:click.prevent="ClickFav()">
         <img src="../assets/coeur-like.png" alt="coeur-vert" title="ajouter aux favoris">
     </button>
-        <div class="success" v-if="this.success"> Astuce rajoutée aux favoris </div>
 </div>
 </template>
 
@@ -22,7 +21,6 @@ export default {
                 authorID: storage.get('userData').userID,
                 astuce_id: this.astuce_id,
             },
-            success :false
         }
     },
 
@@ -36,9 +34,7 @@ export default {
             //console.log(JSON.parse(JSON.stringify(this.favData)));
 
              axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/favorites', JSON.parse(JSON.stringify(this.favData)))
-             .then(
-                 this.success = true
-             )
+             .then()
              .catch(function(){
             // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
             return {data: null}
@@ -49,11 +45,7 @@ export default {
             buttonFav.classList.toggle('hidden');
 
             let buttonUnFav = document.querySelector('.unfav');
-            buttonUnFav.classList.toggle('hidden');
-            
-
-
-
+            buttonUnFav.classList.toggle('hidden');      
         },
 
 
