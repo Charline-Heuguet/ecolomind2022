@@ -45,9 +45,8 @@
                 />
                 </div>
 
-                <div v-if="createdTips.length < 1">
+                <div v-if="createdTips.length < 1" class="no-article">
                     Vous n'avez pas encore <a href=""><router-link to="ajout-article">proposé d'astuce</router-link></a>  !
-                    
                 </div>
             </div>
         
@@ -250,7 +249,11 @@ export default {
         color: #404041;
     }
 }
-
+.no-article{
+    a{
+        color: #a7b2c0;
+    }
+}
 @media screen and (min-width: 700px){   
 .profil-view{
     display: grid;
