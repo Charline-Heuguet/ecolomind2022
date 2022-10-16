@@ -235,6 +235,18 @@ export default{
     
 }
 
+.dark-theme{
+    #SingleView{
+        .commentaires{
+            color: black;
+            a{
+                color: black;
+                font-style: italic;
+            }
+        }
+    }
+}
+
     
 
 
