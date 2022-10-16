@@ -9,28 +9,30 @@
             <h1 v-html="this.title"></h1>
         </div>
 
-        <div class="tip-header">
-            <div class="difficulty">
-                <p>Difficulté :</p>
-                <DifficultyTipsComponent :astuce="this.astuce" />
-            </div> 
+        <div class="column">
+            <div class="tip-header">
+                <div class="difficulty">
+                    <p>Difficulté :</p>
+                    <DifficultyTipsComponent :astuce="this.astuce" />
+                </div> 
 
-        
-            <div>
-                <p>Ajouter aux favoris </p>
-                <ButtonFavComponent v-if="this.$store.state.userIsConnect"
-                    :astuce_id ="this.astuce.id"
-                />        
-                <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
-                    :astuce_id="this.astuce.id"
-                />
+            
+                <div>
+                    <p>Ajouter aux favoris </p>
+                    <ButtonFavComponent v-if="this.$store.state.userIsConnect"
+                        :astuce_id ="this.astuce.id"
+                    />        
+                    <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
+                        :astuce_id="this.astuce.id"
+                    />
+                </div>
             </div>
-        </div>
-        
-          
+            
+            
 
-        <div class="ingredients">
-            <IngredientsTipsComponent :astuce="this.astuce" />
+            <div class="ingredients">
+                <IngredientsTipsComponent :astuce="this.astuce" />
+            </div>
         </div>
 
         
@@ -149,6 +151,9 @@ export default{
         margin-bottom: 25px;
         padding-bottom: 25px;
         border-bottom: 1px solid white;
+        p{
+            font-weight: 600;
+        }
     }
     
     .difficulty{
@@ -159,7 +164,6 @@ export default{
 
     .ingredients-tips{
         display: flex;
-        justify-content: center;
         justify-content: space-between;
         margin-bottom: 25px;
         padding-bottom: 25px;
@@ -211,6 +215,7 @@ export default{
         padding: 25px 0;
     }
     .author{
+        margin-top: 40px;
         span{
             font-style: italic;
         }
@@ -218,7 +223,8 @@ export default{
 
     .commentaires{
         background-color: #deeddb;
-        border-radius: 10px;
+        border: 1px solid #684d41;
+        border-radius: 20px;
         padding: 15px;
         margin-bottom: 20px;
         h3{
@@ -245,9 +251,22 @@ export default{
             }
         }
     }
-}
+} 
 
+@media screen and (min-width: 769px){
+    #SingleView{
+        .column{
+            float: left;
+            width: 300px;
+            margin-right: 50px;            
+        }
+        .content, .author{
+            margin-left: 350px;
+        }
+        
+    }
     
+}
 
 
 
