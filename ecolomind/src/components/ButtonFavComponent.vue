@@ -42,10 +42,10 @@ export default {
 
 
             let buttonFav = document.querySelector('.fav-button');
-            buttonFav.classList.toggle('hidden');
+            buttonFav.classList.toggle('favhidden');
 
             let buttonUnFav = document.querySelector('.unfav');
-            buttonUnFav.classList.toggle('hidden');      
+            buttonUnFav.classList.toggle('favhidden');      
         },
 
 

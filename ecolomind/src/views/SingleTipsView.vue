@@ -146,7 +146,7 @@ export default{
     margin: 0 auto;
     padding: 15px;
 
-    .hidden{
+    .favhidden{
         display: none;
     }
 
