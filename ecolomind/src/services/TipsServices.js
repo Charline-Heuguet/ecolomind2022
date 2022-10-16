@@ -160,7 +160,7 @@ const TipsServices =
     return response.data
     },
 
-    //updateComment va modifier le commentaire dans l'api
+    
 
     async updateComments(comment_id, modifiedcontent){
 
