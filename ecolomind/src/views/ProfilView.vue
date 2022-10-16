@@ -25,7 +25,7 @@
                 <h3>Mes astuces préférées</h3>
                 <p>Coming soon ....</p>
                 <TipsLikedByUserComponent 
-                v-for="astuce in likedTips"
+                v-for="astuce in this.likedTips"
                 :key="astuce.ID"
                 :dbid="astuce.ID"
                 :title="astuce.post_title"
@@ -110,7 +110,8 @@ export default {
         return{
             mode: 'profil',
             createdTips: [],
-            likedTips: [],
+            likedTips: false,
+            
             // likedTipsData: [],
             // test: [],
         }
@@ -128,6 +129,7 @@ export default {
 
         console.log(this.likedTips);
 
+       
 
         // this.likedTipsData = this.likedTips.forEach(TipsServices.TipsLikedByCurrentUser(this.likedTips) );
         // console.log(this.likedTipsData)
@@ -220,7 +222,7 @@ export default {
             border-radius: 20px;
             padding: 20px;
             margin: 0 3% 0 3%;
-            max-height: 20em;
+            /* max-height: 20em; */
             max-width: 98%;
             p{
                 color: #404041;
