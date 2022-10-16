@@ -10,15 +10,17 @@
             v-model="content"
           ></textarea>
         </div>
+          <div v-if="this.success" class="success-com">Merci d'avoir partagé votre avis !</div>
         <button
           type="submit"
           @click.prevent="submitComment"
         >
           Envoyer
         </button>
+        
       </form>
 
-      <div v-if="this.success" class="success">Merci d'avoir partagé votre avis !</div>
+      
 
         <section>
           
@@ -87,4 +89,3 @@
   }
   </script>
 
- 

@@ -140,12 +140,22 @@ export default{
 
 
 <style lang="scss">
-
+.success-com{
+    display: flex;
+    justify-content: center;
+    color: rgb(45, 160, 97);
+    margin-bottom: 1em;
+}
 #SingleView {
     max-width: 1100px;
     margin: 0 auto;
     padding: 15px;
-
+    .ingredients{
+        li{
+          list-style-type: none;  
+        }
+        
+    }
     .favhidden{
         display: none;
     }

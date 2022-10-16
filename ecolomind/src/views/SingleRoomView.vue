@@ -11,7 +11,7 @@
             :key="astuce.id"
             :dbid="astuce.id"
             :title="astuce.title.rendered"
-            :excerpt="astuce.excerpt.rendered"
+            :excerpt="astuce.excerpt.rendered.substr(0, 200) + ' [...]'"
             :difficultyId="astuce.difficulty[0]" 
             />
 

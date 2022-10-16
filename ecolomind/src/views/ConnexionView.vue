@@ -4,7 +4,7 @@
         <form>
             <div class="mail-form">
                 <div v-if="this.errors.loginMissing" >Email ou pseudo non valide</div>
-                <label for="email">Email ou pseudo d'utilisateur :</label>
+                <label for="email">Email :</label>
                 <input v-model="this.loginInForm" placeholder="gerceval@gmail.com" type="text" id="email" />
                 
             </div>

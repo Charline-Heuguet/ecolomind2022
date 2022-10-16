@@ -19,7 +19,7 @@ export default{
 
     methods:{
         getCurrentUserName(){
-            return storage.get('userData').user_display_name;
+            return storage.get('userData').user_nicename;
         },
 
         getCurrentUserEmail(){

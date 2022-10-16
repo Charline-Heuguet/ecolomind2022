@@ -15,9 +15,10 @@
 export default({
     name: 'TipsLikedByUserComponent',
     props: {
-        dbid: Number,
+        dbid: String,
         title: String,
         excerpt: String, 
     }
 })
 </script>
+

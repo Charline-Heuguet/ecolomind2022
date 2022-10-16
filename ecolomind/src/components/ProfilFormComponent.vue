@@ -3,6 +3,8 @@
 
         <h2>Modifier mon profil</h2>
 
+        <p>En modifiant votre profil, vous serez automatiquement déconnecté.e</p>
+
         <form @submit.prevent="updateMyInfos">
             <div>
                 <label for="pseudo">Modifier mon pseudo</label>
@@ -66,10 +68,11 @@ export default {
             .catch(function(){
                 return {data: null}
             })
+            // return storage.unset('userData');
         },
 
         getCurrentUserName(){
-            return storage.get('userData').user_display_name;
+            return storage.get('userData').user_nicename;
         },
 
         getCurrentUserEmail(){
