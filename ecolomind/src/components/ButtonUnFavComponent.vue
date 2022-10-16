@@ -1,8 +1,9 @@
 <template>
-<div class="fav-button">
+<div class="fav-button unfav hidden">
     <button class="fav" name="favorite" type="button" v-on:click.prevent="RemoveFav()">
-        <img src="../assets/coeur-unlike.png" alt="coeur-gris">
+        <img src="../assets/coeur-unlike.png" alt="coeur-gris" title="retirer des favoris">
     </button>
+    
     
 </div>
 </template>
@@ -19,7 +20,7 @@ export default {
             favData: {
                 authorID: storage.get('userData').userID,
                 astuce_id: this.astuce_id,
-            }
+            },
         }
     },
 
@@ -30,14 +31,20 @@ export default {
 
     methods : {
         async RemoveFav(){
-            console.log(JSON.parse(JSON.stringify(this.favData)));
+            // console.log(JSON.parse(JSON.stringify(this.favData)));
 
              axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/unfavorites', JSON.parse(JSON.stringify(this.favData)))
-             .then(response => console.log(response))
+             .then()
             .catch(function(){
             // on veut éviter d'interrompre l'exécution JS ce que pourrait faire une erreur 403 dans axios, on va donc pour contrer ça renvoyer un objet null
             return {data: null}
-        })
+        });
+
+        let buttonFav = document.querySelector('.fav-button');
+        buttonFav.classList.toggle('hidden');
+
+        let buttonUnFav = document.querySelector('.unfav');
+        buttonUnFav.classList.toggle('hidden');
         },
 
         getCurrentUserName(){
@@ -49,20 +56,15 @@ export default {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <style lang="scss">
 
+.success{
+    font-size: 12px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+}
 
 button.fav{
     border: none;
