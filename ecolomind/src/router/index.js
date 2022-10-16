@@ -41,7 +41,11 @@ const routes = [
   //   name: 'salon',
   //   component: () => import('../views/LivingroomView.vue')
   // },
-
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'no-found',
+    component: () => import('../views/404View.vue')
+  }, 
   {
     path: '/ajout-article',
     name: 'ajout-article',

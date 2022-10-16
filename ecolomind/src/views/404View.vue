@@ -1,1 +1,9 @@
-<!-- 404 best page todo-->
+
+<template>
+    <div>
+        hey page not found !!!
+    </div>
+</template>
+
+
+
