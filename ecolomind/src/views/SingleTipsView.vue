@@ -139,6 +139,8 @@ export default{
 <style lang="scss">
 
 #SingleView {
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 15px;
     
     .title{
