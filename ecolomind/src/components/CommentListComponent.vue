@@ -1,12 +1,12 @@
 <!-- Liste des commentaires -->
 <template>
   <div>
-    <form v-if="this.$store.state.userIsConnect">
+    <form class="comment-list" v-if="this.$store.state.userIsConnect">
         
-        <div >
+        <div>
           <label for="content">Commentaire</label>
           <textarea
-            rows="3"
+            rows="7"
             v-model="content"
           ></textarea>
         </div>
@@ -17,6 +17,7 @@
           Envoyer
         </button>
       </form>
+
       <div v-if="this.success" class="success">Merci d'avoir partagé votre avis !</div>
 
         <section>

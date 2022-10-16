@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <span>Ingrédients :</span>
+    <div class="ingredients-tips">
+        <p>Ingrédients :</p>
             <ul>
                 <li 
                     v-for="ingredients of this.ingredient"

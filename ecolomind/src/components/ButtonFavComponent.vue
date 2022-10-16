@@ -1,8 +1,7 @@
 <template>
 
-<div>
+<div class="fav-button">
     <button class="fav" name="favorite" type="button" v-on:click.prevent="ClickFav()">
-
         <img src="../assets/coeur-like.png" alt="coeur-vert">
     </button>
 </div>
@@ -51,8 +50,10 @@ export default {
 
 <style lang="scss">
 
-
-button.fav{
+.fav-button{
+    display: inline-block;
+}
+.fav{
     border: none;
     background: none;
     transition: all 0.6s;

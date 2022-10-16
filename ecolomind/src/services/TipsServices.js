@@ -182,10 +182,11 @@ const TipsServices =
 
     },
 
-    // async TipsFavoriteByCurrentUser(id)
-    // {
-    //     const response = await axios.get(this.base_url + "/wp/v2/tips?author=" + id + "" );
-    // },
+    async TipsFavoriteByCurrentUser(id)
+     {
+         const response = await axios.get(this.base_url + "/wp/v2/ecolomind/userfavorites?author=" + id );
+         return response.data
+     },
 
 }
 
