@@ -1,7 +1,8 @@
 <!-- Page d'accueil -->
 
 <template>
-
+  
+    <img src="@/assets/nuage.png" alt="" class="cloud" id="cloud">   
  <div id="image">
     <img id="background" src="../assets/maison-vide-ok.png" alt="maison sans les pieces">
 
@@ -76,13 +77,6 @@ export default {
   {
     this.rooms = await TipsServices.getAllRooms();
   },
-
-  
-
-  // computed:
-  // {
-  //   // location.reload();
-  // }
 }
 </script>
 
@@ -90,7 +84,15 @@ export default {
 
 <style lang="scss" >
 @media screen and (max-width: 699px){
-
+  .mobile-home{
+    p{
+      margin-left: 2em;
+    }
+  }
+  .cloud{
+    margin: 15px 20px;
+    width: 120px;
+  }
   #image{
     display: none;
    
@@ -131,15 +133,14 @@ export default {
   }
 }
 
-
-@media screen and (min-width: 700px){ 
-.mobile-home{
+@media screen and (min-width: 700px){
+  .mobile-home{
   display: none;
-}
-
-}
-@media screen and (min-width: 700px){   
-
+  }     
+  .cloud{
+    margin: 5em 05em;
+    width: 300px;
+  }
 #image{
   max-width: 60%;
   background-repeat: no-repeat;
