@@ -17,12 +17,12 @@
                 </div> 
 
             
-                <div>
+                <div v-if="this.$store.state.userIsConnect" >
                     <p>Ajouter aux favoris </p>
-                    <ButtonFavComponent v-if="this.$store.state.userIsConnect"
+                    <ButtonFavComponent 
                         :astuce_id ="this.astuce.id"
                     />        
-                    <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
+                    <ButtonUnFavComponent
                         :astuce_id="this.astuce.id"
                     />
                 </div>
