@@ -15,13 +15,14 @@
                     <p>Difficulté :</p>
                     <DifficultyTipsComponent :astuce="this.astuce" />
                 </div> 
-
-            
-                <div v-if="this.$store.state.userIsConnect" >
+          
+                <div class="buttons" v-if="this.$store.state.userIsConnect" >
                     <p>Ajouter aux favoris </p>
+
                     <ButtonFavComponent 
                         :astuce_id ="this.astuce.id"
-                    />        
+                    />
+
                     <ButtonUnFavComponent
                         :astuce_id="this.astuce.id"
                     />
@@ -144,6 +145,14 @@ export default{
     max-width: 1100px;
     margin: 0 auto;
     padding: 15px;
+
+    .hidden{
+        display: none;
+    }
+
+    .buttons{
+        position: relative;
+    }
     
     .title{
         display: flex;
