@@ -52,9 +52,9 @@
                 <label for="photo">Postez la photo de votre produit</label>
                 <input type="file" id="photo" name="photo" accept="image/png, image/jpeg">
             </div> -->
-
+            <div v-if="this.success" class="success-send">Votre astuce a bien été envoyée ! Elle sera postée après validation des modérateurs</div>
             <button class="send-astuce">Envoyez votre astuce</button>
-            <div v-if="this.success" class="success">Votre astuce a bien été envoyée ! Elle sera postée après validation des modérateurs</div>
+            
 
         </form>
 
@@ -164,7 +164,12 @@ export default {
 </script>
 
 <style lang="scss">
-
+.success-send{
+    display: flex;
+    justify-content: center;
+    color: rgb(45, 160, 97);
+    margin-bottom: 1em;
+}
 #add-article{
     display: flex;
     color: #6c6f74;
