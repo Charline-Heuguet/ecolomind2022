@@ -137,7 +137,6 @@ export default{
 <style lang="scss">
 
 #SingleView {
-
     padding: 15px;
     
     .title{
@@ -183,12 +182,15 @@ export default{
         }
         textarea{
             display: block;
+            outline-color: #acd14f;
             width: 100%;
             margin: 10px 0;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 20px;
             margin-bottom: 15px;
             background-color: #c7d3e3;
             border: 2px solid #a7b2c0;
+            font-family: Arial, Helvetica, sans-serif;
         }  
         button{
             border: none;
@@ -196,18 +198,41 @@ export default{
             font-weight: bold;
             border-radius: 20px;
             background-color: #acd14f;
-
+            padding: 15px 30px;
+            &:hover{
+                transform: scale(1.07);
+                transition: transform 0.6s;
+            }
         }           
     }
 
     .comment-list{
         text-align: center;
+        padding: 25px 0;
     }
     .author{
         span{
             font-style: italic;
         }
-    }    
+    }
+
+    .commentaires{
+        background-color: #deeddb;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        h3{
+            margin: 0;
+        }
+    }
+    
+    h2{
+        margin: 20px 0 15px 0;
+        padding: 15px 0 20px 0 ;
+        border-bottom: 1px solid white;
+    }
+
+    
 }
 
     
