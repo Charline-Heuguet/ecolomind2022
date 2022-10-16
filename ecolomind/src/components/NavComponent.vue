@@ -1,7 +1,7 @@
 <!-- Header et navbar !-->
 <template>  
         <nav class="navb">
-            <router-link to="/">Accueil</router-link>
+            <router-link to="/" class="test">Accueil</router-link>
 
 <!-- On souhaite avoir une seule view pour les différentes pièces, donc on doit rendre la navBar dynamique, ce qui facilitera egalement si on veut 
 rajouter une pièce plus tard. 
@@ -17,7 +17,7 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
                     }
             }" class="test">{{room.name}}</router-link>
 
-            <router-link to="/ajout-article" v-if="this.$store.state.userIsConnect">Proposer une astuce</router-link>
+            <router-link to="/ajout-article" v-if="this.$store.state.userIsConnect" class="test">Proposer une astuce</router-link>
 
         </nav>  
        
@@ -65,16 +65,21 @@ export default ({
          }  
          .Proposer{
              border-bottom: solid;
-         }            
+         }
+}                     
     .dark-theme{
-        .navb{
+        nav{
+            a{
             color: #b9b9b9;
+            &.router-link-exact-active {
+            color: #42b983;
+          }
+        }
             .test{
                 color: #a19d9d;
             }  
         }                    
     }
-}
 }
 @media screen and (min-width: 700px){
     nav{

@@ -1,5 +1,6 @@
 <template>
   <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'" >
+    
     <div  class="header-container">
       <HeaderComponent />
       <div v-if="this.theme == 'light'">
@@ -9,10 +10,11 @@
           <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
       </div>   
     </div>
+
     <NavComponent />
     <router-view />
     <FooterComponent />
-    </div>
+  </div>
 </template>
 
 
@@ -121,22 +123,19 @@ a{
       background-color: #253651;
       border: 2px solid  #a7b2c0;
     }
-      .user-state{       
-        background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
-        border-radius: 30px;
-        span{
-          color: #b9b9b9;
-        }
-          a{           
-            color: #b9b9b9;
-        }
-    }
+    //   .user-state{       
+    //     background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
+    //     border-radius: 30px;
+    //     span{
+    //       color: #b9b9b9;
+    //     }
+    //       a{           
+    //         color: #b9b9b9;
+    //     }
+    // }
     article{
       a{
         color: #b9b9b9;
-        #suite{
-          color: #9a19b4;
-        }
       }
     }
 }
@@ -151,4 +150,10 @@ a{
     background-position: top;
   }
 }
+
+  
+.router-link-exact-active {
+    color: #42b983;
+}
+
 </style>

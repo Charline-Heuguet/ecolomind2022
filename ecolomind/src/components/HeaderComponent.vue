@@ -42,48 +42,56 @@ export default {
 @media screen and (max-width: 699px){
 
     .header-container{
+        display: flex;
+        align-items: flex-start;
         .switcher{ 
-            max-height: 80px;
+            max-height: 50px;
+        }
+    }   
+    .user-state{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+    .logo{
+        max-height: 100px;
+    }
+    .dark-theme{
+        .user-state{       
+            span{
+            color: #b9b9b9;
+            }
+            a{           
+                color: #b9b9b9;
+            }
+            .router-link-exact-active {
+                color: #42b983;
+            }
         }
     }
-    
-   .user-state{
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    border-radius: 30px;
-    box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
-    align-items: center;
-    max-width: 60%;
-   
-} 
-
 }
-
 .elements{
    display: flex; 
    flex-direction: column;
 }
-.user-state{
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    border-radius: 30px;
-    box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
-    align-items: center;
-    width: 35vh;
-   
-}
+// .user-state{
+//     box-sizing: border-box;
+//     border-radius: 30px;
+//     box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
+//     align-items: center;
+//     width: 35vh;  
+// }
 a{
     color: #2c3e50;
+    &.router-link-exact-active {
+            color: #42b983;
+          }
 }
 header{
     display: flex;
     justify-content: space-between;
     margin: 2vh 0 0 2vh ;
 }
-.logo{
-    max-height: 120px;
-}
+
 
 </style>
