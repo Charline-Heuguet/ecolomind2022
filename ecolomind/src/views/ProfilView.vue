@@ -122,7 +122,7 @@ export default {
 
         this.createdTips = await TipsServices.TipsCreatedByCurrentUser(currentUserID);
 
-        // console.log(this.createdTips);
+       
 
         this.likedTips = await TipsServices.TipsFavoriteByCurrentUser(currentUserID);
 
