@@ -16,8 +16,8 @@
                 Si tu cliques sur "Modifier mon profil", 
                 Alors l'écouteur d'événement au click déclenchera la fonction switchToEditProfil qui passera le mode de 'profil' à 'editProfil'
             -->
-            <button @click="switchToEditProfil">Modifier mon profil</button>
-            <button @click="switchToDeleteProfil">Supprimer mon profil</button>
+            <button @click="switchToEditProfil()">Modifier mon profil</button>
+            <button @click="switchToDeleteProfil()">Supprimer mon profil</button>
         
         </div>
 
@@ -25,12 +25,14 @@
                 <h3>Mes astuces préférées</h3>
                 <p>Coming soon ....</p>
                 <TipsLikedByUserComponent 
-                v-for="astuce in likedTips"
-                :key="astuce.id"
-                :dbid="astuce.id"
-                :title="astuce.title.rendered"
-                :excerpt="astuce.excerpt.rendered"
+                v-for="astuce in this.likedTips"
+                :key="astuce.ID"
+                :dbid="astuce.ID"
+                :title="astuce.post_title"
+                :excerpt="astuce.post_content.substr(0, 200) + ' [...]'"
                 />
+
+                <!-- .substr(0, 200) + ' [...]' -->
             </div>
 
             <div class="my-astuce">
@@ -64,7 +66,7 @@
                 Si tu cliques sur "Annuler", 
                 Alors l'écouteur d'événement au click déclenchera la fonction switchToProfil qui passera le mode de 'editProfil' à 'profil'
             -->
-            <button @click="switchToProfil">Annuler</button>
+            <button @click="switchToProfil()">Annuler</button>
         </div>
 
         <div v-if="this.mode == 'deleteProfil'" class="profil-modif">
@@ -75,7 +77,7 @@
                 Si tu cliques sur "Annuler", 
                 Alors l'écouteur d'événement au click déclenchera la fonction switchToProfil qui passera le mode de 'editProfil' à 'profil'
             -->
-            <button @click="switchToProfil">Annuler</button>
+            <button @click="switchToProfil()">Annuler</button>
         </div>
         
     </div>
@@ -107,9 +109,10 @@ export default {
         return{
             mode: 'profil',
             createdTips: [],
-            likedTips: [],
-           
+            likedTips: false,
             
+            // likedTipsData: [],
+            // test: [],
         }
     },
 
@@ -119,15 +122,22 @@ export default {
 
         this.createdTips = await TipsServices.TipsCreatedByCurrentUser(currentUserID);
 
-        console.log(this.createdTips);
+       
 
-        this.likeTips = await TipsServices.TipsFavoriteByCurrentUser(currentUserID);
+        this.likedTips = await TipsServices.TipsFavoriteByCurrentUser(currentUserID);
 
-        console.log(this.likeTips);
+        console.log(this.likedTips);
+
+       
+
+        // this.likedTipsData = this.likedTips.forEach(TipsServices.TipsLikedByCurrentUser(this.likedTips) );
+        // console.log(this.likedTipsData)
+        // this.likedTipsData = await TipsServices.TipsLikedByCurrentUser(likedTips)
+
+        // this.test = await TipsServices.TipsLikedByCurrentUser();
+        // console.log(this.test);
 
     },
-
- 
 
     methods: {
         switchToEditProfil(){
@@ -211,7 +221,7 @@ export default {
             border-radius: 20px;
             padding: 20px;
             margin: 0 3% 0 3%;
-            max-height: 20em;
+            /* max-height: 20em; */
             max-width: 98%;
             p{
                 color: #404041;
