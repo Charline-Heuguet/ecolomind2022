@@ -28,7 +28,7 @@ export default {
     name: 'HeaderComponent',
     methods:{
         getCurrentUserName(){
-            return storage.get('userData').user_display_name;
+            return storage.get('userData').user_nicename;
         },
         RemoveToken(){
             storage.unset('userData');
