@@ -92,6 +92,7 @@ import ProfilFormComponent from '@/components/ProfilFormComponent.vue';
 import TipsCreatedByUserComponent from '../components/TipsCreatedByUserComponent.vue';
 import TipsLikedByUserComponent from '../components/TipsLikedByUserComponent.vue';
 import DeleteProfilComponent from '@/components/DeleteProfilComponent.vue';
+
 export default {
     name: "ProfilView",
 
@@ -108,6 +109,8 @@ export default {
             mode: 'profil',
             createdTips: [],
             likedTips: [],
+           
+            
         }
     },
 
@@ -118,7 +121,14 @@ export default {
         this.createdTips = await TipsServices.TipsCreatedByCurrentUser(currentUserID);
 
         console.log(this.createdTips);
+
+        this.likeTips = await TipsServices.TipsFavoriteByCurrentUser(currentUserID);
+
+        console.log(this.likeTips);
+
     },
+
+ 
 
     methods: {
         switchToEditProfil(){
@@ -129,7 +139,8 @@ export default {
         },
         switchToDeleteProfil(){
             this.mode = 'deleteProfil';
-        }
+        },
+     
     }
 
 }

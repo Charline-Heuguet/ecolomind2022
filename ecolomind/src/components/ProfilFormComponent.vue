@@ -31,6 +31,7 @@ import axios from 'axios';
 import storage from '@/utils/storage';
 
 
+
 export default {
     name: 'ProfilFormComponent',
 
@@ -44,6 +45,7 @@ export default {
             formData: {
                 pseudo: "",
                 email: "",
+                authorID: storage.get('userData').userID,
                 // password: "",
             },
         }
@@ -59,7 +61,7 @@ export default {
     {
         async updateMyInfos(){
             console.log(JSON.parse(JSON.stringify(this.formData)));
-            axios.patch('http://ecolomind.local/wp-json/wp/v2/ecolomind/profil', JSON.parse(JSON.stringify(this.formData)))
+            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/profiledit', JSON.parse(JSON.stringify(this.formData)))
             .then(response => console.log(response))
             .catch(function(){
                 return {data: null}

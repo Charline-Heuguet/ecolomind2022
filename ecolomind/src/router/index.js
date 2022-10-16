@@ -42,7 +42,6 @@ const routes = [
   //   component: () => import('../views/LivingroomView.vue')
   // },
 
-
   {
     path: '/ajout-article',
     name: 'ajout-article',

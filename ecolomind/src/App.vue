@@ -1,20 +1,21 @@
 <template>
   <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'" >
-    
-    <div  class="header-container">
-      <HeaderComponent />
-      <div v-if="this.theme == 'light'">
-        <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>  
-      </div>
-      <div v-if="this.theme == 'dark'">        
-          <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
-      </div>   
-    </div>
 
-    <NavComponent />
-    <router-view />
-    <FooterComponent />
-  </div>
+    <div class="wrapper">
+      <div  class="header-container">
+        <HeaderComponent />
+        <div v-if="this.theme == 'light'">
+          <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>  
+        </div>
+        <div v-if="this.theme == 'dark'">        
+            <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
+        </div>   
+      </div>
+      <NavComponent />
+      <router-view />
+      <FooterComponent />
+      </div>
+    </div>
 </template>
 
 
@@ -70,6 +71,9 @@ export default {
 <style lang="scss">
 body{
   margin: 0;
+}
+.wrapper{
+  margin: 0 auto;
 }
 h1{
   margin-left: 10px;

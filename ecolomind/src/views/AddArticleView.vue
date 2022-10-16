@@ -1,6 +1,7 @@
 <!-- Page ajout d'astuce  -->
 
 <template>
+    <div>
     <h3> Ajouter une astuce</h3>
     <div id="add-article">
                
@@ -58,6 +59,8 @@
         </form>
 
     </div>
+
+</div>
 
 </template>
 

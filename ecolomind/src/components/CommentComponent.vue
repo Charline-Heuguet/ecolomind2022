@@ -1,18 +1,18 @@
 <template>
   <div>
 
-    <article>
+    <article class="commentaires">
 
       <h3>{{ comment.author_name }}</h3>
       <p v-html="comment.content.rendered"></p>
+
 
 
       <div v-if="authorID!==null">
 
         <div v-if="comment.author == authorID.userID">
 
-        
-        
+       
         <a @click.prevent="toggleForm" :data-id="comment.id"> Modifier </a>
            <!-- le "Modifier" a le meme data-id que le form pour les rendre "unique" avec leur data-id  -->
         <form class="hidden" :data-id="comment.id" >
