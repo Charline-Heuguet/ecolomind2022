@@ -6,23 +6,26 @@
 
         
         <div class="title">      
-            <h3 v-html="this.title"></h3>
+            <h1 v-html="this.title"></h1>
         </div>
 
-        
-        <div class="difficulty">Difficulté:
-            <DifficultyTipsComponent :astuce="this.astuce" />
-        </div> 
+        <div class="tip-header">
+            <div class="difficulty">
+                <p>Difficulté :</p>
+                <DifficultyTipsComponent :astuce="this.astuce" />
+            </div> 
 
         
-
-        <p>Ajouter aux favoris </p>
-        <ButtonFavComponent v-if="this.$store.state.userIsConnect"
-            :astuce_id ="this.astuce.id"
-        />        
-        <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
-            :astuce_id="this.astuce.id"
-        />
+            <div>
+                <p>Ajouter aux favoris </p>
+                <ButtonFavComponent v-if="this.$store.state.userIsConnect"
+                    :astuce_id ="this.astuce.id"
+                />        
+                <ButtonUnFavComponent v-if="this.$store.state.userIsConnect"
+                    :astuce_id="this.astuce.id"
+                />
+            </div>
+        </div>
         
           
 
@@ -50,7 +53,7 @@
         <!-- <div class="roomtips">
             <RoomTipsComponent :astuce="this.astuce" />
         </div> -->
-        <div>
+        <div class="comment">
             <CommentListComponent />
         </div>
 
@@ -134,37 +137,77 @@ export default{
 <style lang="scss">
 
 #SingleView {
+
+    padding: 15px;
+    
     .title{
         display: flex;
         justify-content: center;
-
     }
+    .tip-header{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid white;
+    }
+    
     .difficulty{
         img{  
             max-width: 70px;
         }
     }
 
-    .ingredients{
+    .ingredients-tips{
         display: flex;
         justify-content: center;
-            span{
-                font-weight: 600;
-            }
-            ul{
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }    
+        justify-content: space-between;
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid white;
+        p{
+            font-weight: 600;
+        }
+        ul{
+            margin: 15px 0 0 0;
+            padding: 0;
+        }    
+        
     }
         
-    .content{
-        
+    .comment{
+        label{
+            font-weight: 600;
+            display: block;
+            text-align: center;
+        }
+        textarea{
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            background-color: #c7d3e3;
+            border: 2px solid #a7b2c0;
+        }  
+        button{
+            border: none;
+            color: #404041;
+            font-weight: bold;
+            border-radius: 20px;
+            background-color: #acd14f;
+
+        }           
+    }
+
+    .comment-list{
+        text-align: center;
     }
     .author{
-
-    }
-    
+        span{
+            font-style: italic;
+        }
+    }    
 }
 
     

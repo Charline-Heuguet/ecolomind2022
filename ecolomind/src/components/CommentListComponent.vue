@@ -1,9 +1,9 @@
 <!-- Liste des commentaires -->
 <template>
   <div>
-    <form v-if="this.$store.state.userIsConnect">
+    <form class="comment-list" v-if="this.$store.state.userIsConnect">
         
-        <div >
+        <div>
           <label for="content">Commentaire</label>
           <textarea
             rows="3"
