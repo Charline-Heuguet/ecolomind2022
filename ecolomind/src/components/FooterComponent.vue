@@ -41,7 +41,7 @@ footer{
     display: flex;
     justify-content: space-between;
     border-top: 25px solid #684D41;
-    margin-top: 15vh;
+    // margin-top: 15vh;
 }
 a {
     text-decoration: none;

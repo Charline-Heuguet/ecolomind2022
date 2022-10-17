@@ -3,8 +3,8 @@
 <template>
     
     <img src="@/assets/nuage.png" alt="" class="cloud" id="cloud"> 
-    <p id="welcome"> Site de partage d'astuces écologiques selon les pièces de la maison </p>  
-    <p id="welcome mobile-wl"> Découvrez-les en cliquant sur une des pièces ci-dessous</p>
+    <p class="welcome"> Site de partage d'astuces écologiques selon les pièces de la maison </p>  
+    <p class="welcome mobile-wl"> Découvrez-les en cliquant sur une des pièces ci-dessous</p>
  <div id="image">
   
     <img id="background" src="../assets/maison-vide-ok.png" alt="maison sans les pieces">
@@ -27,7 +27,6 @@
 
   <div class="mobile-home">
     <h1>Ecolomind</h1>
-    <p>text du site</p>
 
     <div class="cont-home">
       <div class="room room-bed">
@@ -89,13 +88,11 @@ export default {
 
 .welcome {
   text-align: center;
-  font-size: 30px;
-  margin-top : -10px;
 }
 @media screen and (max-width: 699px){
-  #mobile-wl{
+  .mobile-wl{
     display: none;
-    color: blue;
+    font-size: 20px;
   }
   .mobile-home{
     p{
@@ -115,6 +112,7 @@ export default {
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 10px;
+    margin-bottom: 2vh;
   }
   .room{
     max-width: 98%;
@@ -146,12 +144,15 @@ export default {
 }
 
 @media screen and (min-width: 700px){
+  .welcome{
+    font-size: 20px;
+  }
   .mobile-home{
   display: none;
   }     
   .cloud{
     margin-top: 5px;
-    margin-left: 20px;
+    margin-left: 20em;
     width: 300px;
   }
 #image{
@@ -161,6 +162,7 @@ export default {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -5px;
 }
 #background{
   width: 100%;

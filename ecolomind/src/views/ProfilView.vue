@@ -165,6 +165,7 @@ export default {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     color: #c7d3e3;   
+    margin-bottom: 5vh;
         .profil-header{
             color: #404041;
         }
