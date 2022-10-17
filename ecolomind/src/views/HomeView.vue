@@ -3,7 +3,8 @@
 <template>
     
     <img src="@/assets/nuage.png" alt="" class="cloud" id="cloud"> 
-    <p>Communauté d'échanges ecolo </p>  
+    <p id="welcome"> Site de partage d'astuces écologiques selon les pièces de la maison </p>  
+    <p id="welcome"> Découvrez-les en cliquant sur une des pièces ci-dessous</p>
  <div id="image">
   
     <img id="background" src="../assets/maison-vide-ok.png" alt="maison sans les pieces">
@@ -85,7 +86,8 @@ export default {
 
 
 <style lang="scss" >
-p {
+
+.welcome {
   text-align: center;
   font-size: 30px;
   margin-top : -10px;
