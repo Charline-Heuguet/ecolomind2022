@@ -121,6 +121,7 @@ export default {
 .inscription-form{
     display: flex;
     justify-content: center;
+    margin-bottom: 15px;
     form{ 
         input{
             width: 35vh;
