@@ -1,15 +1,26 @@
-
 <template>
     <div class="wrong-path">
-        <h2>Je crois que tu t'es perdu...</h2>
+        <h1>Ceci est une page cassée.</h1>
         <router-link to="/">
             <img src="../assets/guillaume_Ferard.jpg" alt="You Shall Not Passsss !">
         </router-link>
         <router-link to="/">
-            <h3>Allez, reviens à la maison !</h3>
+            <h2>Tu veux voir l'effet qu'ça fait sur une rotule ?</h2>
+            <h3> Alors retournes à la maison !</h3>
         </router-link>
     </div>
 </template>
+
+
+<style lang="scss">
+
+.wrong-path{
+    text-align: center;
+    h1{
+        margin-top: 50px;
+    }
+}
+</style>
 
 
 
