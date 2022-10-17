@@ -76,7 +76,9 @@ export default ({
 h1 {
     margin-top: 50px;
 }
-
+.container-article{
+    margin-bottom: 15vh;
+}
 
     #tipscardcomponent {
         display: flex;

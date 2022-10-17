@@ -69,7 +69,7 @@ export default {
 
 
 <style lang="scss">
-body{
+html, body{
   margin: 0;
 }
 .wrapper{
@@ -155,7 +155,6 @@ a{
   }
 }
 
-  
 .router-link-exact-active {
     color: #42b983;
 }
