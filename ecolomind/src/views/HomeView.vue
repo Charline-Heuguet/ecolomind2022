@@ -4,7 +4,7 @@
     
     <img src="@/assets/nuage.png" alt="" class="cloud" id="cloud"> 
     <p id="welcome"> Site de partage d'astuces écologiques selon les pièces de la maison </p>  
-    <p id="welcome"> Découvrez-les en cliquant sur une des pièces ci-dessous</p>
+    <p id="welcome mobile-wl"> Découvrez-les en cliquant sur une des pièces ci-dessous</p>
  <div id="image">
   
     <img id="background" src="../assets/maison-vide-ok.png" alt="maison sans les pieces">
@@ -93,6 +93,10 @@ export default {
   margin-top : -10px;
 }
 @media screen and (max-width: 699px){
+  #mobile-wl{
+    display: none;
+    color: blue;
+  }
   .mobile-home{
     p{
       margin-left: 2em;
@@ -146,7 +150,8 @@ export default {
   display: none;
   }     
   .cloud{
-    margin: 5em 05em;
+    margin-top: 5px;
+    margin-left: 20px;
     width: 300px;
   }
 #image{
