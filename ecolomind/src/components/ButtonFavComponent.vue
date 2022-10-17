@@ -50,7 +50,7 @@ export default {
 
 
         getCurrentUserName(){
-            return storage.get('userData').user_nicename;
+            return storage.get('userData').user_display_name;
         },
     }
 }
