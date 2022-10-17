@@ -1,9 +1,11 @@
 <!-- Page d'accueil -->
 
 <template>
-  
-    <img src="@/assets/nuage.png" alt="" class="cloud" id="cloud">   
+    
+    <img src="@/assets/nuage.png" alt="" class="cloud" id="cloud"> 
+    <p>Communauté d'échanges ecolo </p>  
  <div id="image">
+  
     <img id="background" src="../assets/maison-vide-ok.png" alt="maison sans les pieces">
 
     <a href="">
@@ -83,6 +85,11 @@ export default {
 
 
 <style lang="scss" >
+p {
+  text-align: center;
+  font-size: 30px;
+  margin-top : -10px;
+}
 @media screen and (max-width: 699px){
   .mobile-home{
     p{
@@ -95,7 +102,6 @@ export default {
   }
   #image{
     display: none;
-   
   }
   .cont-home{
     display: grid;
@@ -148,7 +154,6 @@ export default {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-
 }
 #background{
   width: 100%;
