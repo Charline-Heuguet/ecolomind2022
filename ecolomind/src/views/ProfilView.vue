@@ -20,20 +20,26 @@
             <button @click="switchToDeleteProfil()">Supprimer mon profil</button>
         
         </div>
-
             <div class="fav-astuce">
-                <h3>Mes astuces préférées</h3>
-                <p>Coming soon ....</p>
-                <TipsLikedByUserComponent 
-                v-for="astuce in this.likedTips"
-                :key="astuce.ID"
-                :dbid="astuce.ID"
-                :title="astuce.post_title"
-                :excerpt="astuce.post_content.substr(0, 200) + ' [...]'"
-                />
+                <div >
+                    <h3>Mes astuces préférées</h3>
+                    <!-- <p>Coming soon ....</p> -->
+                    <TipsLikedByUserComponent 
+                    v-for="astuce in this.likedTips"
+                    :key="astuce.ID"
+                    :dbid="astuce.ID"
+                    :title="astuce.post_title"
+                    :excerpt="astuce.post_content.substr(0, 200) + ' [...]'"
+                    />
 
-                <!-- .substr(0, 200) + ' [...]' -->
+                    <!-- .substr(0, 200) + ' [...]' -->
+                </div>
+                <div v-if="likedTips.length < 1" id="no-liked-article">
+                    Vous n'avez pas d'astuces mises en favoris !
+                </div>
             </div>
+
+            
 
             <div class="my-astuce">
                 <h3>Mes astuces</h3>
@@ -225,6 +231,9 @@ export default {
             /* max-height: 20em; */
             max-width: 98%;
             p{
+                color: #404041;
+            }
+            #no-liked-article{
                 color: #404041;
             }
         }
