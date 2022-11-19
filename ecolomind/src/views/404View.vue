@@ -15,6 +15,7 @@
 <style lang="scss">
 
 .wrong-path{
+    margin-bottom: 150px;
     text-align: center;
     h1{
         margin-top: 50px;

@@ -19,13 +19,17 @@
                 <div class="buttons" v-if="this.$store.state.userIsConnect" >
                     <p>Ajouter aux favoris </p>
 
-                    <ButtonFavComponent 
+                    <FavorisComponent
+                        :astuce_id="this.astuce.id"
+                    />
+
+                    <!-- <ButtonFavComponent 
                         :astuce_id ="this.astuce.id"
                     />
 
                     <ButtonUnFavComponent
-                        :astuce_id="this.astuce.id"
-                    />
+                        :astuce_id="this.astuce.id" 
+                    /> -->
                 </div>
             </div>
             
@@ -70,10 +74,12 @@
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
-import ButtonFavComponent from '@/components/ButtonFavComponent.vue'
-import ButtonUnFavComponent from '@/components/ButtonUnFavComponent.vue'
+// import ButtonFavComponent from '@/components/ButtonFavComponent.vue'
+// import ButtonUnFavComponent from '@/components/ButtonUnFavComponent.vue'
+import FavorisComponent from '@/components/FavorisComponent.vue';
 
 import axios from 'axios';
+
 
 export default{
     name: 'SingleTipsView',
@@ -86,8 +92,9 @@ export default{
         //RoomTipsComponent,
         //ToolsTipsComponent,
 
-        ButtonFavComponent,
-        ButtonUnFavComponent
+        // ButtonFavComponent,
+        // ButtonUnFavComponent,
+        FavorisComponent
 
     },
 
@@ -111,7 +118,7 @@ export default{
         // appel API
         axios.get(base_url + "/wp/v2/tips/"+this.$route.params.id+"?_embed").then((response) => {
             this.astuce = response.data;
-            console.log(this.astuce);
+            //console.log(this.astuce);
 
             
             axios.get(base_url + "/wp/v2/ingredients?post="+this.astuce.id ).then((response) => {
