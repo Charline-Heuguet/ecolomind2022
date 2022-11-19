@@ -98,7 +98,7 @@ header{
         background: linear-gradient(180deg, rgb(105, 177, 219) 0%, rgba(255,255,255,1) 100%);
         box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
         align-items: center;
-        width: 35vh;  
+        padding: 0 20px; 
     }
     .dark-theme{
         .user-state{
