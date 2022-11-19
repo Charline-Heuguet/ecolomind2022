@@ -11,6 +11,7 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
             v-for="room in rooms"
             :key="room.id" 
             :to="{
+                
                     name: 'single-room', //nom de la route donnée dans Routers pour aller sur la view SingleRoomView
                     params: {
                         id: room.id, 
