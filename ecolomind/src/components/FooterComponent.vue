@@ -34,9 +34,7 @@ export default {
 <style lang="scss">
 
 footer{
-
-
-    padding: 80px;
+    padding: 25px;
     background: linear-gradient(0deg, rgba(130, 150, 47, 0.5) -38.26%, rgba(149, 197, 22, 0.75) 49.94%);
     display: flex;
     justify-content: space-between;

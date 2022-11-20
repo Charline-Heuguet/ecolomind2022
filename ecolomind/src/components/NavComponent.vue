@@ -22,6 +22,8 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
 
         </nav>  
        
+       <button class="toggle-menu" v-on:click.prevent="ClickBurger()"> Ouvrir le menu </button>
+       
 </template>
 
 
@@ -47,43 +49,69 @@ export default ({
     async created(){
 
         this.rooms = await TipsServices.getAllRooms();
+    },
+
+    methods : {
+        async ClickBurger(){
+            let navBar = document.getElementsByClassName("navb")[0];
+
+            navBar.classList.toggle("active");
+
+        }
     }
     
 })
 </script>
 
 <style lang="scss" >
-@media screen and (max-width: 699px){
+
+.toggle-menu{
+    position: relative;
+    background: url('../assets/menuburger.png');
+    background-size: contain;
+    text-indent: -50000px; // on cache le texte du bouton (ne pas enlever le texte pour des questions de sémantique)
+    width: 40px;
+    height: 40px;
+    border: none;
+    float:right;
+    margin-right: 20px;
+    margin-top: -145px;
+    z-index: 200;
+
+}
+//menu burger
 .navb{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 18px;
-        a{
-            display: flex;
-            justify-content: center;
-            margin: 7px 0;         
-         }  
-         .Proposer{
-             border-bottom: solid;
-         }
-}                     
-    .dark-theme{
-        nav{
-            a{
-            color: #b9b9b9;
-            &.router-link-exact-active {
-            color: #42b983;
-          }
-        }
-            .test{
-                color: #a19d9d;
-            }  
-        }                    
+    font-size: 1.2em;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    border-radius: 15px 0 0 15px;
+    top: 75px ;
+    z-index: 190;
+    position: fixed;
+    right: -245px; //par défaut, on cache la navbar en dehors du viewport (la valeur de la width en nég)
+    width: 215px; // on le fait réapparaitre avec la mm valeur en positif
+    background-image: linear-gradient(to right top, #b5cdf0, #9fbce4, #88abd8, #719acc, #598ac0);
+    transition: right 0.6s;
+    &.active{
+        right: 0;
+    }
+
+    a{
+        display: block;
+        padding: 15px;
     }
 }
-@media screen and (min-width: 700px){
-    nav{
+
+@media screen and (min-width: 815px){
+    .toggle-menu{
+        display: none;
+    }
+
+    .navb{
+        position: relative;
+        top: auto;
+        right: auto;
+        width: auto;
+        background: none;
         display: flex;
         justify-content: space-around;
         border: solid 0px;
@@ -91,6 +119,9 @@ export default ({
         box-shadow: 0px 5px 5px 5px rgba(62,66,66,0.22);
         padding: 20px 0;
         margin: 20px 0;
+        a{
+            padding: 0;
+        }
     }
     .dark-theme{      
         nav{
@@ -106,6 +137,38 @@ export default ({
       }
     }
 }
+
+
+// @media screen and (max-width: 699px){
+// .navb{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     margin-top: 18px;
+//         a{
+//             display: flex;
+//             justify-content: center;
+//             margin: 7px 0;         
+//          }  
+//          .Proposer{
+//              border-bottom: solid;
+//          }
+// }                     
+//     .dark-theme{
+//         nav{
+//             a{
+//             color: #b9b9b9;
+//             &.router-link-exact-active {
+//             color: #42b983;
+//           }
+//         }
+//             .test{
+//                 color: #a19d9d;
+//             }  
+//         }                    
+//     }
+// }
+
 
 
 

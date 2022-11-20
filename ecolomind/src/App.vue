@@ -69,6 +69,7 @@ export default {
 
 
 <style lang="scss">
+
 html, body{
   margin: 0;
 }
@@ -90,19 +91,22 @@ h3{
 }
 #move{
   position: relative;
+  margin-right: 110px;
 }
 a{
   &.router-link-exact-active {
-    color: #42b983;
+    color: #d4f1fb;
   }
 }
 .header-container{
   display: flex;
   justify-content: space-between;
+  z-index: 100;
+  position: relative;
 }
 .switcher{
+  z-index: 100;
   max-width: 120px;
-  margin-right: 5vh;
   margin-top: 2vh;
 }
 .light-theme{
