@@ -77,7 +77,13 @@ export default ({
     margin-right: 20px;
     margin-top: -145px;
     z-index: 200;
+}
 
+.dark-theme{
+    .toggle-menu{
+        background: url('../assets/menuburger-white.png');
+        background-size: contain; // pour que la taille du BG soit contenu dans son conteneur
+    }
 }
 //menu burger
 .navb{
@@ -123,7 +129,8 @@ export default ({
             padding: 0;
         }
     }
-    .dark-theme{      
+    .dark-theme{
+             
         nav{
         background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);
         border-radius: 100px;
