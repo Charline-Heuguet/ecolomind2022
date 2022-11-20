@@ -21,26 +21,6 @@ const routes = [
   },
 
 
-  // {
-  //   path: '/salle-de-bain',
-  //   name: 'salle-de-bain',
-  //   component: () => import('../views/BathroomView.vue')
-  // }, 
-
-
-  // {
-  //   path: '/cuisine',
-  //   name: 'cuisine',
-  //   component: () => import('../views/SingleTipsView.vue')
-  // },
-
-
-
-  // {
-  //   path: '/salon',
-  //   name: 'salon',
-  //   component: () => import('../views/LivingroomView.vue')
-  // },
   {
     path: '/:pathMatch(.*)*',
     name: 'no-found',
