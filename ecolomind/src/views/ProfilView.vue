@@ -182,8 +182,8 @@ export default {
             background-color: #c7d3e3cb;
             border-radius: 20px;
             padding: 20px;
-            margin: 0 3% 0 3%;
-            max-height: 20em;
+            margin: 0 2%;
+            max-height: 23em;
             max-width: 98%;
             
             button{
@@ -236,6 +236,7 @@ export default {
             #no-liked-article{
                 color: #404041;
             }
+            
         }
         .my-astuce{
             grid-area: 2 / 1 / 3 / 2;
@@ -257,7 +258,10 @@ export default {
                 background-color: #c7d3e3;
                 border: 3px solid  #a7b2c0; 
                 overflow: hidden;                          
-            }           
+            }  
+            a:hover{
+                color: #407038;
+            }         
         }
     h5{
         font-size: 15px;

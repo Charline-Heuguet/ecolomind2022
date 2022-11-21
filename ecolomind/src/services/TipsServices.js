@@ -149,15 +149,15 @@ const TipsServices =
 
     async addComment(comment, astuce_id){
         
-    const response = await axios.post(this.base_url + "/wp/v2/comments", {
-        content: comment,
-        post: astuce_id
-    }, {
-        headers: {
-            Authorization: "Bearer " + storage.get("userData").token
-        }
-    });
-    return response.data
+        const response = await axios.post(this.base_url + "/wp/v2/comments", {
+            content: comment,
+            post: astuce_id
+        }, {
+            headers: {
+                Authorization: "Bearer " + storage.get("userData").token
+            }
+        });
+        return response.data
     },
 
     

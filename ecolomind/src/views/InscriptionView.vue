@@ -100,7 +100,7 @@ export default {
             //form without error
             if(!this.errors.usernameMissing && !this.errors.emailMissing && !this.errors.passwordMissing && !this.errors.confirmPasswordMissing){
 
-                axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "connexion"})) //don't forget LE PIÈGE
+                axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "connexion"})) 
 
                 .then(response => console.log(response)) 
                 .catch(function(){
@@ -123,6 +123,7 @@ export default {
     justify-content: center;
     margin-bottom: 15px;
     form{ 
+        margin-bottom: 9em;
         input{
             width: 35vh;
             height: 5vh;
@@ -133,14 +134,14 @@ export default {
             padding: 8px; 
         }
         button{
-             width: 20vh;
+            width: 20vh;
             height: 4vh;
             border: none;
             color: #404041;
             font-weight: bold;
             border-radius: 20px;
             background-color: #acd14f;
-            margin-top: 15px;
+            margin: 15px;
             cursor: pointer;
         }
         .error{

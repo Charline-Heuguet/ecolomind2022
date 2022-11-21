@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import TipsServices from '@/services/TipsServices';
+import TipsServices from '@/services/TipsServices.js';
 export default {
     name: 'CommentFormComponent',
     data(){
@@ -35,7 +35,7 @@ export default {
     methods : {
       
         async submitComment(){
-            // console.log(this.content);
+            // console.log(this.submitComment);
             await TipsServices.addComment(this.content, this.astuce_id);
             this.$emit('commentAdded');
         }

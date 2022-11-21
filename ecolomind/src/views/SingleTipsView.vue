@@ -293,7 +293,9 @@ export default{
         .content, .author{
             margin-left: 350px;
         }
-        
+        .comment{
+            margin-bottom: 15em;
+        }
     }
     
 }

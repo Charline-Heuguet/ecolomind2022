@@ -10,7 +10,7 @@
     <img id="background" src="../assets/maison-vide-ok.png" alt="maison sans les pieces">
 
     <a href="">
-      <img id="entree" src="../assets/entree.png" alt="">
+      <img id="entree" src="../assets/entree.png" alt="entrée">
     </a>
     <router-link 
     v-for="room in rooms" 
@@ -162,7 +162,7 @@ export default {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: -5px;
+  margin-bottom: -7px;
 }
 #background{
   width: 100%;

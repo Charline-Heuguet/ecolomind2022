@@ -77,7 +77,7 @@ h1 {
     margin-top: 50px;
 }
 .container-article{
-    margin-bottom: 15vh;
+    margin-bottom: 15em;
 }
 
     #tipscardcomponent {

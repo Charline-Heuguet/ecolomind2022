@@ -79,7 +79,7 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 10%;
-    margin-bottom: 15vh;
+    margin-bottom: 15em;
     #email{
         width: 35vh;
         height: 5vh;

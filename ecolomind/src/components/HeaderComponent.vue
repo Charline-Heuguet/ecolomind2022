@@ -2,7 +2,7 @@
     <header>
           
         <div class="user-state" v-if="this.$store.state.userIsConnect">
-            <img src="@/assets/ecolominds-logo.png" class="logo" alt="logo-ecolomind">   
+            <a href=""><img src="@/assets/ecolominds-logo.png" class="logo" alt="logo-ecolomind">  </a> 
             <div class="elements">
                 <span>Bonjour : {{ getCurrentUserName() }}</span>
                 <router-link to="/profil">Profil</router-link>
