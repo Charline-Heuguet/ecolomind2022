@@ -30,14 +30,15 @@ export default {
         const base_url= "http://ecolomind.local/wp-json";
         
             // on fait un appel au custom Endpoint Checkfavorites pour savoir si l'utilisateur connecté actuel a deja liké ce post
-            axios.get(base_url + "/wp/v2/ecolomind/checkfavorites?author_id="+this.favData.authorID+"&tips_id="+this.astuce_id).then((response) => {
+            axios.get(base_url + "/wp/v2/ecolomind/checkfavorites?author_id="+this.favData.authorID+"&tips_id="+this.astuce_id)
+            .then((response) => {
             
             let buttonFav = document.getElementsByClassName("button-fav")[0]; // Ca c'est le bouton fav
             
             //Si la longueur du tableau de response.data est sup a 0 (donc tableau pas vide = donc utlisateur a liké ce post)
             if(response.data.length>0){
-                buttonFav.classList.toggle("fav"); //Alors on enleve la class fav
-                buttonFav.classList.toggle("unfav"); // On rajoute la class unfav
+                buttonFav.classList.toggle("fav"); //Alors on enleve la class fav 
+                buttonFav.classList.toggle("unfav"); // On rajoute la class unfav 
             }
                 buttonFav.classList.add("active"); // Ligne pour ne pas avoir la micro seconde d'affichage du coeur vert par defaut.
                 

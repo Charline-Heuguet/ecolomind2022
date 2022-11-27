@@ -29,21 +29,20 @@
     <h1>Ecolomind</h1>
 
     <div class="cont-home">
-      <div class="room room-bed">
-        <h2>Chambre</h2>
-      </div>
-      <div class="room room-kitchen">
-        <h2>Cuisine</h2>
-      </div>
-      <div class="room room-garden">
-        <h2>Jardin</h2>
-      </div>
-      <div class="room room-bath">
-        <h2>Salle de bain</h2>
-      </div>
-      <div class="room room-living">
-        <h2>Salon</h2>
-      </div>
+          <router-link 
+          v-for="room in rooms" 
+          :key="room.id" 
+          :to="{
+            name: 'single-room',
+            params: {
+              id: room.id,
+            }    
+          }">
+            
+            <div class="room">
+              <h2>{{room.name}}</h2>
+            </div>  
+          </router-link>      
     </div>
   </div>
 </template>
@@ -107,40 +106,21 @@ export default {
     display: none;
   }
   .cont-home{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 10px;
     margin-bottom: 2vh;
   }
   .room{
+    padding: 11px;
     max-width: 98%;
     max-height: 30em;
-    margin: 0 3% 0 3%;
+    margin: 0 3% 20px 3%;
     border-radius: 20px;
-    background: no-repeat url('~@/assets/jardin.png'), linear-gradient(96.2deg, rgba(185, 227, 152, 0.31) 37.45%, rgba(129, 176, 91, 0.5) 68.53%);;
+    background: no-repeat url('~@/assets/jardin.png'), linear-gradient(96.2deg, rgba(185, 227, 152, 0.31) 37.45%, rgba(129, 176, 91, 0.5) 68.53%);
+    background-size: cover;
+    h2{
+      margin: 0;
+    }
   }
-  .room-bed{
-    grid-area: 1 / 1 / 2 / 2;
-   
-  }
-  .room-kitchen{
-    grid-area: 2 / 1 / 3 / 2;
-    
-  }
-  .room-garden{
-    grid-area: 3 / 1 / 4 / 2;
-   
-  }
-  .room-bath{
-    grid-area: 4 / 1 / 5 / 2;
-    
-  }
-  .room-living{
-    grid-area: 5 / 1 / 6 / 2;
-   
-  }
+
 }
 
 @media screen and (min-width: 700px){
