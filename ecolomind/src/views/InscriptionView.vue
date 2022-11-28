@@ -20,6 +20,7 @@
 
             <div>
                 <div v-if="this.errors.passwordMissing" class="error">Veuillez renseigner votre mot de passe</div>
+                <div v-if="this.errors.misMatchPassword" class="error">Les mots de passe ne correspondent pas</div>
                 <label for="password"></label>
                 <input type="password" placeholder="Mot de passe" name="" id="password" v-model="this.formData.password">
             </div>
@@ -65,6 +66,7 @@ export default {
                 emailMissing: false,
                 passwordMissing: false,
                 confirmPasswordMissing: false,
+                misMatchPassword: false,
             }
             
         }
@@ -82,6 +84,7 @@ export default {
             this.errors.emailMissing = false;
             this.errors.passwordMissing = false;
             this.errors.confirmPasswordMissing = false;
+            this.errors.misMatchPassword = false;
 
             //form with error
             if(this.formData.username == ""){
@@ -96,9 +99,12 @@ export default {
             if(this.formData.confirm_password == ""){
                 this.errors.confirmPasswordMissing = true;
             }
+            if(this.formData.confirm_password != this.formData.password){
+                this.errors.misMatchPassword = true;
+            }
 
             //form without error
-            if(!this.errors.usernameMissing && !this.errors.emailMissing && !this.errors.passwordMissing && !this.errors.confirmPasswordMissing){
+            if(!this.errors.usernameMissing && !this.errors.emailMissing && !this.errors.passwordMissing && !this.errors.confirmPasswordMissing && !this.errors.misMatchPassword){
 
                 axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/subscribe', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "connexion"})) 
 
