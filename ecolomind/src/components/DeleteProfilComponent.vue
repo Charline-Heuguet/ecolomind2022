@@ -2,7 +2,7 @@
     <div>
         <h2>{{getCurrentUserName()}}, souhaitez-vous vraiment supprimer votre compte ?</h2>
 
-        <button @click="deleteMyInfos">Oui, je supprime mon compte</button>
+        <button class="warning" @click="deleteMyInfos">Oui, je supprime mon compte</button>
     </div>
 </template>
 
@@ -20,7 +20,7 @@ export default{
     {
         async deleteMyInfos(){
             console.log(JSON.parse(JSON.stringify(this.userToDelete)));
-            axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/profildelete', JSON.parse(JSON.stringify(this.userToDelete)),this.$router.push({name : "home"}), this.$store.dispatch('onUserDisconnection'))
+            axios.post('https://back.ecolomind.fr/wp-json/wp/v2/ecolomind/profildelete', JSON.parse(JSON.stringify(this.userToDelete)),this.$router.push({name : "home"}), this.$store.dispatch('onUserDisconnection'))
             .then(response => console.log(response))
             .catch(function(){
                 return {data: null}
@@ -35,3 +35,19 @@ export default{
     },
 }
 </script>
+
+<style lang="scss">
+
+.warning{
+        background-color: rgb(139, 27, 8);
+        color:#d3e0f1fb ;
+        text-transform: uppercase;
+        border-radius: 20px;
+        font-weight: 600;
+        width: 60%;
+        display: block;
+        margin: 0 auto 20px;
+        height: 40px;
+}
+
+</style>

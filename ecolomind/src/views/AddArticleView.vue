@@ -57,7 +57,6 @@
             
 
         </form>
-
     </div>
 
 </div>
@@ -138,7 +137,7 @@ export default {
 
                 console.log(JSON.parse(JSON.stringify(this.formData)));
                 //  console.log('fin from data');
-                axios.post('http://ecolomind.local/wp-json/wp/v2/ecolomind/addTips', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
+                axios.post('https://back.ecolomind.fr/wp-json/wp/v2/ecolomind/addTips', JSON.parse(JSON.stringify(this.formData))) //don't forget LE PIÈGE
                 .then(response => console.log(response)) 
                 .catch(function(){ 
                     
@@ -174,9 +173,10 @@ export default {
     display: flex;
     color: #6c6f74;
     justify-content: center;   
+
     input{       
-        width: 35vh;
-        height: 5vh;
+        width: 325px;
+        height: 40px;
         margin:5px 0 20px 0;
         border-radius: 20px;
         border: 2px solid  #a7b2c0;
@@ -190,8 +190,8 @@ export default {
     }
     
     select{        
-        width: 35vh;
-        height: 5vh;
+        width: 325px;
+        height: 40px;
         padding:0 0 0 5px;
         margin:5px 0 20px 0;
         border-radius: 20px;
@@ -204,8 +204,8 @@ export default {
         flex-direction: column;
     }
     #content{
-        width: 35vh;
-        height: 15vh;
+        width: 320px;
+        height: 150px;
         padding: 8px;
         border-radius: 5px;
         margin-bottom: 15px;       

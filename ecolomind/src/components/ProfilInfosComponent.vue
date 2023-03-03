@@ -1,13 +1,16 @@
 <template>
     <h2>Mon profil</h2>
-    <div class="profil-header">
-        
+    <div class="profil-header">        
 
-        <h5>Mon pseudo</h5>
-        <p>{{ getCurrentUserName() }}</p>
+        <div class="pseudo">
+            <h5>Mon pseudo</h5>
+            <p>{{ getCurrentUserName() }}</p>
+        </div>
 
-        <h5>Mon adresse email</h5>
-        <p>{{ getCurrentUserEmail() }}</p>
+        <div class="mail">
+            <h5>Mon adresse email</h5>
+            <p>{{ getCurrentUserEmail() }}</p>
+        </div >
     </div>
 </template>
 
@@ -32,8 +35,8 @@ export default{
 
 <style lang="scss">
 .profil-header{
-
     margin-left: 10px;
+
     h2{
         margin: 0; 
     }
@@ -43,5 +46,6 @@ export default{
     p{
         margin: 0; 
     }
+
 }
 </style>

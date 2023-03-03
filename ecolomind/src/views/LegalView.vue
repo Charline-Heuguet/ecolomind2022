@@ -25,9 +25,9 @@
         <p>Administration du site</p>
 
         <p>Ecolomind<br/>
-        Hébergé par Hostinger<br/>
-        61 Lordou Vironos Street<br/>
-        6023 Larnaca, Chypre</p>
+        Hébergé par OVH dont le siege social est situé au <br/>
+        2 rue Kellermann - <br/>
+        59100 Roubaix - France</p>
 
 
         <h4>Responsabilités</h4>

@@ -1,13 +1,14 @@
 <!-- Header et navbar !-->
-<template>  
+<!-- <template>  
         <nav class="navb">
-            <router-link to="/" class="test">Accueil</router-link>
+            <router-link to="/" class="test">Accueil</router-link> -->
 
 <!-- On souhaite avoir une seule view pour les différentes pièces, donc on doit rendre la navBar dynamique, ce qui facilitera egalement si on veut 
 rajouter une pièce plus tard. 
 Dans le Json, Rooms est un tableau, on le déclare donc en tant que tel dans les data; la key est obligatoire (value-key). On boucle sur le tableau Rooms pour chaque Room.
 L'attribut key permet d'identifier et de rendre unique chaque component   -->
-            <router-link   
+
+            <!-- <router-link   
             v-for="room in rooms"
             :key="room.id" 
             :to="{
@@ -24,10 +25,10 @@ L'attribut key permet d'identifier et de rendre unique chaque component   -->
        
        <button class="toggle-menu" v-on:click.prevent="ClickBurger()"> Ouvrir le menu </button>
        
-</template>
+</template> -->
 
 
-<script>
+<!-- <script> 
 
 //On importe le fichier TipsServices dans lequel se trouve les appels à API dont on aura besoin ici.
 
@@ -61,10 +62,9 @@ export default ({
     }
     
 })
-</script>
+</script>-->
 
-<style lang="scss" >
-
+<!-- <style lang="scss" > 
 .toggle-menu{
     position: relative;
     background: url('../assets/menuburger.png');
@@ -145,39 +145,6 @@ export default ({
     }
 }
 
+</style>-->
 
-// @media screen and (max-width: 699px){
-// .navb{
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     margin-top: 18px;
-//         a{
-//             display: flex;
-//             justify-content: center;
-//             margin: 7px 0;         
-//          }  
-//          .Proposer{
-//              border-bottom: solid;
-//          }
-// }                     
-//     .dark-theme{
-//         nav{
-//             a{
-//             color: #b9b9b9;
-//             &.router-link-exact-active {
-//             color: #42b983;
-//           }
-//         }
-//             .test{
-//                 color: #a19d9d;
-//             }  
-//         }                    
-//     }
-// }
-
-
-
-
-</style>
 

@@ -38,7 +38,7 @@ export default({
 
     async created()
     {     
-        const base_url= "http://ecolomind.local/wp-json";
+        const base_url= "https://back.ecolomind.fr/wp-json";
 
         axios.get(base_url + "/wp/v2/difficulty/"+ this.difficultyId).then((response) => {
                 this.difficulty = response.data;
@@ -59,7 +59,10 @@ article{
     text-align: left;
     padding: 20px 20px 0px;
     margin: 10px 0;
-    width: 50vh;
+
+    p{
+        line-height: 1.3em;
+    }
     h2{
         text-align: left;
         margin: 0;
@@ -71,9 +74,6 @@ article{
     h2{
         clear:right;
     }
-    #suite{
-        
-    }
 }
 .try{
     max-width: 50px;
@@ -84,8 +84,13 @@ article{
 .dark-theme{
     article{
         color: #e8e8ee;
-            background-color: #253651;
-            border: 2px solid  #a7b2c0;
+        background-color: #253651bd;
+        border: 2px solid  #a7b2c0;
+        .try{
+            filter: hue-rotate(45deg);
+        }
+
+
         #suite{
         color: #e8e8ee;     
         }  

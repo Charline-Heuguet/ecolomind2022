@@ -29,7 +29,7 @@ export default {
 
     created(){
 
-        const base_url= "http://ecolomind.local/wp-json";
+        const base_url= "https://back.ecolomind.fr/wp-json";
 
 
          axios.get(base_url + "/wp/v2/tools?post="+this.astuce.id ).then((response) => {

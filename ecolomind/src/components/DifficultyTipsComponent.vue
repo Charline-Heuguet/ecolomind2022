@@ -1,6 +1,6 @@
 <template>
         <div>
-            <img :src=" this.difficulty.description " alt="">
+            <img :src=" this.difficulty.description " alt="difficulté de l'astuce en étoile" class="difficulty-star">
         </div>
 </template>
 
@@ -13,9 +13,7 @@ export default {
     data(){
         return {
             difficulty : "",
-
         }
-
     },
     props: {
         astuce: Object,
@@ -23,7 +21,7 @@ export default {
 
     created(){
 
-        const base_url= "http://ecolomind.local/wp-json";
+        const base_url= "https://back.ecolomind.fr/wp-json";
 
        
         axios.get(base_url + "/wp/v2/difficulty?post="+this.astuce.id ).then((response) => {
@@ -34,3 +32,14 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+
+.dark-theme{
+    .difficulty-star{
+        filter: hue-rotate(45deg);       
+    }
+}
+
+
+</style>

@@ -42,7 +42,7 @@ export default ({
         
     async created()
     {     
-        // const base_url= "http://ecolomind.local/wp-json";
+        // const base_url= "https://back.ecolomind.fr/wp-json";
         
    
         let RoomId = this.$route.params.id;
@@ -81,9 +81,6 @@ h1 {
 }
 
     #tipscardcomponent {
-        display: flex;
-        flex-wrap: wrap;   
-        justify-content: flex-start;
 
         article{                   
             margin: 5px 10px 5px 10px;
@@ -102,10 +99,5 @@ h1 {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-@media screen and (min-width: 1700px){
-    #tipscardcomponent{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
+
 </style>

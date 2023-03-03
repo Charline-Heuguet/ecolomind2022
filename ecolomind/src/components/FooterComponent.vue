@@ -2,23 +2,25 @@
 
     <footer>
 
-            <router-link :to="{name: 'qui-sommes-nous'}">
-                Qui sommes-nous?
-            </router-link>
-
-            <router-link :to="{name: 'contact'}">
-                Contactez-nous
-            </router-link>
-
-       <!-- <img src="@/assets/logo.png" alt="logo ecolomind">         -->
-
-            <router-link :to="{name: 'mentions'}"> 
-                Mentions légales
-            </router-link>
-
-            <router-link :to="{name: 'politique-de-confidentialite'}">
-                Politique de confidentialité
-            </router-link>
+            <div class="gutter">
+                <router-link :to="{name: 'qui-sommes-nous'}">
+                    Qui sommes-nous?
+                </router-link>
+    
+                <router-link :to="{name: 'contact'}">
+                    Contactez-nous
+                </router-link>
+    
+           <!-- <img src="@/assets/logo.png" alt="logo ecolomind">         -->
+    
+                <router-link :to="{name: 'mentions'}"> 
+                    Mentions légales
+                </router-link>
+    
+                <router-link :to="{name: 'politique-de-confidentialite'}">
+                    Politique de confidentialité
+                </router-link>
+            </div>
 
     </footer>
 
@@ -35,42 +37,43 @@ export default {
 
 footer{
     padding: 25px;
-    background: linear-gradient(0deg, rgba(130, 150, 47, 0.5) -38.26%, rgba(149, 197, 22, 0.75) 49.94%);
-    display: flex;
-    justify-content: space-between;
+    background: linear-gradient(0deg, rgba(130, 150, 47, 0.5) -38.26%, rgba(149, 197, 22, 0.75) 49.94%);    
     border-top: 25px solid #684D41;
-    // margin-top: 15vh;
-}
-a {
-    text-decoration: none;
-    font-weight: bold;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-}
-.dark-theme{
-    footer{
-        background: linear-gradient(11.1deg, rgba(52, 90, 52, 0.98) -23.79%, rgba(62, 125, 40, 0.75) 104.55%);
-            a{
-                color: #b9b9b9; 
-                 &.router-link-exact-active {
-                color: #42b983;
-                }
-            }
-    }
 
+    .gutter{
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        text-align: center;    
+
+        a {
+            
+            color: #684D41;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+
+            &:visited{
+                text-decoration: none;
+                color: #684D41;
+            }
+            
+
+            &.router-link-exact-active {
+                color: #09301e;
+            }
+        }
+    }
 }
- @media screen and (max-width: 699px){
+ @media screen and (min-width: 825px){
      footer{
-         display: flex;
-         flex-direction: column;          
-         a{
-             display: flex;
-             justify-content: center;
-             margin: 7px 0;
-         }               
-     }
-}
+         .gutter{
+            flex-direction: row;
+         }
+    }   
+ }
 
 
 </style>

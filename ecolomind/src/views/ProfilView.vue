@@ -4,57 +4,63 @@
 <template>
 
     <div class="profil-view">
-        <!-- 
-            Si tu es en mode 'profil' (qui est le mode par défaut)
-            Alors tu verras le composant ProfilInfosComponent, le bouton "Modifier mon profil", mes astuces et mes astuces préférées
-        -->
+
+        <!--Si tu es en mode 'profil' (qui est le mode par défaut) alors tu verras le composant ProfilInfosComponent, le bouton "Modifier mon profil", "mes astuces" et "mes astuces préférées"-->
         <div v-if="this.mode == 'profil'" class="profil-modif">
 
-            <ProfilInfosComponent />
-    
-            <!-- 
-                Si tu cliques sur "Modifier mon profil", 
-                Alors l'écouteur d'événement au click déclenchera la fonction switchToEditProfil qui passera le mode de 'profil' à 'editProfil'
-            -->
-            <button @click="switchToEditProfil()">Modifier mon profil</button>
-            <button @click="switchToDeleteProfil()">Supprimer mon profil</button>
-        
-        </div>
-            <div class="fav-astuce">
-                <div >
-                    <h3>Mes astuces préférées</h3>
-                    <!-- <p>Coming soon ....</p> -->
-                    <TipsLikedByUserComponent 
-                    v-for="astuce in this.likedTips"
-                    :key="astuce.ID"
-                    :dbid="astuce.ID"
-                    :title="astuce.post_title"
-                    :excerpt="astuce.post_content.substr(0, 200) + ' [...]'"
-                    />
-
-                    <!-- .substr(0, 200) + ' [...]' -->
-                </div>
-                <div v-if="likedTips.length < 1" id="no-liked-article">
-                    Vous n'avez pas d'astuces mises en favoris !
-                </div>
+            <div class="profil-data">
+                <ProfilInfosComponent />
             </div>
-
+    
+            <!--Au clic sur "Modifier mon profil", l'écouteur d'événement au click déclenchera la fonction switchToEditProfil qui passera le mode de 'profil' à 'editProfil'-->
             
 
-            <div class="my-astuce">
-                <h3>Mes astuces</h3>
-                <div class="list-astuce">
-                <TipsCreatedByUserComponent 
-                v-for="astuce in createdTips"
-                :key="astuce.id"
-                :dbid="astuce.id"
-                :title="astuce.title.rendered"
-                :excerpt="astuce.excerpt.rendered"
-                />
-                </div>
+            <div class="profil-buttons">
+                <button @click="switchToEditProfil()">Modifier mon profil</button>
+                <button class="warning" title="suppression du profil" @click="switchToDeleteProfil()">Supprimer mon profil</button>
+            </div>
+        
+        </div>
 
-                <div v-if="createdTips.length < 1" class="no-article">
-                    Vous n'avez pas encore <a href=""><router-link to="ajout-article">proposé d'astuce</router-link></a>  !
+
+            <div class="profil-tips">
+
+                <div class="fav-astuce">
+                    <div>
+                        <h3>Mes astuces préférées</h3>
+                        <!-- <p>Coming soon ....</p> -->
+                        <TipsLikedByUserComponent 
+                        v-for="astuce in this.likedTips"
+                        :key="astuce.ID"
+                        :dbid="astuce.ID"
+                        :title="astuce.post_title"/>
+                        <!-- :excerpt="astuce.post_content.substr(0, 200) + ' [...]'" -->
+                        
+    
+                        
+                    </div>
+                    <div v-if="likedTips.length < 1" id="no-liked-article">
+                        Vous n'avez pas d'astuces mises en favoris !
+                    </div>
+                </div>
+    
+                
+    
+                <div class="my-astuce">
+                    <h3>Mes astuces</h3>
+                    <div class="list-astuce">
+                    <TipsCreatedByUserComponent 
+                    v-for="astuce in createdTips"
+                    :key="astuce.id"
+                    :dbid="astuce.id"
+                    :title="astuce.title.rendered"/>
+                    <!-- :excerpt="astuce.excerpt.rendered" -->
+                    
+                    </div>
+    
+                    <div v-if="createdTips.length < 1" class="no-article">
+                        Vous n'avez pas encore <a href=""><router-link to="ajout-article">proposé d'astuce</router-link></a>  !
+                    </div>
                 </div>
             </div>
         
@@ -72,7 +78,7 @@
                 Si tu cliques sur "Annuler", 
                 Alors l'écouteur d'événement au click déclenchera la fonction switchToProfil qui passera le mode de 'editProfil' à 'profil'
             -->
-            <button @click="switchToProfil()">Annuler</button>
+            <button class="cancel" @click="switchToProfil()">Annuler</button>
         </div>
 
         <div v-if="this.mode == 'deleteProfil'" class="profil-modif">
@@ -83,7 +89,7 @@
                 Si tu cliques sur "Annuler", 
                 Alors l'écouteur d'événement au click déclenchera la fonction switchToProfil qui passera le mode de 'editProfil' à 'profil'
             -->
-            <button @click="switchToProfil()">Annuler</button>
+            <button class="cancel" @click="switchToProfil()">Annuler</button>
         </div>
         
     </div>
@@ -116,9 +122,6 @@ export default {
             mode: 'profil',
             createdTips: [],
             likedTips: false,
-            
-            // likedTipsData: [],
-            // test: [],
         }
     },
 
@@ -133,15 +136,6 @@ export default {
         this.likedTips = await TipsServices.TipsFavoriteByCurrentUser(currentUserID);
 
         console.log(this.likedTips);
-
-       
-
-        // this.likedTipsData = this.likedTips.forEach(TipsServices.TipsLikedByCurrentUser(this.likedTips) );
-        // console.log(this.likedTipsData)
-        // this.likedTipsData = await TipsServices.TipsLikedByCurrentUser(likedTips)
-
-        // this.test = await TipsServices.TipsLikedByCurrentUser();
-        // console.log(this.test);
 
     },
 
@@ -164,161 +158,205 @@ export default {
 
 <style lang="scss">
 
-.profil-view{
-    display: grid;
-    grid-template-columns: 2fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    color: #c7d3e3;   
-    margin-bottom: 5vh;
-        .profil-header{
+.cancel{
+    background-color: gray;
+    color: rgba(211, 224, 241, 0.9843137255);
+    border: 1px solid #404041;
+    border-radius: 20px;
+    font-weight: 600;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.profil-modif, .fav-astuce, .my-astuce{
+    background-color:#c7d3e3cb;
+    border: 2px solid  #a7b2c0;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    
+    p{
+        margin-bottom: 30px;
+        font-size: 16px;
+    }
+
+    .profil-modif{
+        button{
+            background-color: #acd14f;
             color: #404041;
+    }
+    }
+    
+
+    .profil-buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .warning{
+            background-color: rgb(139, 27, 8);
+            color:#d3e0f1fb ;
+            text-transform: uppercase;
         }
-        .profil-modif{
-            grid-area: 1 / 1 / 2 / 2;
+        
+        button{
+            background-color: #acd14f;
             color: #404041;
-            border: 2px solid  #a7b2c0;
-            background-color: #c7d3e3cb;
+            border: 1px solid #404041;
             border-radius: 20px;
-            padding: 20px;
-            margin: 0 2%;
-            max-height: 23em;
-            max-width: 98%;
+            font-weight: 600;
+            width: 80%;
+            height: 40px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+    }
+    h2, h3{
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    h2{
+        margin-bottom: 40px;
+    }
+
+    h3{
+        margin-bottom: 30px;
+    }
+
+    h4{
+        margin: 0;
+    }
+    h5, label{    
+        font-size: 18px;
+    }
+}
+
+
+
+.fav-astuce, .my-astuce{
+    a{
+        display: block;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom:1px solid #a9adb4;
+    }
+
+    article:last-child a{
+        border-bottom: none;
+    }
+}
+
+@media screen  and (min-width: 436px){
+
+    .edit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .checkin, .cancel{
+        max-width: 60%;
+    }
+
+}
+
+@media screen  and (min-width: 630px) {
+
+    .profil-header{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .profil-modif{
+        button{
+            font-size: 15px;                
+        }
+    }
+
+    .edit{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+}
+
+@media screen  and (min-width: 730px) {
+
+    .profil-header{
+        justify-content: space-around;
+    }
+    
+    .profil-modif{
+        .profil-buttons{
+            flex-direction: row;
+            justify-content: space-around;
+
+            .warning{
+                margin: 0 0 20px;
+            }
             
             button{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                width: 20vh;
-                height: 32px;
-                border: none;
-                color: #404041;
-                font-weight: bold;
-                border-radius: 20px;
-                background-color: #acd14f;
-                margin: 5px 0 5px 0;
-                cursor: pointer;
-            }  
-            p{
-                margin: 3px 0;
-            }      
-            form{               
-                div{
-                    display: flex;
-                    flex-direction: column;                    
-                }
-                input{
-                    width: 20vh;
-                    height: 3vh;
-                    padding:0 0 0 5px;
-                    margin:5px 0 10px 0;
-                    border-radius: 20px;
-                    border: 2px solid  #a7b2c0;
-                    background-color: #c7d3e3;
-                }
-               
+                width: 35%;
+                font-size: 15px;                
             }
         }
-        .fav-astuce{
-            grid-area: 3 / 1 / 4 / 2;    
-            border: 2px solid  #a7b2c0;       
-            background-color: #c7d3e3cb;
-            border-radius: 20px;
-            padding: 20px;
-            margin: 0 3% 0 3%;
-            /* max-height: 20em; */
-            max-width: 98%;
-            p{
-                color: #404041;
-            }
-            #no-liked-article{
-                color: #404041;
-            }
-            
-        }
-        .my-astuce{
-            grid-area: 2 / 1 / 3 / 2;
-            border: 2px solid  #a7b2c0;
-            background-color: #c7d3e3cb;
-            color: #6c6f74;
-            border-radius: 20px;
-            padding: 20px;
-            margin: 0 3% 0 3%;
-            max-height: 20em;
-            max-width: 98%;
-            overflow-x: scroll;
-            scroll-behavior: smooth;
-            article{                
-                margin: 5px;
-                padding: 5px;
-                color: #6c6f74;
-                border-radius: 20px;
-                background-color: #c7d3e3;
-                border: 3px solid  #a7b2c0; 
-                overflow: hidden;                          
-            }  
-            a:hover{
-                color: #407038;
-            }         
-        }
-    h5{
-        font-size: 15px;
     }
-    h3{
-        color: #404041;
-    }
-    h2{
-        color: #404041;
-    }
-}
-.no-article{
-    a{
-        color: #a7b2c0;
-    }
-}
-@media screen and (min-width: 700px){   
-.profil-view{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-        .profil-modif{
-            grid-area: 1 / 1 / 2 / 2;             
-            margin-left: 5%;
-        }
-        .fav-astuce{
-            grid-area: 1 / 2 / 3 / 3;              
-            margin-right: 5%;
-        }
-        .my-astuce{
-            grid-area: 2 / 1 / 3 / 2;          
-            margin-left: 5%;           
-                article{
-                    display: flex;
-                    flex-direction: column;                
-                } 
+
+    .edit{
+        input{
+            width: 250px
         }
     }
 }
+@media screen and (min-width: 840px){
+    .form-edit{
+        display: flex;
+
+        .edit{
+            flex-direction: column;
+            width: 50%;
+        }
+    }
+
+    .profil-tips{
+        display: flex;
+        justify-content: space-around;
+
+        .fav-astuce, .my-astuce{
+            width:50%;
+            margin: 0 5px 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 900px){
+    .profil-modif{
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }    
+}
+
 .dark-theme{
     .profil-view{
         .profil-modif{
             color: #6c6f74;
             background-color: #253651;
             border: 2px solid  #b7c2cf;
-            button{
-                color: #e8e8ee;
-                background-color: #407038;
-            }
+            
             h2{
-                color: #6c6f74;
+                color: #ccd0d6;
             }
+            
             h5{
-                color: #6c6f74;
+                color: #ccd0d6;
             }
+            
             p{
                 color: #6c6f74;
             }
@@ -327,7 +365,7 @@ export default {
             background-color: #253651;
             border: 2px solid  #b7c2cf;
             h3{
-                color: #6c6f74;
+                color: #e8e8ee;
             }
             p{
                 color: #6c6f74;
@@ -339,7 +377,6 @@ export default {
             border: 2px solid  #b7c2cf;
             article{
                 background-color: #273242;
-                border: 2px solid  #b7c2cf;
             }
             h3{
                 color: #e8e8ee;
@@ -348,8 +385,7 @@ export default {
                 color: #407038;
             }
         }
-    }
-   
+    }   
 }
 
 </style>

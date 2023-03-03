@@ -79,7 +79,7 @@
       },
 
       readcomment(){ 
-        const base_url= "http://ecolomind.local/wp-json";
+        const base_url= "https://back.ecolomind.fr/wp-json";
         axios.get(base_url + "/wp/v2/comments?post="+this.$route.params.id ).then((response) => {
           this.comments = response.data;
           this.commentsnumber = this.comments.lenght;

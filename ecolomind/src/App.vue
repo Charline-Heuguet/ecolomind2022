@@ -1,45 +1,34 @@
 <template>
-  <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'" >
 
-    <div class="wrapper">
-      <div  class="header-container">
-        <HeaderComponent />
-        <div v-if="this.theme == 'light'">
-          <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/soleil.png" class="switcher" alt="soleil"></a>  
-        </div>
-        <div v-if="this.theme == 'dark'">        
-            <a href="" @click.prevent="changeTheme()" id="move" ><img src="@/assets/lune.png" class="switcher" alt="soleil"></a> 
-        </div>   
-      </div>
-      <NavComponent />
+<!-- Cette div est pour le theme au chargement de la page. -->
+  <div :class="this.theme === 'light' ? 'light-theme' : 'dark-theme'" id="theme-color">
+    
+      <HeaderComponent />    
+    <main>
       <router-view />
-      <FooterComponent />
-      </div>
-    </div>
+    </main>
+    <FooterComponent />
+    
+  </div>
 </template>
 
 
 <script>
 import storage from '@/utils/storage.js';
-import NavComponent from '@/components/NavComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import UserServices from '@/services/UserServices';
 export default {
+  
   name: 'App',
+
   data(){
     return{       
       theme: "",
     }
   },
-  methods: {
-    changeTheme(){
-      this.theme = this.theme === "dark" ? "light" : "dark";
-      storage.set('theme', this.theme); 
-    },    
-  },
+
   components: {
-    NavComponent,
     FooterComponent,
     HeaderComponent,
   },
@@ -52,99 +41,56 @@ export default {
     }else{
       this.theme = 'light'
     }
-
-    addEventListener('mousemove', () => {
-      var e = window.event;
-      var posX = e.clientY;
-      let move = document.getElementById('move');
-      let viewport_width = window.innerHeight;
-      let offSet = -15*posX/viewport_width;
-      move.style.top = offSet+"px";
-    });
   }
 }
-
-
 </script>
 
 
 <style lang="scss">
 
-html, body{
-  margin: 0;
-}
-.wrapper{
-  margin: 0 auto;
-}
-h1{
-  margin-left: 10px;
-}
-h2{
-  margin-left: 10px;
-}
-h3{
-  margin-left: 10px;
-}
 * {
   box-sizing: border-box;
   
 }
+html, body{
+  margin: 0;
+}
+
+main{
+  min-height: calc(100vh - 165px - 103px);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px 0;
+}
+
+a{
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 700;
+
+  &:visited{
+    color:#2c3e50;
+    text-decoration: none; 
+  }
+
+  &:active{
+    color:white;
+  }
+}
+
+h1{
+  margin:0 0 50px;
+  text-align: center;
+}
+
 #move{
   position: relative;
-  margin-right: 110px;
+  margin-right: 60px;
 }
-a{
-  &.router-link-exact-active {
-    color: #d4f1fb;
-  }
-}
-.header-container{
-  display: flex;
-  justify-content: space-between;
-  z-index: 100;
-  position: relative;
-}
-.switcher{
-  z-index: 100;
-  max-width: 120px;
-  margin-top: 2vh;
-}
-.light-theme{
-    background: linear-gradient(180deg, rgb(105, 177, 219) 0%, rgba(255,255,255,1) 100%);
 
-  .card{   
-    background-color: #c7d3e3;
-    border: 2px solid  #a7b2c0;
-      p{
-        color: #6c6f74;
-      }
-  }
-
-}
-.dark-theme{       
-    background: url('~@/assets/stars.png'), linear-gradient(180deg, #053A79 0%, #5C6269 100%);
-    background-size: contain;
-    background-position: center;
-    color: #b9b9b9;
-    .card{
-      color: #e8e8ee;
-      background-color: #253651;
-      border: 2px solid  #a7b2c0;
-    }
-    //   .user-state{       
-    //     background: linear-gradient(270.35deg, #253651 7.88%, rgba(54, 77, 113, 0.5) 100.72%);        
-    //     border-radius: 30px;
-    //     span{
-    //       color: #b9b9b9;
-    //     }
-    //       a{           
-    //         color: #b9b9b9;
-    //     }
-    // }
-    article{
-      a{
-        color: #b9b9b9;
-      }
+.dark-theme{
+  article{
+      background-color: #25365133;
     }
 }
 
@@ -156,6 +102,12 @@ a{
 @media screen and (max-width: 699px){
   .dark-theme{
     background-position: top;
+  }
+}
+
+@media screen and (min-width: 820px){
+  main{
+    min-height: calc(100vh - 124px - 103px);
   }
 }
 

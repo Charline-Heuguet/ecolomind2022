@@ -95,44 +95,38 @@ export default{
     color: #6c6f74;
     justify-content: center;   
     input{       
-        width: 35vh;
-        height: 5vh;
+        width: 245px;
+        height: 35px;
         margin:5px 0 20px 0;
         border-radius: 20px;
         border: 2px solid  #a7b2c0;
         background-color: #c7d3e3;
         padding: 8px;
     }
-    button{        
-        border: none;
-        margin-bottom: 15px;     
-        background-color: #c7d3e3;  
-    }
     #content{
-        width: 35vh;
-        height: 15vh;
+        width: 245px;
+        height: 150px;
         padding: 8px;
         border-radius: 5px;
+        margin-top: 5px;
         margin-bottom: 15px;       
         background-color: #c7d3e3;
         border: 2px solid  #a7b2c0;
 
     }
     .send{
-         width: 20vh;
-        height: 4vh;
-        border: none;
-        color: #404041;
-        font-weight: bold;
-        border-radius: 20px;
+        width: 100%;
         background-color: #acd14f;
+        color: #404041;
+        border: 1px solid #404041;
+        border-radius: 20px;
+        font-weight: 600;
+        height: 40px;
+        margin-bottom: 15px;
     }
     .obli{
         color:red;
     }
-
-
-
 }
 
 
@@ -143,10 +137,13 @@ export default{
 
 .dark-theme{
     #contact-us{
+        label{
+            color:#a7b2c0 ;
+        }
         #content{
             color: #e8e8ee;
             background-color: #253651;
-            border: 2px solid  #b7c2cf;
+            border: 2px solid  #a7b2c0;
         }
         input{
             color: #e8e8ee;
@@ -162,10 +159,6 @@ export default{
             color: #e8e8ee;
             background-color: #253651;
             border: 2px solid  #a7b2c0;
-        }
-        .send{
-            color: #e8e8ee;
-            background-color: #407038;
         }
 }
 }

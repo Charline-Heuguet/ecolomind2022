@@ -23,13 +23,6 @@
                         :astuce_id="this.astuce.id"
                     />
 
-                    <!-- <ButtonFavComponent 
-                        :astuce_id ="this.astuce.id"
-                    />
-
-                    <ButtonUnFavComponent
-                        :astuce_id="this.astuce.id" 
-                    /> -->
                 </div>
             </div>
             
@@ -48,18 +41,6 @@
             Cette astuce est proposée par : <span v-html="this.author.name"></span>
         </p>
 
-
-        <!-- <div>
-            <TargetTipsComponent :astuce="this.astuce" />
-        </div> -->
-
-        <!-- <div class="ingredients">
-            <ToolsTipsComponent :astuce="this.astuce" />
-        </div> -->
-
-        <!-- <div class="roomtips">
-            <RoomTipsComponent :astuce="this.astuce" />
-        </div> -->
         <div class="comment">
             <CommentListComponent />
         </div>
@@ -68,17 +49,13 @@
 </template>
 
 <script>
-// import ToolsTipsComponent from '@/components/ToolsTipsComponent.vue';
-//import RoomTipsComponent from '@/components/RoomTipsComponent.vue';
-//import TargetTipsComponent from '@/components/TargetTipsComponent.vue';
+
+import axios from 'axios';
 import IngredientsTipsComponent from '@/components/IngredientsTipsComponent.vue';
 import CommentListComponent from '@/components/CommentListComponent.vue';
 import DifficultyTipsComponent from '@/components/DifficultyTipsComponent.vue';
-// import ButtonFavComponent from '@/components/ButtonFavComponent.vue'
-// import ButtonUnFavComponent from '@/components/ButtonUnFavComponent.vue'
 import FavorisComponent from '@/components/FavorisComponent.vue';
 
-import axios from 'axios';
 
 
 export default{
@@ -87,15 +64,7 @@ export default{
         CommentListComponent,
         IngredientsTipsComponent,
         DifficultyTipsComponent,
-
-        //TargetTipsComponent,
-        //RoomTipsComponent,
-        //ToolsTipsComponent,
-
-        // ButtonFavComponent,
-        // ButtonUnFavComponent,
         FavorisComponent
-
     },
 
     data(){
@@ -112,7 +81,7 @@ export default{
     created()
     {
        
-        const base_url= "http://ecolomind.local/wp-json";
+        const base_url= "https://back.ecolomind.fr/wp-json";
 
  
         // appel API
@@ -126,9 +95,7 @@ export default{
             });
 
             this.title= response.data.title.rendered;
-            const em = Object.assign({}, this.astuce._embedded);           
-
-
+            const em = Object.assign({}, this.astuce._embedded);
 
             this.author = em.author[0];            
             this.isloaded = true;            
