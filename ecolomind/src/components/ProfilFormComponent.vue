@@ -49,7 +49,7 @@ export default {
     methods:
     {
         async updateMyInfos(){
-            console.log(JSON.parse(JSON.stringify(this.formData)));
+            //console.log(JSON.parse(JSON.stringify(this.formData)));
             axios.post('https://back.ecolomind.fr/wp-json/wp/v2/ecolomind/profiledit', JSON.parse(JSON.stringify(this.formData)),this.$router.push({name : "home"}), this.$store.dispatch('onUserDisconnection'))
             .then(response => console.log(response))
             .catch(function(){
