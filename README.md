@@ -10,7 +10,7 @@ Jeanne M. : développeuse front et back,
 Guillaume P. : développeur back,
 Charline H. : développeuse front et back
 
-##Stack:
+## Stack:
 Utilisation du back office de WordPress
 Api de WordPress
 VueJs 2.
