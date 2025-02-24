@@ -1,0 +1,91 @@
+<!-- Liste des commentaires -->
+<template>
+  <div>
+    <form class="comment-list" v-if="this.$store.state.userIsConnect">
+        
+        <div>
+          <label for="content">Commentaire</label>
+          <textarea
+            rows="7"
+            v-model="content"
+          ></textarea>
+        </div>
+          <div v-if="this.success" class="success-com">Merci d'avoir partagé votre avis !</div>
+        <button
+          type="submit"
+          @click.prevent="submitComment"
+        >
+          Envoyer
+        </button>
+        
+      </form>
+
+      
+
+        <section>
+          
+          <h2>{{ this.comments.length }} commentaire(s)</h2>
+
+          <CommentComponent 
+          v-for="comment in comments"
+          :key="comment.id"
+          :comment="comment" />
+          
+          
+        </section>
+    </div>
+  </template>
+
+
+
+  <script>
+    import CommentComponent from '@/components/CommentComponent.vue'
+    import axios from 'axios';
+    import TipsServices from '@/services/TipsServices';
+    import storage from '@/utils/storage';
+
+  export default {
+    name: 'CommentListComponent',
+    components: {
+      CommentComponent
+    },
+
+    data(){
+      return{
+        comments: false,
+        commentsnumber: 0,
+        content: "",
+        success : false,
+        authorID: storage.get('userData'),
+        commentID: "",
+        modifiedcontent: "",
+      }
+      
+    
+    },
+    created(){
+      this.readcomment();
+    },
+    methods:{
+      
+      async submitComment(){
+
+            //console.log(this.content);
+            await TipsServices.addComment(this.content, this.$route.params.id);
+            this.$emit('commentAdded'); 
+            this.readcomment();
+            this.success = true;
+
+      },
+
+      readcomment(){ 
+        const base_url= "https://back.ecolomind.fr/wp-json";
+        axios.get(base_url + "/wp/v2/comments?post="+this.$route.params.id ).then((response) => {
+          this.comments = response.data;
+          this.commentsnumber = this.comments.lenght;
+        });  
+      },
+    }
+  }
+  </script>
+
